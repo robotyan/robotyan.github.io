@@ -126,7 +126,7 @@ function gameDraw(){
 
 
   if (mouseX > 350 && mouseX < 500 && mouseY > 500-48 && mouseY < 500 && mouseIsPressed && pageCount >10){
-    // takesnap();
+    // snapshot.takesnap();
     page = 3;
     pageCount=0;
 
@@ -229,17 +229,16 @@ class Draggable {
 /////////////////////////////end/////////////////////////////
 function endDraw(){
   pageCount++;
-  // background(255);
-  // if(pageCount == 0){
-  //   //print(snapshot.length);
-  // image(snapshot, 0, 0, 500, 500);
-  // }
-  // image(preface, 0, 0, 500, 500);
-  // image(btnDownload, 500-207, 500-85);
+  // background(120);
+  image(bg, 0, 0, 500, 500);
+  for(var i = 1;i <13 ; i++){
+    shape[i].show();
+}
+
 
   if (mouseX > 500-207 && mouseX < 500 && mouseY > 500-85 && mouseY < 500 && mouseIsPressed && pageCount >10){
       saveCanvas(snapshot,"screenshot","png");
-    // page = 4;
+    page = 4;
     pageCount = 0;
 
   } else {
@@ -248,8 +247,11 @@ function endDraw(){
 }
 
 function thankyouDraw(){
-  // saveCanvas(snapshot,"screenshot","png");
-  image(snapshot, 0, 0, 500, 500);
-  // page = 0;
-
+  pageCount++;
+  background(255);
+  text('end', width/2, height/2);
+  if (mouseIsPressed && pageCount >10){
+    page = 0;
+    pageCount = 0;
+  }
 }

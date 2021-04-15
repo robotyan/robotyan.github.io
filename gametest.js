@@ -1,14 +1,22 @@
-let capture;
+//https://p5js.org/examples/structure-create-graphics.html
+var video;
 
-function setup() {
-  createCanvas(390, 240);
-  capture = createCapture(VIDEO);
-  capture.size(320, 240);
-  //capture.hide();
+function setup(){
+  createCanvas(600, 500);
+  video = createCapture(VIDEO);
+  video.size(400, 300);
+  // video.hide();
 }
 
-function draw() {
-  background(255);
-  image(capture, 0, 0, 320, 240);
-  filter(INVERT);
+function draw(){
+  fill(0, 12);
+  rect(0, 0, width, height);
+  fill(255);
+  noStroke();
+  image(video,mouseX- 100, mouseY, 60, 60);
 }
+
+ function mousePressed(){
+   fill(0);
+   rect(0, 0, width, height);
+ }
