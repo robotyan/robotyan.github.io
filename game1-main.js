@@ -29,16 +29,16 @@ let gameCanvas;
 var snapshot = [];
 
 function preload() {
-  cover = loadImage('../assets/WDWT-game1/WDWT-game1-cover.png');
-  preface = loadImage('../assets/WDWT-game1/WDWT-game1-preface.png');
-  bg = loadImage('../assets/WDWT-game1/WDWT-game1-bg.png');
-  btnFinish = loadImage('../assets/WDWT-game1/WDWT-game1-button-finish.png');
-  btnDownload = loadImage('../assets/WDWT-game1/WDWT-game1-button-download.png');
+  cover = loadImage('../assets/WDWT-game1/WDWT-game1-cover.svg');
+  preface = loadImage('../assets/WDWT-game1/WDWT-game1-preface.svg');
+  bg = loadImage('../assets/WDWT-game1/WDWT-game1-bg.svg');
+  btnFinish = loadImage('../assets/WDWT-game1/WDWT-game1-button-finish.svg');
+  btnDownload = loadImage('../assets/WDWT-game1/WDWT-game1-button-download.svg');
   for (var i = 1; i < 10; i++) {
-    parts[i] = loadImage('../assets/WDWT-game1/WDWT-game1-parts-0' + i + '.png');
+    parts[i] = loadImage('../assets/WDWT-game1/WDWT-game1-parts-0' + i + '.svg');
   }
   for (var i = 10; i < 13; i++) {
-    parts[i] = loadImage('../assets/WDWT-game1/WDWT-game1-parts-' + i + '.png');
+    parts[i] = loadImage('../assets/WDWT-game1/WDWT-game1-parts-' + i + '.svg');
   }
 }
 
