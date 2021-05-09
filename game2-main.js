@@ -19,6 +19,7 @@ let cubeColor = [];
 let cover;
 let bw;
 
+//game 6 sets//
 
 ///////////////////////////saveImg///////////////////////////
 let gameCanvas;
