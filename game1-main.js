@@ -13,6 +13,8 @@ let pageCount = 0;
 ///////////////////////////img///////////////////////////
 let cover;
 let preface;
+let preface_EN;
+let preface_CHI;
 let bg;
 let parts = [];
 let btnFinish;
@@ -39,6 +41,8 @@ var snapshot = [];
 function preload() {
   cover = loadImage('../assets/WDWT-game1/WDWT-game1-cover.png');
   preface = loadImage('../assets/WDWT-game1/WDWT-game1-preface.png');
+  preface_EN = loadImage('../assets/WDWT-game1/WDWT-game1-preface_EN.png');
+  preface_CHI = loadImage('../assets/WDWT-game1/WDWT-game1-preface_CHI.png');
   bg = loadImage('../assets/WDWT-game1/WDWT-game1-bg.png');
   btnFinish = loadImage('../assets/WDWT-game1/WDWT-game1-button-finish.png');
   btnDownload = loadImage('../assets/WDWT-game1/WDWT-game1-button-download.png');
@@ -112,7 +116,7 @@ function coverDraw(){
 function prefaceDraw(){
   pageCount++;
   background(255);
-  image(preface, 0, 0, 500, 500);
+  image(preface_CHI, 0, 0, 500, 500);
 
   var imgx = 300;
     var imgy = 300;
@@ -122,26 +126,28 @@ function prefaceDraw(){
     }
 
   textSize(14);
-  text('中/ENG', 420, 50);
+  // text('中/ENG', 420, 50);
 
   if (mouseX > 420 && mouseX < 480 && mouseY > 30 && mouseY < 80 &&mouseIsPressed && pageCount >10 ){
     lang = (lang + 1)%2 ;
     pageCount=0;
   }
   if (lang == 0){
-    textSize(32);
-    text('俊賢的移動城堡',50,90);
-    textSize(14);
-
-    text('古俊賢作品的色彩及線條都有著強烈風格，成為這個遊戲的主要', 50, 120, 100, 200);
-    text('視覺元素，讓觀眾進入俊賢的創作世界，以他的視角觀察事物，', 50, 140, 100, 200);
-    text('並以他喜歡的幾何圖案創作，完成後可以下載及分享到社交平台。', 50, 160, 100, 200);
+    image(preface_CHI, 0, 0, 500, 500);
+    // textSize(32);
+    // text('俊賢的移動城堡',50,90);
+    // textSize(14);
+    //
+    // text('古俊賢作品的色彩及線條都有著強烈風格，成為這個遊戲的主要', 50, 120, 100, 200);
+    // text('視覺元素，讓觀眾進入俊賢的創作世界，以他的視角觀察事物，', 50, 140, 100, 200);
+    // text('並以他喜歡的幾何圖案創作，完成後可以下載及分享到社交平台。', 50, 160, 100, 200);
   } else {
-    textSize(32);
-    text('Chunyin’s Moving Castle',50,90);
-    textSize(14);
-
-    text('The colors and lines of Chunyin’s works indicate a very strong and impressive style, which have developed as the main visual elements of this game, allowing audiences to enter Chunyin’s creative world, observing things from his perspective, and creating new artworks with geometric patterns that he likes, you can also download your works after collaging and share it on social platforms.', 50, 120, 420, 450);
+    image(preface_EN, 0, 0, 500, 500);
+    // textSize(32);
+    // text('Chunyin’s Moving Castle',50,90);
+    // textSize(14);
+    //
+    // text('The colors and lines of Chunyin’s works indicate a very strong and impressive style, which have developed as the main visual elements of this game, allowing audiences to enter Chunyin’s creative world, observing things from his perspective, and creating new artworks with geometric patterns that he likes, you can also download your works after collaging and share it on social platforms.', 50, 120, 420, 450);
 
   }
   fill('yellow');
@@ -150,7 +156,7 @@ function prefaceDraw(){
   textAlign(CENTER);
   textSize(30);
 
-  text('開始/START', width/2, 280);
+  // text('開始/START', width/2, 280);
   textAlign(LEFT);
 
   if (mouseX > (width/2 -80)  && mouseX < (width/2+80) && mouseY > 240 && mouseY < 280 &&mouseIsPressed && pageCount >10 ){
