@@ -9,6 +9,9 @@
 let page = 0;
 let pageCount = 0;
 
+//
+// let input;
+// let img1;
 
 //////////////img///////////////////
 let img, bg, hover;
@@ -51,8 +54,11 @@ function setup() {
 }
 
 function draw() {
- background(255);
 
+ background(255);
+   // if (img1) {
+   //   image(img1, 0, 0, width, height);
+   // }
  switch (page) {
    case 0:
      coverDraw();
@@ -178,3 +184,17 @@ function endDraw(){
 
 
 }
+
+
+
+
+
+// function handleFile(file) {
+//   print(file);
+//   if (file.type === 'image') {
+//     img1 = createImg(file.data, '');
+//     img1.hide();
+//   } else {
+//     img1 = null;
+//   }
+// }
