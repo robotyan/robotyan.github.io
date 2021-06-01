@@ -32,7 +32,9 @@ let pick = 0;
 let pixelPick;
 let set = 0;
 
-
+///////////////////////////saveImg///////////////////////////
+let gameCanvas;
+var snapshot = [];
 
 function preload(){
   prefaceEN = loadImage('../assets/WDWT-game2/preface_en.png');
@@ -327,73 +329,82 @@ function gameDraw(){
 
   if (pageCount == 0){
     background(255);
-    fill(0);
-    ellipse(48, 325, 10, 10);
-    ellipse(48, 365, 15, 15);
-    ellipse(48, 405, 20, 20);
     image(gameLayout, 0, 0, 500, 500);
     image(colorBar, 20,30, 60, 260);
-    switch (pick) {
-      case 0:
-        break;
-      case 1:
-        image(kuchunyin_01, 86, 32, 400, 400);
-        break;
-      case 2:
-        image(kuchunyin_02, 86, 32, 400, 400);
-        break;
-      case 3:
-        image(leungkahim_01, 86, 32, 400, 400);
-        break;
-      case 4:
-        image(leungkahim_02, 86, 32, 400, 400);
-        break;
-      case 5:
-        image(nghowah_01, 86, 32, 400, 400);
-        break;
-      case 6:
-        image(nghowah_02, 86, 32, 400, 400);
-        break;
-      case 7:
-        image(nureni_01, 86, 32, 400, 400);
-        break;
-      case 8:
-        image(nureni_02, 86, 32, 400, 400);
-        break;
-      case 9:
-        image(winghei_01, 86, 32, 400, 400);
-        break;
-      case 10:
-        image(winghei_02, 86, 32, 400, 400);
-        break;
-      case 11:
-        image(xerxes_01, 86, 32, 400, 400);
-        break;
-      case 12:
-        image(xerxes_02, 86, 32, 400, 400);
-        break;
-      default:
-    }
+    fill(0);
+    stroke(0);
   }
   pageCount++;
 
-
+  // line(48, 335, 49, 336);
+  fill(0);
+  ellipse(48, 335, 10, 10);
+  ellipse(48, 375, 15, 15);
+  ellipse(48, 415, 20, 20);
+  getPix();
   strokeWeight(5);
-  if(mouseIsPressed && mouseX >140){
-    	//stroke(c,75,100);
+rect(20, 300, 50, 20);
+  if(mouseIsPressed && mouseX > 90 && mouseX < 90 + 400 && mouseY > 30 && mouseY < 30 + 400){
+    strokeWeight(5);
+    rect(20, 300, 50, 20);
      line(mouseX,mouseY,pmouseX,pmouseY);
-     rect(50, 50, 50, 50);
     	}
 
+      switch (pick) {
+        case 0:
+          break;
+        case 1:
+          image(kuchunyin_01, 86, 32, 400, 400);
+          text('Ku Chun Yin ' ,120, 450);
+          break;
+        case 2:
+          image(kuchunyin_02, 86, 32, 400, 400);
+          break;
+        case 3:
+          image(leungkahim_01, 86, 32, 400, 400);
+          break;
+        case 4:
+          image(leungkahim_02, 86, 32, 400, 400);
+          break;
+        case 5:
+          image(nghowah_01, 86, 32, 400, 400);
+          break;
+        case 6:
+          image(nghowah_02, 86, 32, 400, 400);
+          break;
+        case 7:
+          image(nureni_01, 86, 32, 400, 400);
+          break;
+        case 8:
+          image(nureni_02, 86, 32, 400, 400);
+          break;
+        case 9:
+          image(winghei_01, 86, 32, 400, 400);
+          break;
+        case 10:
+          image(winghei_02, 86, 32, 400, 400);
+          break;
+        case 11:
+          image(xerxes_01, 86, 32, 400, 400);
+          break;
+        case 12:
+          image(xerxes_02, 86, 32, 400, 400);
+          break;
+        default:
+      }
 
-
-  getPix();
-
-  rect(10, 10, 50, 50);
-
-
+// noStroke();
   // image(gameLayout, 0, 0, 500, 500);
 
+  if (mouseX > 266 && mouseX < 266+100 && mouseY > 440 && mouseY < 440+40 && mouseIsPressed && pageCount >10 && pick != 0){
+    saveCanvas(snapshot,"screenshot","png");
+    page = 0;
+    pageCount = 0;
+  }
+  if (mouseX > 380 && mouseX < 380+100 && mouseY > 440 && mouseY < 440+40 && mouseIsPressed && pageCount >10 && pick != 0){
+    page = 1;
+    pageCount = 0;
+  }
 }
 
 
@@ -402,5 +413,6 @@ function getPix(){
   pixelPick = gameCanvas.get(mouseX, mouseY);
   if (mouseX > 20 && mouseX < 20 + 60 && mouseY > 30 && mouseY < 30 + 260 && mouseIsPressed ){
     fill(pixelPick);
+    stroke(pixelPick);
   }
 }
