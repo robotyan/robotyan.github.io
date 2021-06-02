@@ -11,6 +11,10 @@ let gameLayout_nureni;
 let gameLayout_winghei;
 let gameLayout_xerxes;
 let colorBar;
+let brushCover;
+let brushCover_01;
+let brushCover_02;
+let brushCover_03;
 
 let kuchunyin_01;
 let kuchunyin_02;
@@ -34,6 +38,7 @@ let pageCount = 0;
 ///
 let sliderY = 30;
 let pick = 0;
+let brushWeight = 0;
 
 ///pixel get
 let pixelPick;
@@ -50,6 +55,10 @@ function preload(){
   selectTOP = loadImage('../assets/WDWT-game2/select_top.png');
   gameLayout = loadImage('../assets/WDWT-game2/game_layout.png');
   colorBar = loadImage('../assets/WDWT-game2/colorBar.png');
+  brushCover = loadImage('../assets/WDWT-game2/game_layout_cover.png');
+  brushCover_01 = loadImage('../assets/WDWT-game2/game_layout_cover_01.png');
+  brushCover_02 = loadImage('../assets/WDWT-game2/game_layout_cover_02.png');
+  brushCover_03 = loadImage('../assets/WDWT-game2/game_layout_cover_03.png');
 
   gameLayout_kuchunyin = loadImage('../assets/WDWT-game2/game_layout_kuchunyin.png');
   gameLayout_leungkahim = loadImage('../assets/WDWT-game2/game_layout_leungkahim.png');
@@ -392,16 +401,52 @@ function gameDraw(){
   pageCount++;
 
   // line(48, 335, 49, 336);
-  fill(0);
-  ellipse(48, 335, 10, 10);
-  ellipse(48, 375, 15, 15);
-  ellipse(48, 415, 20, 20);
+  //fill(0);
+
+  // ellipse(48, 335, 10, 10);
+  // ellipse(48, 375, 15, 15);
+  // ellipse(48, 415, 20, 20);
   getPix();
-  strokeWeight(5);
-rect(20, 300, 50, 20);
+// strokeWeight(20);
+rect(20, 300, 58, 30);
+  if (mouseIsPressed && mouseX > 42 && mouseX < 42 + 15 && mouseY > 338 && mouseY < 338 + 15){
+    brushWeight = 1;
+  }
+
+  if (mouseIsPressed && mouseX > 40 && mouseX < 40 + 20 && mouseY > 364 && mouseY < 364 + 20){
+    brushWeight = 2;
+  }
+
+  if (mouseIsPressed && mouseX > 34 && mouseX < 34 + 31 && mouseY > 398 && mouseY < 398 + 31){
+    brushWeight = 3;
+  }
+  switch (brushWeight) {
+    case 0:
+      strokeWeight(5);
+      image(brushCover_01, 0, 0);
+      break;
+    case 1:
+      strokeWeight(5);
+      image(brushCover_01, 0, 0);
+      break;
+    case 2:
+      strokeWeight(10);
+      image(brushCover_02, 0, 0);
+      break;
+    case 3:
+      strokeWeight(15);
+      image(brushCover_03, 0, 0);
+      break;
+    default:
+
+  }
+  // rect(42, 338, 15, 15);
+  // rect(40, 364, 20, 20);
+  // rect(34, 398, 31, 31);
   if(mouseIsPressed && mouseX > 90 && mouseX < 90 + 400 && mouseY > 30 && mouseY < 30 + 400){
-    strokeWeight(5);
-    rect(20, 300, 50, 20);
+
+    //strokeWeight(5);
+    // rect(20, 300, 58, 30);
      line(mouseX,mouseY,pmouseX,pmouseY);
     	}
 
@@ -410,7 +455,6 @@ rect(20, 300, 50, 20);
           break;
         case 1:
           image(kuchunyin_01, 86, 32, 400, 400);
-          text('Ku Chun Yin ' ,120, 450);
           break;
         case 2:
           image(kuchunyin_02, 86, 32, 400, 400);
@@ -449,7 +493,7 @@ rect(20, 300, 50, 20);
       }
 
 // noStroke();
-  // image(gameLayout, 0, 0, 500, 500);
+image(brushCover, 0, 0);
 
   if (mouseX > 266 && mouseX < 266+100 && mouseY > 440 && mouseY < 440+40 && mouseIsPressed && pageCount >10 && pick != 0){
     saveCanvas(snapshot,"screenshot","png");
