@@ -2,7 +2,14 @@ let prefaceEN;
 let prefaceCHI;
 let selectBG;
 let selectTOP;
+
 let gameLayout;
+let gameLayout_kuchunyin;
+let gameLayout_leungkahim;
+let gameLayout_nghowah;
+let gameLayout_nureni;
+let gameLayout_winghei;
+let gameLayout_xerxes;
 let colorBar;
 
 let kuchunyin_01;
@@ -43,6 +50,13 @@ function preload(){
   selectTOP = loadImage('../assets/WDWT-game2/select_top.png');
   gameLayout = loadImage('../assets/WDWT-game2/game_layout.png');
   colorBar = loadImage('../assets/WDWT-game2/colorBar.png');
+
+  gameLayout_kuchunyin = loadImage('../assets/WDWT-game2/game_layout_kuchunyin.png');
+  gameLayout_leungkahim = loadImage('../assets/WDWT-game2/game_layout_leungkahim.png');
+  gameLayout_nghowah = loadImage('../assets/WDWT-game2/game_layout_nghowah.png');
+  gameLayout_nureni = loadImage('../assets/WDWT-game2/game_layout_nureni.png');
+  gameLayout_winghei = loadImage('../assets/WDWT-game2/game_layout_chungwinghei.png');
+  gameLayout_xerxes = loadImage('../assets/WDWT-game2/game_layout_xerxes.png');
 
   kuchunyin_01 = loadImage('../assets/WDWT-game2/artworks/ku_chun_yin_1.png');
   kuchunyin_02 = loadImage('../assets/WDWT-game2/artworks/ku_chun_yin_2.png');
@@ -329,7 +343,48 @@ function gameDraw(){
 
   if (pageCount == 0){
     background(255);
-    image(gameLayout, 0, 0, 500, 500);
+    // image(gameLayout, 0, 0, 500, 500);
+    switch (pick) {
+      case 0:
+        break;
+      case 1:
+        image(gameLayout_kuchunyin, 0, 0, 500, 500);
+        break;
+      case 2:
+        image(gameLayout_kuchunyin, 0, 0, 500, 500);
+        break;
+      case 3:
+        image(gameLayout_leungkahim, 0, 0, 500, 500);
+        break;
+      case 4:
+        image(gameLayout_leungkahim, 0, 0, 500, 500);
+        break;
+      case 5:
+        image(gameLayout_nghowah, 0, 0, 500, 500);
+        break;
+      case 6:
+        image(gameLayout_nghowah, 0, 0, 500, 500);
+        break;
+      case 7:
+        image(gameLayout_nureni, 0, 0, 500, 500);
+        break;
+      case 8:
+        image(gameLayout_nureni, 0, 0, 500, 500);
+        break;
+      case 9:
+        image(gameLayout_winghei, 0, 0, 500, 500);
+        break;
+      case 10:
+        image(gameLayout_winghei, 0, 0, 500, 500);
+        break;
+      case 11:
+        image(gameLayout_xerxes, 0, 0, 500, 500);
+        break;
+      case 12:
+        image(gameLayout_xerxes, 0, 0, 500, 500);
+        break;
+      default:
+    }
     image(colorBar, 20,30, 60, 260);
     fill(0);
     stroke(0);
