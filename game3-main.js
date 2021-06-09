@@ -1549,7 +1549,8 @@ switch (canvas_02) {
     rect( 25, 150, 80, 80);
     break;
   case 5:
-    image(chungchiho[1], 57, 49 - layout01Paint[2].height * chungchihoRatio[1] / 4, layout01Paint[2].width, layout01Paint[2].width * chungchihoRatio[1]);
+    image(chungchiho[1], 57, 49 - 10, layout01Paint[2].width, layout01Paint[2].width * chungchihoRatio[1]);
+    // image(chungchiho[1], 57, 49 - layout01Paint[2].height * chungchihoRatio[1] / 4, layout01Paint[2].width, layout01Paint[2].width * chungchihoRatio[1]);
     fill(255);
     rect( 25, 150, 80, 80);
     break;
@@ -1711,7 +1712,7 @@ switch (canvas_02) {
       rect( 162, 94, 90, 90);
       break;
     case 5:
-      image(chungchiho[1], 248, 43 - layout01Paint[4].height * chungchihoRatio[1] / 4, layout01Paint[4].width, layout01Paint[4].width * chungchihoRatio[1]);
+      image(chungchiho[1], 248, 43, layout01Paint[4].height / chungchihoRatio[1], layout01Paint[4].height );
       fill(255);
       rect( 162, 94, 90, 90);
       break;
@@ -1863,7 +1864,7 @@ switch (canvas_02) {
       image(bouie[2], 25, 150 - layout01Paint[1].width * bouieRatio[2] / 4, layout01Paint[1].width, layout01Paint[1].width * bouieRatio[2]);
       break;
     case 5:
-      image(chungchiho[1], 25, 150 - layout01Paint[1].width * chungchihoRatio[1] / 4, layout01Paint[1].width, layout01Paint[1].width * chungchihoRatio[1]);
+      image(chungchiho[1], 25, 150, layout01Paint[1].height / chungchihoRatio[1], layout01Paint[1].height);
       break;
     case 6:
       image(chungchiho[2], 25, 150 - layout01Paint[1].width * chungchihoRatio[2] / 4, layout01Paint[1].width, layout01Paint[1].width * chungchihoRatio[2]);
@@ -1960,7 +1961,7 @@ switch (canvas_02) {
         image(bouie[2], 162, 94 - layout01Paint[3].width * bouieRatio[2] / 4, layout01Paint[3].width, layout01Paint[3].width * bouieRatio[2]);
         break;
       case 5:
-        image(chungchiho[1], 162, 94 - layout01Paint[3].width * chungchihoRatio[1] / 4, layout01Paint[3].width, layout01Paint[3].width * chungchihoRatio[1]);
+        image(chungchiho[1], 162, 94, layout01Paint[3].height / chungchihoRatio[1], layout01Paint[3].height);
         break;
       case 6:
         image(chungchiho[2], 162, 94 - layout01Paint[3].width * chungchihoRatio[2] / 4, layout01Paint[3].width, layout01Paint[3].width * chungchihoRatio[2]);
