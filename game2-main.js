@@ -46,7 +46,7 @@ let set = 0;
 
 ///////////////////////////saveImg///////////////////////////
 let gameCanvas;
-var snapshot = [];
+
 
 function preload(){
   prefaceEN = loadImage('../assets/WDWT-game2/preface_en.png');
@@ -444,10 +444,12 @@ rect(20, 300, 58, 30);
   // rect(40, 364, 20, 20);
   // rect(34, 398, 31, 31);
   if(mouseIsPressed && mouseX > 90 && mouseX < 90 + 400 && mouseY > 30 && mouseY < 30 + 400){
-
+    // touchMoved();
     //strokeWeight(5);
     // rect(20, 300, 58, 30);
+    console.log(mouseX);
      line(mouseX,mouseY,pmouseX,pmouseY);
+return false;
     	}
 
       switch (pick) {
@@ -496,7 +498,12 @@ rect(20, 300, 58, 30);
 image(brushCover, 0, 0);
 
   if (mouseX > 266 && mouseX < 266+100 && mouseY > 440 && mouseY < 440+40 && mouseIsPressed && pageCount >10 && pick != 0){
-    saveCanvas(snapshot,"screenshot","png");
+    // let snapshot = get(86, 32, 400, 400);
+    // gameCanvas.image(snapshot, 0, 0);
+    // save(gameCanvas,"screenshot","png");
+
+    let to_save = get(87, 32, 400, 400); // Grab an image of a 100x200 rectangle at (20,30).
+to_save.save("saved_name.png");
     page = 0;
     pageCount = 0;
   }
@@ -505,6 +512,13 @@ image(brushCover, 0, 0);
     pageCount = 0;
   }
 }
+
+// function touchMoved(){
+//   console.log(mouseX);
+//
+//    line(mouseX,mouseY,pmouseX,pmouseY);
+//    return false;
+// }
 
 
 function getPix(){
