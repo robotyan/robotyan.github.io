@@ -347,10 +347,18 @@ function selectArtwork(){
    }
  }
  function touchMoved() {
+   if(mouseIsPressed && mouseX > 90 && mouseX < 90 + 400 && mouseY > 30 && mouseY < 30 + 400){
+     // touchMoved();
+     //strokeWeight(5);
+     // rect(20, 300, 58, 30);
+     // console.log(mouseX);
+      line(mouseX,mouseY,pmouseX,pmouseY);
+      return false;
+      }
    // For single touch mouseX and mouseY work just fine
-   line(mouseX, mouseY, pmouseX, pmouseY);
-   // This prevents dragging screen around
-   return false;
+   // line(mouseX, mouseY, pmouseX, pmouseY);
+   // // This prevents dragging screen around
+   // return false;
  }
 
 
@@ -449,14 +457,7 @@ rect(20, 300, 58, 30);
   // rect(42, 338, 15, 15);
   // rect(40, 364, 20, 20);
   // rect(34, 398, 31, 31);
-  if(mouseIsPressed && mouseX > 90 && mouseX < 90 + 400 && mouseY > 30 && mouseY < 30 + 400){
-    // touchMoved();
-    //strokeWeight(5);
-    // rect(20, 300, 58, 30);
-    // console.log(mouseX);
-    //  line(mouseX,mouseY,pmouseX,pmouseY);
-    //  return false;
-    	}
+
 
       switch (pick) {
         case 0:
