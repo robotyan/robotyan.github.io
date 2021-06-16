@@ -451,7 +451,7 @@ rect(20, 300, 58, 30);
   // rect(40, 364, 20, 20);
   // rect(34, 398, 31, 31);
   if(mouseIsPressed && mouseX > 90 && mouseX < 90 + 400 && mouseY > 30 && mouseY < 30 + 400){
-    touchMoved();
+    // touchMoved();
     //strokeWeight(5);
     // rect(20, 300, 58, 30);
     // console.log(mouseX);
