@@ -346,6 +346,13 @@ function selectArtwork(){
      pageCount = 0;
    }
  }
+ function touchMoved() {
+   console.log(mouseX);
+   // For single touch mouseX and mouseY work just fine
+   line(mouseX, mouseY, pmouseX, pmouseY);
+   // This prevents dragging screen around
+   return false;
+ }
 
 
 function gameDraw(){
@@ -444,12 +451,12 @@ rect(20, 300, 58, 30);
   // rect(40, 364, 20, 20);
   // rect(34, 398, 31, 31);
   if(mouseIsPressed && mouseX > 90 && mouseX < 90 + 400 && mouseY > 30 && mouseY < 30 + 400){
-    // touchMoved();
+    touchMoved();
     //strokeWeight(5);
     // rect(20, 300, 58, 30);
-    console.log(mouseX);
-     line(mouseX,mouseY,pmouseX,pmouseY);
-     return false;
+    // console.log(mouseX);
+    //  line(mouseX,mouseY,pmouseX,pmouseY);
+    //  return false;
     	}
 
       switch (pick) {
