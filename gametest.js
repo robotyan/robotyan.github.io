@@ -1,18 +1,21 @@
-var saveCanvas;
+// ICM-2016
 
-function setup(){
-  ...
-  saveCanvas =  createGraphics(height, height);
+// Take a look at the HTML file where some things have been
+// added for mobile viewing
+
+function setup() {
+  // Make the canvas the size of the mobile device screen
+  createCanvas(windowWidth, windowHeight);
+  background(200);
 }
 
-function draw(){
-  ...
-}
+function touchMoved() {
+  strokeWeight(10);
+  console.log(mouseX);
+  stroke(0,255,0);
+  // For single touch mouseX and mouseY work just fine
+  line(mouseX, mouseY, pmouseX, pmouseY);
 
-function keyPressed() {
-  if (key == 's') {
-    let c = get(width/2-height/2,0, height, height);
-    saveCanvas.image(c, 0, 0);
-    save(saveCanvas, frameCount+".png");
-  }
+  // This prevents dragging screen around
+  return false;
 }
