@@ -347,7 +347,6 @@ function selectArtwork(){
    }
  }
  function touchMoved() {
-   console.log(mouseX);
    // For single touch mouseX and mouseY work just fine
    line(mouseX, mouseY, pmouseX, pmouseY);
    // This prevents dragging screen around
