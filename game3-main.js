@@ -20,6 +20,7 @@ let layoutHighlight;
 let leftArrow;
 let rightArrow;
 let selectPaint;
+let download;
 //game 6 sets//
 
 //////////////layout_movement///////////////////
@@ -96,8 +97,11 @@ let sliderXMove = 0;
 
 ///////////////////////////saveImg///////////////////////////
 let gameCanvas;
-var snapshot = [];
-let snapCount = 0;
+let to_save;
+///pixel get
+let pixelPick;
+//var snapshot = [];
+//let snapCount = 0;
 // let newImg;
 ////////////////////////////////////////////////////////////
 
@@ -111,8 +115,9 @@ function preload(){
   layout03 = loadImage('../assets/WDWT-game3/layout_03.png');
   layoutHighlight = loadImage('../assets/WDWT-game3/layout_highlight.png');
   leftArrow = loadImage('../assets/WDWT-game3/arrow_left.png');
-  rightArrow = loadImage('../assets/WDWT-game3/arrow_right.png')
-  selectPaint = loadImage('../assets/WDWT-game3/select_paint.png')
+  rightArrow = loadImage('../assets/WDWT-game3/arrow_right.png');
+  selectPaint = loadImage('../assets/WDWT-game3/select_paint.png');
+  download = loadImage('../assets/WDWT-game3/download.png');
 
   for (var i = 1; i < 6; i++) {
     layout01Paint[i] = loadImage('../assets/WDWT-game3/layout1/layout01_0' + i + '.png');
@@ -191,7 +196,7 @@ function draw() {
      gameDraw();
      break;
    case 4:
-     thankyouDraw();
+     endDraw();
      break;
    default:
   }
@@ -355,6 +360,17 @@ function gameDraw(){
 
   // rect (57,49,10,10);
 
+    if (mouseX > 382  && mouseX < 382+110 && mouseY > 430 && mouseY < 430+40 && mouseIsPressed && pageCount >10){
+        if (selCase01 != 0 && selCase02 != 0 && selCase03 != 0 && selCase04 != 0 && selCase05 != 0){
+          to_save = get(0, 0, 500, 250);
+          gameCanvas.image(to_save, 0, 0);
+
+          page = 4;
+          pageCount=0;
+        }
+    }
+
+
 }
 
 function layout1(){
@@ -365,569 +381,6 @@ function layout1(){
 }
 
 
-function artworkSelect(){
-  noStroke();
-  fill(255, 204, 0);
-  rect (sliderX, 410, 80, 16);
-  sliderXMove = map(sliderX, 10, 410, 0, -4400);
-  if (mouseX > sliderX && mouseX < sliderX+ 80 && mouseY > 410 && mouseY < 410 + 12 && mouseIsPressed && pageCount >10){
-    if (mouseX < 50){
-      sliderX = 10;
-    } else if (mouseX > 450){
-      sliderX = 410;
-    } else {
-      sliderX = mouseX - 40;
-    }
-  }
-
-  angelRatio[1] = angel[1].height / angel[1].width;
-  angelRatio[2] = angel[2].height / angel[2].width;
-
-  bouieRatio[1] = bouie[1].height / bouie[1].width;
-  bouieRatio[2] = bouie[2].height / bouie[2].width;
-
-  chungchihoRatio[1] = chungchiho[1].height / chungchiho[1].width;
-  chungchihoRatio[2] = chungchiho[2].height / chungchiho[2].width;
-
-  kuchunyinRatio[1] = kuchunyin[1].height / kuchunyin[1].width;
-  kuchunyinRatio[2] = kuchunyin[2].height / kuchunyin[2].width;
-  kuchunyinRatio[3] = kuchunyin[3].height / kuchunyin[3].width;
-  kuchunyinRatio[4] = kuchunyin[4].height / kuchunyin[4].width;
-
-  leungkahimRatio[1] = leungkahim[1].height / leungkahim[1].width;
-  leungkahimRatio[2] = leungkahim[2].height / leungkahim[2].width;
-  leungkahimRatio[3] = leungkahim[3].height / leungkahim[3].width;
-  leungkahimRatio[4] = leungkahim[4].height / leungkahim[4].width;
-
-  nghowahRatio[1] = nghowah[1].height / nghowah[1].width;
-  nghowahRatio[2] = nghowah[2].height / nghowah[2].width;
-  nghowahRatio[3] = nghowah[3].height / nghowah[3].width;
-  nghowahRatio[4] = nghowah[4].height / nghowah[4].width;
-
-  nureniRatio[1] = nureni[1].height / nureni[1].width;
-  nureniRatio[2] = nureni[2].height / nureni[2].width;
-  nureniRatio[3] = nureni[3].height / nureni[3].width;
-  nureniRatio[4] = nureni[4].height / nureni[4].width;
-
-  chungwingheiRatio[1] = chungwinghei[1].height / chungwinghei[1].width;
-  chungwingheiRatio[2] = chungwinghei[2].height / chungwinghei[2].width;
-  chungwingheiRatio[3] = chungwinghei[3].height / chungwinghei[3].width;
-  chungwingheiRatio[4] = chungwinghei[4].height / chungwinghei[4].width;
-
-  xerxesRatio[1] = xerxes[1].height / xerxes[1].width;
-  xerxesRatio[2] = xerxes[2].height / xerxes[2].width;
-  xerxesRatio[3] = xerxes[3].height / xerxes[3].width;
-  xerxesRatio[4] = xerxes[4].height / xerxes[4].width;
-
-
-  image(angel[1], 10 + sliderXMove, 260, imgHeight / angelRatio[1], imgHeight);
-  image(angel[2], 20 + sliderXMove + imgHeight / angelRatio[1], 260, imgHeight / angelRatio[2], imgHeight);
-
-  image(bouie[1], 30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2], 260, imgHeight / bouieRatio[1], imgHeight);
-  image(bouie[2], 40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1], 260, imgHeight / bouieRatio[2], imgHeight);
-
-  image(chungchiho[1], 50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2], 260, imgHeight / chungchihoRatio[1], imgHeight);
-  image(chungchiho[2], 60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2]+ imgHeight / chungchihoRatio[1], 260, imgHeight / chungchihoRatio[2], imgHeight);
-
-  teacherPositionX = 60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2] + imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2] + imgHeight / chungchihoRatio[1] + imgHeight / chungchihoRatio[2];
-
-  image(kuchunyin[1], 10 + teacherPositionX, 260, imgHeight / kuchunyinRatio[1], imgHeight);
-  image(kuchunyin[2], 20 + teacherPositionX + imgHeight / kuchunyinRatio[1], 260, imgHeight / kuchunyinRatio[2], imgHeight);
-  image(kuchunyin[3], 30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2], 260, imgHeight / kuchunyinRatio[3], imgHeight);
-  image(kuchunyin[4], 40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3], 260, imgHeight / kuchunyinRatio[4], imgHeight);
-
-  kuchunyinPositionX = teacherPositionX + 40 + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3] + imgHeight / kuchunyinRatio[4];
-
-  image(leungkahim[1], 10 + kuchunyinPositionX, 260, imgHeight / leungkahimRatio[1], imgHeight);
-  image(leungkahim[2], 20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1], 260, imgHeight / leungkahimRatio[2], imgHeight);
-  image(leungkahim[3], 30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2], 260, imgHeight / leungkahimRatio[3], imgHeight);
-  image(leungkahim[4], 40 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3], 260, imgHeight / leungkahimRatio[4], imgHeight);
-
-  leungkahimPositionX = kuchunyinPositionX + 40 + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3] + imgHeight / leungkahimRatio[4];
-
-  image(nghowah[1], 10 + leungkahimPositionX, 260, imgHeight / nghowahRatio[1], imgHeight);
-  image(nghowah[2], 20 + leungkahimPositionX + imgHeight / nghowahRatio[1], 260, imgHeight / nghowahRatio[2], imgHeight);
-  image(nghowah[3], 30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2], 260, imgHeight / nghowahRatio[3], imgHeight);
-  image(nghowah[4], 40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3], 260, imgHeight / nghowahRatio[4], imgHeight);
-
-  nghowahPositionX = leungkahimPositionX + 40 + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3] + imgHeight / nghowahRatio[4];
-
-  image(nureni[1], 10 + nghowahPositionX, 260, imgHeight / nureniRatio[1], imgHeight);
-  image(nureni[2], 20 + nghowahPositionX + imgHeight / nureniRatio[1], 260, imgHeight / nureniRatio[2], imgHeight);
-  image(nureni[3], 30 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2], 260, imgHeight / nureniRatio[3], imgHeight);
-  image(nureni[4], 40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3], 260, imgHeight / nureniRatio[4], imgHeight);
-
-  nureniPositionX = nghowahPositionX + 40 + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3] + imgHeight / nureniRatio[4];
-
-  image(chungwinghei[1], 10 + nureniPositionX, 260, imgHeight / chungwingheiRatio[1], imgHeight);
-  image(chungwinghei[2], 20 + nureniPositionX + imgHeight / chungwingheiRatio[1], 260, imgHeight / chungwingheiRatio[2], imgHeight);
-  image(chungwinghei[3], 30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2], 260, imgHeight / chungwingheiRatio[3], imgHeight);
-  image(chungwinghei[4], 40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3], 260, imgHeight / chungwingheiRatio[4], imgHeight);
-
-  chungwingheiPositionX = nureniPositionX + 40 + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3] + imgHeight / chungwingheiRatio[4];
-
-  image(xerxes[1], 10 + chungwingheiPositionX, 260, imgHeight / xerxesRatio[1], imgHeight);
-  image(xerxes[2], 20 + chungwingheiPositionX + imgHeight / xerxesRatio[1], 260, imgHeight / xerxesRatio[2], imgHeight);
-  image(xerxes[3], 30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2], 260, imgHeight / xerxesRatio[3], imgHeight);
-  image(xerxes[4], 40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3], 260, imgHeight / xerxesRatio[4], imgHeight);
-
-  if (mouseX > 10 + sliderXMove && mouseX < 10 + imgHeight / angelRatio[1] + sliderXMove && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 1;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 1;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 1;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 1;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 1;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 20 + imgHeight / angelRatio[1] + sliderXMove && mouseX < 20 + imgHeight / angelRatio[1] + imgHeight / angelRatio[2] + sliderXMove&& mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 2;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 2;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 2;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 2;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 2;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2] && mouseX < 30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2] +imgHeight / bouieRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 3;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 3;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 3;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 3;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 3;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] && mouseX < 40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 4;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 4;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 4;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 4;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 4;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2] && mouseX < 50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2] + imgHeight / chungchihoRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 5;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 5;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 5;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 5;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 5;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2]+ imgHeight / chungchihoRatio[1] && mouseX < 50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2] + imgHeight / chungchihoRatio[1] + imgHeight / chungchihoRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 6;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 6;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 6;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 6;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 6;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 10 + teacherPositionX && mouseX < 10 + teacherPositionX + imgHeight / kuchunyinRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 7;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 7;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 7;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 7;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 7;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 20 + teacherPositionX + imgHeight / kuchunyinRatio[1] && mouseX < 10 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 8;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 8;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 8;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 8;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 8;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] && mouseX < 30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 9;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 9;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 9;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 9;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 9;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3] && mouseX < 40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3] + imgHeight / kuchunyinRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 10;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 10;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 10;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 10;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 10;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 10 + kuchunyinPositionX && mouseX < 10 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 11;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 11;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 11;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 11;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 11;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] && mouseX < 20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 12;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 12;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 12;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 12;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 12;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] && mouseX < 30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 13;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 13;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 13;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 13;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 13;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 40 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3] && mouseX < 30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3] + imgHeight / leungkahimRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 14;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 14;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 14;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 14;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 14;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 10 + leungkahimPositionX && mouseX < 10 + leungkahimPositionX + imgHeight / nghowahRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 15;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 15;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 15;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 15;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 15;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 20 + leungkahimPositionX + imgHeight / nghowahRatio[1] && mouseX < 20 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 16;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 16;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 16;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 16;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 16;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] && mouseX < 30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 17;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 17;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 17;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 17;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 17;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3] && mouseX < 40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3] + imgHeight / nghowahRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 18;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 18;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 18;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 18;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 18;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 10 + nghowahPositionX && mouseX < 10 + nghowahPositionX + imgHeight / nureniRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 19;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 19;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 19;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 19;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 19;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 20 + nghowahPositionX + imgHeight / nureniRatio[1] && mouseX < 20 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 20;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 20;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 20;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 20;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 20;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 30 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] && mouseX < 20 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 21;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 21;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 21;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 21;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 21;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3] && mouseX < 40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3] + imgHeight / nureniRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 22;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 22;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 22;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 22;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 22;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 10 + nureniPositionX && mouseX < 10 + nureniPositionX + imgHeight / chungwingheiRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 23;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 23;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 23;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 23;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 23;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 20 + nureniPositionX + imgHeight / chungwingheiRatio[1] && mouseX < 20 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 24;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 24;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 24;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 24;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 24;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] && mouseX < 30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 25;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 25;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 25;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 25;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 25;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3] && mouseX < 40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3] + imgHeight / chungwingheiRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 26;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 26;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 26;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 26;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 26;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 10 + chungwingheiPositionX && mouseX < 10 + chungwingheiPositionX + imgHeight / xerxesRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 27;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 27;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 27;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 27;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 27;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 20 + chungwingheiPositionX + imgHeight / xerxesRatio[1] && mouseX < 20 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 28;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 28;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 28;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 28;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 28;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] && mouseX < 30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 29;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 29;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 29;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 29;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 29;
-    }
-    pageCount = 0;
-  }
-
-  if (mouseX > 40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3] && mouseX < 40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3] + imgHeight / xerxesRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
-    if (selectedLayout01Print == 1){
-      selCase01 = 30;
-    } else if (selectedLayout01Print == 2){
-      selCase02 = 30;
-    } else if (selectedLayout01Print == 3){
-      selCase03 = 30;
-    } else if (selectedLayout01Print == 4){
-      selCase04 = 30;
-    } else if (selectedLayout01Print == 5){
-      selCase05 = 30;
-    }
-    pageCount = 0;
-  }
-  strokeWeight(6);
-  stroke(255, 204, 0);
-  noFill();
-
-
-
-
-}
 
 function artworkConfirm(){
 
@@ -2144,5 +1597,577 @@ switch (canvas_02) {
 
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}
+
+
+function artworkSelect(){
+  noStroke();
+  fill(255, 204, 0);
+  rect (sliderX, 410, 80, 16);
+  sliderXMove = map(sliderX, 10, 410, 0, -4400);
+  if (mouseX > sliderX && mouseX < sliderX+ 80 && mouseY > 410 && mouseY < 410 + 12 && mouseIsPressed && pageCount >10){
+    if (mouseX < 50){
+      sliderX = 10;
+    } else if (mouseX > 450){
+      sliderX = 410;
+    } else {
+      sliderX = mouseX - 40;
+    }
+  }
+
+  angelRatio[1] = angel[1].height / angel[1].width;
+  angelRatio[2] = angel[2].height / angel[2].width;
+
+  bouieRatio[1] = bouie[1].height / bouie[1].width;
+  bouieRatio[2] = bouie[2].height / bouie[2].width;
+
+  chungchihoRatio[1] = chungchiho[1].height / chungchiho[1].width;
+  chungchihoRatio[2] = chungchiho[2].height / chungchiho[2].width;
+
+  kuchunyinRatio[1] = kuchunyin[1].height / kuchunyin[1].width;
+  kuchunyinRatio[2] = kuchunyin[2].height / kuchunyin[2].width;
+  kuchunyinRatio[3] = kuchunyin[3].height / kuchunyin[3].width;
+  kuchunyinRatio[4] = kuchunyin[4].height / kuchunyin[4].width;
+
+  leungkahimRatio[1] = leungkahim[1].height / leungkahim[1].width;
+  leungkahimRatio[2] = leungkahim[2].height / leungkahim[2].width;
+  leungkahimRatio[3] = leungkahim[3].height / leungkahim[3].width;
+  leungkahimRatio[4] = leungkahim[4].height / leungkahim[4].width;
+
+  nghowahRatio[1] = nghowah[1].height / nghowah[1].width;
+  nghowahRatio[2] = nghowah[2].height / nghowah[2].width;
+  nghowahRatio[3] = nghowah[3].height / nghowah[3].width;
+  nghowahRatio[4] = nghowah[4].height / nghowah[4].width;
+
+  nureniRatio[1] = nureni[1].height / nureni[1].width;
+  nureniRatio[2] = nureni[2].height / nureni[2].width;
+  nureniRatio[3] = nureni[3].height / nureni[3].width;
+  nureniRatio[4] = nureni[4].height / nureni[4].width;
+
+  chungwingheiRatio[1] = chungwinghei[1].height / chungwinghei[1].width;
+  chungwingheiRatio[2] = chungwinghei[2].height / chungwinghei[2].width;
+  chungwingheiRatio[3] = chungwinghei[3].height / chungwinghei[3].width;
+  chungwingheiRatio[4] = chungwinghei[4].height / chungwinghei[4].width;
+
+  xerxesRatio[1] = xerxes[1].height / xerxes[1].width;
+  xerxesRatio[2] = xerxes[2].height / xerxes[2].width;
+  xerxesRatio[3] = xerxes[3].height / xerxes[3].width;
+  xerxesRatio[4] = xerxes[4].height / xerxes[4].width;
+
+
+  image(angel[1], 10 + sliderXMove, 260, imgHeight / angelRatio[1], imgHeight);
+  image(angel[2], 20 + sliderXMove + imgHeight / angelRatio[1], 260, imgHeight / angelRatio[2], imgHeight);
+
+  image(bouie[1], 30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2], 260, imgHeight / bouieRatio[1], imgHeight);
+  image(bouie[2], 40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1], 260, imgHeight / bouieRatio[2], imgHeight);
+
+  image(chungchiho[1], 50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2], 260, imgHeight / chungchihoRatio[1], imgHeight);
+  image(chungchiho[2], 60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2]+ imgHeight / chungchihoRatio[1], 260, imgHeight / chungchihoRatio[2], imgHeight);
+
+  teacherPositionX = 60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2] + imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2] + imgHeight / chungchihoRatio[1] + imgHeight / chungchihoRatio[2];
+
+  image(kuchunyin[1], 10 + teacherPositionX, 260, imgHeight / kuchunyinRatio[1], imgHeight);
+  image(kuchunyin[2], 20 + teacherPositionX + imgHeight / kuchunyinRatio[1], 260, imgHeight / kuchunyinRatio[2], imgHeight);
+  image(kuchunyin[3], 30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2], 260, imgHeight / kuchunyinRatio[3], imgHeight);
+  image(kuchunyin[4], 40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3], 260, imgHeight / kuchunyinRatio[4], imgHeight);
+
+  kuchunyinPositionX = teacherPositionX + 40 + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3] + imgHeight / kuchunyinRatio[4];
+
+  image(leungkahim[1], 10 + kuchunyinPositionX, 260, imgHeight / leungkahimRatio[1], imgHeight);
+  image(leungkahim[2], 20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1], 260, imgHeight / leungkahimRatio[2], imgHeight);
+  image(leungkahim[3], 30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2], 260, imgHeight / leungkahimRatio[3], imgHeight);
+  image(leungkahim[4], 40 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3], 260, imgHeight / leungkahimRatio[4], imgHeight);
+
+  leungkahimPositionX = kuchunyinPositionX + 40 + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3] + imgHeight / leungkahimRatio[4];
+
+  image(nghowah[1], 10 + leungkahimPositionX, 260, imgHeight / nghowahRatio[1], imgHeight);
+  image(nghowah[2], 20 + leungkahimPositionX + imgHeight / nghowahRatio[1], 260, imgHeight / nghowahRatio[2], imgHeight);
+  image(nghowah[3], 30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2], 260, imgHeight / nghowahRatio[3], imgHeight);
+  image(nghowah[4], 40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3], 260, imgHeight / nghowahRatio[4], imgHeight);
+
+  nghowahPositionX = leungkahimPositionX + 40 + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3] + imgHeight / nghowahRatio[4];
+
+  image(nureni[1], 10 + nghowahPositionX, 260, imgHeight / nureniRatio[1], imgHeight);
+  image(nureni[2], 20 + nghowahPositionX + imgHeight / nureniRatio[1], 260, imgHeight / nureniRatio[2], imgHeight);
+  image(nureni[3], 30 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2], 260, imgHeight / nureniRatio[3], imgHeight);
+  image(nureni[4], 40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3], 260, imgHeight / nureniRatio[4], imgHeight);
+
+  nureniPositionX = nghowahPositionX + 40 + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3] + imgHeight / nureniRatio[4];
+
+  image(chungwinghei[1], 10 + nureniPositionX, 260, imgHeight / chungwingheiRatio[1], imgHeight);
+  image(chungwinghei[2], 20 + nureniPositionX + imgHeight / chungwingheiRatio[1], 260, imgHeight / chungwingheiRatio[2], imgHeight);
+  image(chungwinghei[3], 30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2], 260, imgHeight / chungwingheiRatio[3], imgHeight);
+  image(chungwinghei[4], 40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3], 260, imgHeight / chungwingheiRatio[4], imgHeight);
+
+  chungwingheiPositionX = nureniPositionX + 40 + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3] + imgHeight / chungwingheiRatio[4];
+
+  image(xerxes[1], 10 + chungwingheiPositionX, 260, imgHeight / xerxesRatio[1], imgHeight);
+  image(xerxes[2], 20 + chungwingheiPositionX + imgHeight / xerxesRatio[1], 260, imgHeight / xerxesRatio[2], imgHeight);
+  image(xerxes[3], 30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2], 260, imgHeight / xerxesRatio[3], imgHeight);
+  image(xerxes[4], 40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3], 260, imgHeight / xerxesRatio[4], imgHeight);
+
+  if (mouseX > 10 + sliderXMove && mouseX < 10 + imgHeight / angelRatio[1] + sliderXMove && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 1;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 1;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 1;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 1;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 1;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 20 + imgHeight / angelRatio[1] + sliderXMove && mouseX < 20 + imgHeight / angelRatio[1] + imgHeight / angelRatio[2] + sliderXMove&& mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 2;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 2;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 2;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 2;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 2;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2] && mouseX < 30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2] +imgHeight / bouieRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 3;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 3;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 3;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 3;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 3;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] && mouseX < 40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 4;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 4;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 4;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 4;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 4;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2] && mouseX < 50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2] + imgHeight / chungchihoRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 5;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 5;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 5;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 5;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 5;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2]+ imgHeight / chungchihoRatio[1] && mouseX < 50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2] + imgHeight / chungchihoRatio[1] + imgHeight / chungchihoRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 6;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 6;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 6;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 6;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 6;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 10 + teacherPositionX && mouseX < 10 + teacherPositionX + imgHeight / kuchunyinRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 7;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 7;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 7;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 7;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 7;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 20 + teacherPositionX + imgHeight / kuchunyinRatio[1] && mouseX < 10 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 8;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 8;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 8;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 8;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 8;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] && mouseX < 30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 9;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 9;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 9;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 9;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 9;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3] && mouseX < 40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3] + imgHeight / kuchunyinRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 10;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 10;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 10;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 10;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 10;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 10 + kuchunyinPositionX && mouseX < 10 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 11;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 11;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 11;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 11;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 11;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] && mouseX < 20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 12;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 12;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 12;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 12;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 12;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] && mouseX < 30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 13;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 13;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 13;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 13;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 13;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 40 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3] && mouseX < 30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3] + imgHeight / leungkahimRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 14;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 14;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 14;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 14;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 14;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 10 + leungkahimPositionX && mouseX < 10 + leungkahimPositionX + imgHeight / nghowahRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 15;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 15;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 15;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 15;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 15;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 20 + leungkahimPositionX + imgHeight / nghowahRatio[1] && mouseX < 20 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 16;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 16;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 16;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 16;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 16;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] && mouseX < 30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 17;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 17;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 17;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 17;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 17;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3] && mouseX < 40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3] + imgHeight / nghowahRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 18;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 18;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 18;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 18;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 18;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 10 + nghowahPositionX && mouseX < 10 + nghowahPositionX + imgHeight / nureniRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 19;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 19;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 19;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 19;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 19;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 20 + nghowahPositionX + imgHeight / nureniRatio[1] && mouseX < 20 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 20;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 20;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 20;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 20;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 20;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 30 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] && mouseX < 20 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 21;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 21;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 21;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 21;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 21;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3] && mouseX < 40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3] + imgHeight / nureniRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 22;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 22;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 22;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 22;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 22;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 10 + nureniPositionX && mouseX < 10 + nureniPositionX + imgHeight / chungwingheiRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 23;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 23;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 23;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 23;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 23;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 20 + nureniPositionX + imgHeight / chungwingheiRatio[1] && mouseX < 20 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 24;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 24;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 24;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 24;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 24;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] && mouseX < 30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 25;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 25;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 25;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 25;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 25;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3] && mouseX < 40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3] + imgHeight / chungwingheiRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 26;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 26;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 26;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 26;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 26;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 10 + chungwingheiPositionX && mouseX < 10 + chungwingheiPositionX + imgHeight / xerxesRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 27;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 27;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 27;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 27;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 27;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 20 + chungwingheiPositionX + imgHeight / xerxesRatio[1] && mouseX < 20 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 28;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 28;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 28;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 28;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 28;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] && mouseX < 30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 29;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 29;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 29;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 29;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 29;
+    }
+    pageCount = 0;
+  }
+
+  if (mouseX > 40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3] && mouseX < 40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3] + imgHeight / xerxesRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
+    if (selectedLayout01Print == 1){
+      selCase01 = 30;
+    } else if (selectedLayout01Print == 2){
+      selCase02 = 30;
+    } else if (selectedLayout01Print == 3){
+      selCase03 = 30;
+    } else if (selectedLayout01Print == 4){
+      selCase04 = 30;
+    } else if (selectedLayout01Print == 5){
+      selCase05 = 30;
+    }
+
+    pageCount = 0;
+  }
+  strokeWeight(6);
+  stroke(255, 204, 0);
+  noFill();
+
+}
+
+function endDraw(){
+  pageCount++
+  background(255);
+  image(download,0,0);
+  image(to_save, 0, 0);
+// to_save.save("saved_name.png");
 
 }
