@@ -21,6 +21,7 @@ let leftArrow;
 let rightArrow;
 let selectPaint;
 let download;
+let ready;
 //game 6 sets//
 
 //////////////layout_movement///////////////////
@@ -105,8 +106,22 @@ let pixelPick;
 // let newImg;
 ////////////////////////////////////////////////////////////
 
+let text1 = '你好';
+let text2 = '我';
+let text3 = '你22';
+let text4 = '2';
+let text5 = '123';
 
+let artistNameAngel = 0;
+let artistNameBouie = 0;
+let artistNameChiho = 0;
 
+let artistNameKuChunYin = 0;
+let artistNameLeungKaHim = 0;
+let artistNameNgHoWah = 0;
+let artistNameNureni = 0;
+let artistNameChungWingHei = 0;
+let artistNameXerxes = 0;
 function preload(){
   preface =  loadImage('../assets/WDWT-game3/preface.png');
   layout =  loadImage('../assets/WDWT-game3/select_layout.png');
@@ -118,6 +133,7 @@ function preload(){
   rightArrow = loadImage('../assets/WDWT-game3/arrow_right.png');
   selectPaint = loadImage('../assets/WDWT-game3/select_paint.png');
   download = loadImage('../assets/WDWT-game3/download.png');
+  ready = loadImage('../assets/WDWT-game3/ready.png');
 
   for (var i = 1; i < 6; i++) {
     layout01Paint[i] = loadImage('../assets/WDWT-game3/layout1/layout01_0' + i + '.png');
@@ -196,6 +212,9 @@ function draw() {
      gameDraw();
      break;
    case 4:
+     readyDraw();
+     break;
+   case 5:
      endDraw();
      break;
    default:
@@ -360,8 +379,11 @@ function gameDraw(){
 
   // rect (57,49,10,10);
 
+
     if (mouseX > 382  && mouseX < 382+110 && mouseY > 430 && mouseY < 430+40 && mouseIsPressed && pageCount >10){
         if (selCase01 != 0 && selCase02 != 0 && selCase03 != 0 && selCase04 != 0 && selCase05 != 0){
+
+
           to_save = get(0, 0, 500, 250);
           gameCanvas.image(to_save, 0, 0);
 
@@ -1710,14 +1732,19 @@ function artworkSelect(){
   if (mouseX > 10 + sliderXMove && mouseX < 10 + imgHeight / angelRatio[1] + sliderXMove && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 1;
+      text1 = '兩個';
     } else if (selectedLayout01Print == 2){
       selCase02 = 1;
+      text2 = '綠色';
     } else if (selectedLayout01Print == 3){
       selCase03 = 1;
+      text3 = '小精靈';
     } else if (selectedLayout01Print == 4){
       selCase04 = 1;
+      text4 = '好奇';
     } else if (selectedLayout01Print == 5){
       selCase05 = 1;
+      text5 = '可愛的';
     }
     pageCount = 0;
   }
@@ -1725,14 +1752,19 @@ function artworkSelect(){
   if (mouseX > 20 + imgHeight / angelRatio[1] + sliderXMove && mouseX < 20 + imgHeight / angelRatio[1] + imgHeight / angelRatio[2] + sliderXMove&& mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 2;
+      text1 = '一隻';
     } else if (selectedLayout01Print == 2){
       selCase02 = 2;
+      text2 = '藍色';
     } else if (selectedLayout01Print == 3){
       selCase03 = 2;
+      text3 = '大鳥';
     } else if (selectedLayout01Print == 4){
       selCase04 = 2;
+      text4 = '憂鬱';
     } else if (selectedLayout01Print == 5){
       selCase05 = 2;
+      text5 = '安靜的';
     }
     pageCount = 0;
   }
@@ -1740,14 +1772,19 @@ function artworkSelect(){
   if (mouseX > 30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2] && mouseX < 30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2] +imgHeight / bouieRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 3;
+      text1 = '一隻';
     } else if (selectedLayout01Print == 2){
       selCase02 = 3;
+      text2 = '受傷';
     } else if (selectedLayout01Print == 3){
       selCase03 = 3;
+      text3 = '野豬';
     } else if (selectedLayout01Print == 4){
       selCase04 = 3;
+      text4 = '孤獨';
     } else if (selectedLayout01Print == 5){
       selCase05 = 3;
+      text5 = '傷心的';
     }
     pageCount = 0;
   }
@@ -1755,14 +1792,19 @@ function artworkSelect(){
   if (mouseX > 40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] && mouseX < 40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 4;
+      text1 = '一條';
     } else if (selectedLayout01Print == 2){
       selCase02 = 4;
+      text2 = '自由';
     } else if (selectedLayout01Print == 3){
       selCase03 = 4;
+      text3 = '魚';
     } else if (selectedLayout01Print == 4){
       selCase04 = 4;
+      text4 = '巨大';
     } else if (selectedLayout01Print == 5){
       selCase05 = 4;
+      text5 = '勇敢的';
     }
     pageCount = 0;
   }
@@ -1770,14 +1812,19 @@ function artworkSelect(){
   if (mouseX > 50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2] && mouseX < 50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2] + imgHeight / chungchihoRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 5;
+      text1 = '一間';
     } else if (selectedLayout01Print == 2){
       selCase02 = 5;
+      text2 = '擠迫';
     } else if (selectedLayout01Print == 3){
       selCase03 = 5;
+      text3 = '店舖';
     } else if (selectedLayout01Print == 4){
       selCase04 = 5;
+      text4 = '豐富';
     } else if (selectedLayout01Print == 5){
       selCase05 = 5;
+      text5 = '整齊的';
     }
     pageCount = 0;
   }
@@ -1785,14 +1832,19 @@ function artworkSelect(){
   if (mouseX > 60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2]+ imgHeight / chungchihoRatio[1] && mouseX < 50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2] + imgHeight / chungchihoRatio[1] + imgHeight / chungchihoRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 6;
+      text1 = '一座';
     } else if (selectedLayout01Print == 2){
       selCase02 = 6;
+      text2 = '宏偉';
     } else if (selectedLayout01Print == 3){
       selCase03 = 6;
+      text3 = '獅子山';
     } else if (selectedLayout01Print == 4){
       selCase04 = 6;
+      text4 = '穩重';
     } else if (selectedLayout01Print == 5){
       selCase05 = 6;
+      text5 = '堅毅的';
     }
     pageCount = 0;
   }
@@ -1800,14 +1852,19 @@ function artworkSelect(){
   if (mouseX > 10 + teacherPositionX && mouseX < 10 + teacherPositionX + imgHeight / kuchunyinRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 7;
+      text1 = '一隻';
     } else if (selectedLayout01Print == 2){
       selCase02 = 7;
+      text2 = '聰明';
     } else if (selectedLayout01Print == 3){
       selCase03 = 7;
+      text3 = '飛鳥';
     } else if (selectedLayout01Print == 4){
       selCase04 = 7;
+      text4 = '勇敢';
     } else if (selectedLayout01Print == 5){
       selCase05 = 7;
+      text5 = '自由的';
     }
     pageCount = 0;
   }
@@ -1815,14 +1872,19 @@ function artworkSelect(){
   if (mouseX > 20 + teacherPositionX + imgHeight / kuchunyinRatio[1] && mouseX < 10 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 8;
+      text1 = '一座';
     } else if (selectedLayout01Print == 2){
       selCase02 = 8;
+      text2 = '古老';
     } else if (selectedLayout01Print == 3){
       selCase03 = 8;
+      text3 = '時鐘';
     } else if (selectedLayout01Print == 4){
       selCase04 = 8;
+      text4 = '準確';
     } else if (selectedLayout01Print == 5){
       selCase05 = 8;
+      text5 = '穩定的';
     }
     pageCount = 0;
   }
@@ -1830,14 +1892,19 @@ function artworkSelect(){
   if (mouseX > 30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] && mouseX < 30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 9;
+      text1 = '一班';
     } else if (selectedLayout01Print == 2){
       selCase02 = 9;
+      text2 = '快樂';
     } else if (selectedLayout01Print == 3){
       selCase03 = 9;
+      text3 = '朋友';
     } else if (selectedLayout01Print == 4){
       selCase04 = 9;
+      text4 = '團結';
     } else if (selectedLayout01Print == 5){
       selCase05 = 9;
+      text5 = '有力量的';
     }
     pageCount = 0;
   }
@@ -1845,14 +1912,19 @@ function artworkSelect(){
   if (mouseX > 40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3] && mouseX < 40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3] + imgHeight / kuchunyinRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 10;
+      text1 = '一座';
     } else if (selectedLayout01Print == 2){
       selCase02 = 10;
+      text2 = '七彩';
     } else if (selectedLayout01Print == 3){
       selCase03 = 10;
+      text3 = '小小世界';
     } else if (selectedLayout01Print == 4){
       selCase04 = 10;
+      text4 = '閃亮';
     } else if (selectedLayout01Print == 5){
       selCase05 = 10;
+      text5 = '愉快的';
     }
     pageCount = 0;
   }
@@ -1860,14 +1932,19 @@ function artworkSelect(){
   if (mouseX > 10 + kuchunyinPositionX && mouseX < 10 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 11;
+      text1 = '有一天';
     } else if (selectedLayout01Print == 2){
       selCase02 = 11;
+      text2 = '紅色';
     } else if (selectedLayout01Print == 3){
       selCase03 = 11;
+      text3 = '巴士';
     } else if (selectedLayout01Print == 4){
       selCase04 = 11;
+      text4 = '悠閒';
     } else if (selectedLayout01Print == 5){
       selCase05 = 11;
+      text5 = '晴天的';
     }
     pageCount = 0;
   }
@@ -1875,14 +1952,19 @@ function artworkSelect(){
   if (mouseX > 20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] && mouseX < 20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 12;
+      text1 = '一個';
     } else if (selectedLayout01Print == 2){
       selCase02 = 12;
+      text2 = '安靜';
     } else if (selectedLayout01Print == 3){
       selCase03 = 12;
+      text3 = '男生';
     } else if (selectedLayout01Print == 4){
       selCase04 = 12;
+      text4 = '誠實';
     } else if (selectedLayout01Print == 5){
       selCase05 = 12;
+      text5 = '可靠的';
     }
     pageCount = 0;
   }
@@ -1890,14 +1972,19 @@ function artworkSelect(){
   if (mouseX > 30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] && mouseX < 30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 13;
+      text1 = '這個';
     } else if (selectedLayout01Print == 2){
       selCase02 = 13;
+      text2 = '虛無';
     } else if (selectedLayout01Print == 3){
       selCase03 = 13;
+      text3 = '宇宙';
     } else if (selectedLayout01Print == 4){
       selCase04 = 13;
+      text4 = '神秘';
     } else if (selectedLayout01Print == 5){
       selCase05 = 13;
+      text5 = '美麗的';
     }
     pageCount = 0;
   }
@@ -1905,14 +1992,19 @@ function artworkSelect(){
   if (mouseX > 40 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3] && mouseX < 30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3] + imgHeight / leungkahimRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 14;
+      text1 = '這個';
     } else if (selectedLayout01Print == 2){
       selCase02 = 14;
+      text2 = '古怪';
     } else if (selectedLayout01Print == 3){
       selCase03 = 14;
+      text3 = '英雄';
     } else if (selectedLayout01Print == 4){
       selCase04 = 14;
+      text4 = '正義';
     } else if (selectedLayout01Print == 5){
       selCase05 = 14;
+      text5 = '勇敢的';
     }
     pageCount = 0;
   }
@@ -1920,14 +2012,19 @@ function artworkSelect(){
   if (mouseX > 10 + leungkahimPositionX && mouseX < 10 + leungkahimPositionX + imgHeight / nghowahRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 15;
+      text1 = '這些';
     } else if (selectedLayout01Print == 2){
       selCase02 = 15;
+      text2 = '白色';
     } else if (selectedLayout01Print == 3){
       selCase03 = 15;
+      text3 = '物件';
     } else if (selectedLayout01Print == 4){
       selCase04 = 15;
+      text4 = '日常';
     } else if (selectedLayout01Print == 5){
       selCase05 = 15;
+      text5 = '微型的';
     }
     pageCount = 0;
   }
@@ -1935,14 +2032,19 @@ function artworkSelect(){
   if (mouseX > 20 + leungkahimPositionX + imgHeight / nghowahRatio[1] && mouseX < 20 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 16;
+      text1 = '一棵';
     } else if (selectedLayout01Print == 2){
       selCase02 = 16;
+      text2 = '孤獨';
     } else if (selectedLayout01Print == 3){
       selCase03 = 16;
+      text3 = '小樹';
     } else if (selectedLayout01Print == 4){
       selCase04 = 16;
+      text4 = '獨立';
     } else if (selectedLayout01Print == 5){
       selCase05 = 16;
+      text5 = '茁壯的';
     }
     pageCount = 0;
   }
@@ -1950,14 +2052,19 @@ function artworkSelect(){
   if (mouseX > 30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] && mouseX < 30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 17;
+      text1 = '這個';
     } else if (selectedLayout01Print == 2){
       selCase02 = 17;
+      text2 = '紫色';
     } else if (selectedLayout01Print == 3){
       selCase03 = 17;
+      text3 = '圖騰';
     } else if (selectedLayout01Print == 4){
       selCase04 = 17;
+      text4 = '優雅';
     } else if (selectedLayout01Print == 5){
       selCase05 = 17;
+      text5 = '熱情的';
     }
     pageCount = 0;
   }
@@ -1965,14 +2072,19 @@ function artworkSelect(){
   if (mouseX > 40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3] && mouseX < 40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3] + imgHeight / nghowahRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 18;
+      text1 = '有些';
     } else if (selectedLayout01Print == 2){
       selCase02 = 18;
+      text2 = '橙色';
     } else if (selectedLayout01Print == 3){
       selCase03 = 18;
+      text3 = '雲';
     } else if (selectedLayout01Print == 4){
       selCase04 = 18;
+      text4 = '溫暖';
     } else if (selectedLayout01Print == 5){
       selCase05 = 18;
+      text5 = '懶惰的';
     }
     pageCount = 0;
   }
@@ -1980,14 +2092,19 @@ function artworkSelect(){
   if (mouseX > 10 + nghowahPositionX && mouseX < 10 + nghowahPositionX + imgHeight / nureniRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 19;
+      text1 = '一棵';
     } else if (selectedLayout01Print == 2){
       selCase02 = 19;
+      text2 = '茂密';
     } else if (selectedLayout01Print == 3){
       selCase03 = 19;
+      text3 = '大樹';
     } else if (selectedLayout01Print == 4){
       selCase04 = 19;
+      text4 = '安全';
     } else if (selectedLayout01Print == 5){
       selCase05 = 19;
+      text5 = '可靠的';
     }
     pageCount = 0;
   }
@@ -1995,14 +2112,19 @@ function artworkSelect(){
   if (mouseX > 20 + nghowahPositionX + imgHeight / nureniRatio[1] && mouseX < 20 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 20;
+      text1 = '一個';
     } else if (selectedLayout01Print == 2){
       selCase02 = 20;
+      text2 = '藍色';
     } else if (selectedLayout01Print == 3){
       selCase03 = 20;
+      text3 = '婚禮';
     } else if (selectedLayout01Print == 4){
       selCase04 = 20;
+      text4 = '浪漫';
     } else if (selectedLayout01Print == 5){
       selCase05 = 20;
+      text5 = '幸福的';
     }
     pageCount = 0;
   }
@@ -2010,14 +2132,19 @@ function artworkSelect(){
   if (mouseX > 30 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] && mouseX < 20 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 21;
+      text1 = '這個';
     } else if (selectedLayout01Print == 2){
       selCase02 = 21;
+      text2 = '白色';
     } else if (selectedLayout01Print == 3){
       selCase03 = 21;
+      text3 = '雪人';
     } else if (selectedLayout01Print == 4){
       selCase04 = 21;
+      text4 = '快樂';
     } else if (selectedLayout01Print == 5){
       selCase05 = 21;
+      text5 = '有生命的';
     }
     pageCount = 0;
   }
@@ -2025,14 +2152,19 @@ function artworkSelect(){
   if (mouseX > 40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3] && mouseX < 40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3] + imgHeight / nureniRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 22;
+      text1 = '一座';
     } else if (selectedLayout01Print == 2){
       selCase02 = 22;
+      text2 = '透明';
     } else if (selectedLayout01Print == 3){
       selCase03 = 22;
+      text3 = '大樓';
     } else if (selectedLayout01Print == 4){
       selCase04 = 22;
+      text4 = '繁榮';
     } else if (selectedLayout01Print == 5){
       selCase05 = 22;
+      text5 = '富有的';
     }
     pageCount = 0;
   }
@@ -2040,14 +2172,19 @@ function artworkSelect(){
   if (mouseX > 10 + nureniPositionX && mouseX < 10 + nureniPositionX + imgHeight / chungwingheiRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 23;
+      text1 = '這個';
     } else if (selectedLayout01Print == 2){
       selCase02 = 23;
+      text2 = '七彩';
     } else if (selectedLayout01Print == 3){
       selCase03 = 23;
+      text3 = '家庭';
     } else if (selectedLayout01Print == 4){
       selCase04 = 23;
+      text4 = '很忙碌';
     } else if (selectedLayout01Print == 5){
       selCase05 = 23;
+      text5 = '很受歡迎';
     }
     pageCount = 0;
   }
@@ -2055,14 +2192,19 @@ function artworkSelect(){
   if (mouseX > 20 + nureniPositionX + imgHeight / chungwingheiRatio[1] && mouseX < 20 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 24;
+      text1 = '四個';
     } else if (selectedLayout01Print == 2){
       selCase02 = 24;
+      text2 = '彩色';
     } else if (selectedLayout01Print == 3){
       selCase03 = 24;
+      text3 = '朋友';
     } else if (selectedLayout01Print == 4){
       selCase04 = 24;
+      text4 = '不同';
     } else if (selectedLayout01Print == 5){
       selCase05 = 24;
+      text5 = '融洽的';
     }
     pageCount = 0;
   }
@@ -2070,14 +2212,19 @@ function artworkSelect(){
   if (mouseX > 30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] && mouseX < 30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 25;
+      text1 = '兩個';
     } else if (selectedLayout01Print == 2){
       selCase02 = 25;
+      text2 = '興奮';
     } else if (selectedLayout01Print == 3){
       selCase03 = 25;
+      text3 = '年青人';
     } else if (selectedLayout01Print == 4){
       selCase04 = 25;
+      text4 = '積極';
     } else if (selectedLayout01Print == 5){
       selCase05 = 25;
+      text5 = '進步的';
     }
     pageCount = 0;
   }
@@ -2085,14 +2232,19 @@ function artworkSelect(){
   if (mouseX > 40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3] && mouseX < 40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3] + imgHeight / chungwingheiRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 26;
+      text1 = '很多';
     } else if (selectedLayout01Print == 2){
       selCase02 = 26;
+      text2 = '紅色';
     } else if (selectedLayout01Print == 3){
       selCase03 = 26;
+      text3 = '愛心';
     } else if (selectedLayout01Print == 4){
       selCase04 = 26;
+      text4 = '滿足';
     } else if (selectedLayout01Print == 5){
       selCase05 = 26;
+      text5 = '歡樂的';
     }
     pageCount = 0;
   }
@@ -2100,14 +2252,19 @@ function artworkSelect(){
   if (mouseX > 10 + chungwingheiPositionX && mouseX < 10 + chungwingheiPositionX + imgHeight / xerxesRatio[1] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 27;
+      text1 = '這棵';
     } else if (selectedLayout01Print == 2){
       selCase02 = 27;
+      text2 = '茂密';
     } else if (selectedLayout01Print == 3){
       selCase03 = 27;
+      text3 = '樹';
     } else if (selectedLayout01Print == 4){
       selCase04 = 27;
+      text4 = '隨意';
     } else if (selectedLayout01Print == 5){
       selCase05 = 27;
+      text5 = '自然的';
     }
     pageCount = 0;
   }
@@ -2115,14 +2272,19 @@ function artworkSelect(){
   if (mouseX > 20 + chungwingheiPositionX + imgHeight / xerxesRatio[1] && mouseX < 20 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 28;
+      text1 = '這些';
     } else if (selectedLayout01Print == 2){
       selCase02 = 28;
+      text2 = '堅硬';
     } else if (selectedLayout01Print == 3){
       selCase03 = 28;
+      text3 = '石頭';
     } else if (selectedLayout01Print == 4){
       selCase04 = 28;
+      text4 = '混亂';
     } else if (selectedLayout01Print == 5){
       selCase05 = 28;
+      text5 = '沉重的';
     }
     pageCount = 0;
   }
@@ -2130,14 +2292,19 @@ function artworkSelect(){
   if (mouseX > 30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] && mouseX < 30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 29;
+      text1 = '一棵';
     } else if (selectedLayout01Print == 2){
       selCase02 = 29;
+      text2 = '等待';
     } else if (selectedLayout01Print == 3){
       selCase03 = 29;
+      text3 = '樹';
     } else if (selectedLayout01Print == 4){
       selCase04 = 29;
+      text4 = '忍耐';
     } else if (selectedLayout01Print == 5){
       selCase05 = 29;
+      text5 = '安靜的';
     }
     pageCount = 0;
   }
@@ -2145,29 +2312,203 @@ function artworkSelect(){
   if (mouseX > 40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3] && mouseX < 40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3] + imgHeight / xerxesRatio[4] && mouseY > 260 && mouseY < 260 + imgHeight && mouseIsPressed && pageCount > 10){
     if (selectedLayout01Print == 1){
       selCase01 = 30;
+      text1 = '一個';
     } else if (selectedLayout01Print == 2){
       selCase02 = 30;
+      text2 = '黑色';
     } else if (selectedLayout01Print == 3){
       selCase03 = 30;
+      text3 = '蜘蛛俠';
     } else if (selectedLayout01Print == 4){
       selCase04 = 30;
+      text4 = '神秘';
     } else if (selectedLayout01Print == 5){
       selCase05 = 30;
+      text5 = '冷酷的';
     }
 
     pageCount = 0;
   }
+  if (selCase01 == 1 || selCase01 == 2 || selCase02 == 1 || selCase02 == 2 || selCase03 == 1 || selCase03 == 2 || selCase04 == 1 || selCase04 == 2 || selCase05 == 1 || selCase02 == 5){
+    artistNameAngel = 1;
+  } else{
+    artistNameAngel = 0;
+  }
+
+  if (selCase01 == 3 || selCase01 == 4 || selCase02 == 3 || selCase02 == 4 || selCase03 == 3 || selCase03 == 4 || selCase04 == 3 || selCase04 == 4 || selCase05 == 3 || selCase05 == 4){
+    artistNameBouie = 1;
+  } else{
+    artistNameBouie = 0;
+  }
+
+  if (selCase01 == 5 || selCase01 == 6 || selCase02 == 5 || selCase02 == 6 || selCase03 == 5 || selCase03 == 6 || selCase04 == 5 || selCase04 == 6  || selCase05 == 5 || selCase05 == 6){
+    artistNameChiho = 1;
+  } else{
+    artistNameChiho = 0;
+  }
+
+
+  if (selCase01 == 9 || selCase01 == 10 || selCase01 == 7 || selCase01 == 8 || selCase02 == 9 || selCase02 == 10 || selCase02 == 7 || selCase02 == 8 || selCase03 == 9 || selCase03 == 10 || selCase03 == 7 || selCase03 == 8 || selCase04 == 9 || selCase04 == 10 || selCase04 == 7 || selCase04 == 8 || selCase05 == 9 || selCase05 == 10 || selCase05 == 7 || selCase05 == 8){
+    artistNameKuChunYin = 1;
+  } else{
+    artistNameKuChunYin = 0;
+  }
+
+  if (selCase01 == 13 || selCase01 == 14 || selCase01 == 11 || selCase01 == 12 || selCase02 == 13 || selCase02 == 14 || selCase02 == 11 || selCase02 == 12 || selCase03 == 13 || selCase03 == 14 || selCase03 == 11 || selCase03 == 12 || selCase04 == 13 || selCase04 == 14 || selCase04 == 11 || selCase04 == 12 || selCase05 == 13 || selCase05 == 14 || selCase05 == 11 || selCase05 == 12){
+    artistNameLeungKaHim = 1;
+  } else{
+    artistNameLeungKaHim = 0;
+  }
+
+  if (selCase01 == 17 || selCase01 == 18 || selCase01 == 15 || selCase01 == 16 || selCase02 == 17 || selCase02 == 18 || selCase02 == 15 || selCase02 == 16 || selCase03 == 17 || selCase03 == 18 || selCase03 == 15 || selCase03 == 16 || selCase04 == 17 || selCase04 == 18 || selCase04 == 15 || selCase04 == 16 || selCase05 == 17 || selCase05 == 18 || selCase05 == 15 || selCase05 == 16){
+    artistNameNgHoWah = 1;
+  } else{
+    artistNameNgHoWah = 0;
+  }
+
+  if (selCase01 == 21 || selCase01 == 22 || selCase01 == 19 || selCase01 == 20 || selCase02 == 21 || selCase02 == 22 || selCase02 == 19 || selCase02 == 20 || selCase03 == 21 || selCase03 == 22 || selCase03 == 19 || selCase03 == 20 || selCase04 == 21 || selCase04 == 22 || selCase04 == 19 || selCase04 == 20 || selCase05 == 21 || selCase05 == 22 || selCase05 == 19 || selCase05 == 20){
+    artistNameNureni = 1;
+  } else{
+    artistNameNureni = 0;
+  }
+
+  if (selCase01 == 25 || selCase01 == 26 || selCase01 == 23 || selCase01 == 24 || selCase02 == 25 || selCase02 == 26 || selCase02 == 23 || selCase02 == 24 || selCase03 == 25 || selCase03 == 26 || selCase03 == 23 || selCase03 == 24 || selCase04 == 25 || selCase04 == 26 || selCase04 == 23 || selCase04 == 24 || selCase05 == 25 || selCase05 == 26 || selCase05 == 23 || selCase05 == 24){
+    artistNameChungWingHei = 1;
+  } else{
+    artistNameChungWingHei = 0;
+  }
+
+  if (selCase01 == 27 || selCase01 == 28 || selCase01 == 29 || selCase01 == 30 || selCase02 == 27 || selCase02 == 28 || selCase02 == 29 || selCase02 == 30 || selCase03 == 27 || selCase03 == 28 || selCase03 == 29 || selCase03 == 30 || selCase04 == 27 || selCase04 == 28 || selCase04 == 29 || selCase04 == 30 || selCase05 == 27 || selCase05 == 28 || selCase05 == 29 || selCase05 == 30){
+    artistNameXerxes = 1;
+  } else{
+    artistNameXerxes = 0;
+  }
+
+
   strokeWeight(6);
   stroke(255, 204, 0);
   noFill();
 
 }
 
+
+function readyDraw(){
+  pageCount++
+  background(255);
+  image(ready, 0, 0);
+  image(to_save, 0, 0);
+
+  if (mouseX > 382  && mouseX < 382+110 && mouseY > 430 && mouseY < 430+40 && mouseIsPressed && pageCount >10){
+
+
+        to_save = get(0, 0, 500, 250);
+        gameCanvas.image(to_save, 0, 0);
+
+        page = 5;
+        pageCount=0;
+
+  }
+
+}
+
 function endDraw(){
   pageCount++
   background(255);
-  image(download,0,0);
+  image(download, 0, 0);
   image(to_save, 0, 0);
-// to_save.save("saved_name.png");
+  noStroke();
+  fill(0);
+  textSize(20);
+  text( text1 + text2 + '的' + text3 + '是' +text4 + '和' + text5, 25, 320);
+  textSize(12);
+//1
+  if (artistNameAngel == 1){
+    text('彭灼楹', 440, 300);
+    // text('彭灼楹', 440, 320);
+    // text('彭灼楹', 440, 340);
+    // text('彭灼楹', 440, 360);
+    // text('彭灼楹', 440, 380);
+  }
+//2
+  if (artistNameBouie == 1 && artistNameAngel == 0){
+    text('蔡鈺娟', 440, 300);
+  } else if (artistNameBouie == 1 && artistNameAngel == 1){
+    text('蔡鈺娟', 440, 320);
+  }
+//3
+  if (artistNameChiho == 1 && artistNameBouie == 0 && artistNameAngel == 0){
+    text('鍾智豪', 440, 300);
+  } else if ((artistNameChiho == 1 && artistNameBouie == 1 && artistNameAngel == 0) ||(artistNameChiho == 1 && artistNameBouie == 0 && artistNameAngel == 1)){
+    text('鍾智豪', 440, 320);
+  } else if (artistNameChiho == 1 && artistNameBouie == 1 && artistNameAngel == 1) {
+    text('鍾智豪', 440, 340);
+  }
+
+//1
+  if (artistNameKuChunYin == 1 && artistNameChiho == 0 && artistNameBouie == 0 && artistNameAngel == 0){
+    text('古俊賢', 440, 300);
+  } else if ((artistNameKuChunYin == 1 && artistNameChiho == 1 && artistNameBouie == 0 && artistNameAngel == 0) ||(artistNameKuChunYin == 1 && artistNameChiho == 0 && artistNameBouie == 1 && artistNameAngel == 0) || (artistNameKuChunYin == 1 && artistNameChiho == 0 && artistNameBouie == 0 && artistNameAngel == 1)){
+    text('古俊賢', 440, 320);
+  } else if ((artistNameKuChunYin == 1 && artistNameChiho == 1 && artistNameBouie == 1 && artistNameAngel == 0)||(artistNameKuChunYin == 1 && artistNameChiho == 1 && artistNameBouie == 0 && artistNameAngel == 1)||(artistNameKuChunYin == 1 && artistNameChiho == 0 && artistNameBouie == 1 && artistNameAngel == 1)) {
+    text('古俊賢', 440, 340);
+  } else if (artistNameKuChunYin == 1 && artistNameChiho == 1 && artistNameBouie == 1 && artistNameAngel == 1){
+    text('古俊賢', 440, 360);
+  }
+
+//2
+  if (artistNameLeungKaHim == 1 && artistNameKuChunYin == 0 && artistNameChiho == 0 && artistNameBouie == 0 && artistNameAngel == 0){
+    text('梁家謙', 440, 300);
+  } else if ((artistNameLeungKaHim == 1 && artistNameKuChunYin == 1 && artistNameChiho == 0 && artistNameBouie == 0 && artistNameAngel == 0) || (artistNameLeungKaHim == 1 && artistNameKuChunYin == 0 && artistNameChiho == 1 && artistNameBouie == 0 && artistNameAngel == 0) || (artistNameLeungKaHim == 1 && artistNameKuChunYin == 0 && artistNameChiho == 0 && artistNameBouie == 1 && artistNameAngel == 0) || (artistNameLeungKaHim == 1 && artistNameKuChunYin == 0 && artistNameChiho == 0 && artistNameBouie == 0 && artistNameAngel == 1)){
+    text('梁家謙', 440, 320);
+  } else if ((artistNameLeungKaHim == 1 && artistNameKuChunYin == 1 && artistNameChiho == 1 && artistNameBouie == 0 && artistNameAngel == 0) || (artistNameLeungKaHim == 1 && artistNameKuChunYin == 1 && artistNameChiho == 0 && artistNameBouie == 1 && artistNameAngel == 0) || (artistNameLeungKaHim == 1 && artistNameKuChunYin == 1 && artistNameChiho == 0 && artistNameBouie == 0 && artistNameAngel == 1) || (artistNameLeungKaHim == 1 && artistNameKuChunYin == 0 && artistNameChiho == 1 && artistNameBouie == 1 && artistNameAngel == 0) || (artistNameLeungKaHim == 1 && artistNameKuChunYin == 0 && artistNameChiho == 1 && artistNameBouie == 0 && artistNameAngel == 1) || (artistNameLeungKaHim == 1 && artistNameKuChunYin == 0 && artistNameChiho == 0 && artistNameBouie == 1 && artistNameAngel == 1)) {
+    text('梁家謙', 440, 340);
+  } else if ((artistNameLeungKaHim == 1 && artistNameKuChunYin == 1 && artistNameChiho == 1 && artistNameBouie == 1 && artistNameAngel == 0) || (artistNameLeungKaHim == 1 && artistNameKuChunYin == 1 && artistNameChiho == 1 && artistNameBouie == 0 && artistNameAngel == 1) || (artistNameLeungKaHim == 1 && artistNameKuChunYin == 1 && artistNameChiho == 0 && artistNameBouie == 1 && artistNameAngel == 1) || (artistNameLeungKaHim == 1 && artistNameKuChunYin == 0 && artistNameChiho == 1 && artistNameBouie == 0 && artistNameAngel == 1)){
+    text('梁家謙', 440, 360);
+  } else if (artistNameLeungKaHim == 1 && artistNameKuChunYin == 1 && artistNameChiho == 1 && artistNameBouie == 1 && artistNameAngel == 1) {
+    text('梁家謙', 440, 380);
+  }
+
+//3
+if (artistNameNgHoWah == 1 && artistNameLeungKaHim == 0 && artistNameKuChunYin == 0 && artistNameChiho == 0 && artistNameBouie == 0 && artistNameAngel == 0){
+  text('吳灝華', 440, 300);
+} else if (artistNameNgHoWah == 1 && ((artistNameLeungKaHim + artistNameKuChunYin + artistNameChiho  +artistNameBouie + artistNameAngel) == 1)){
+  text('吳灝華', 440, 320);
+} else if (artistNameNgHoWah == 1 && ((artistNameLeungKaHim + artistNameKuChunYin + artistNameChiho  +artistNameBouie + artistNameAngel) == 2)){
+  text('吳灝華', 440, 340);
+} else if (artistNameNgHoWah == 1 && ((artistNameLeungKaHim + artistNameKuChunYin + artistNameChiho  +artistNameBouie + artistNameAngel) == 3)){
+  text('吳灝華', 440, 360);
+} else if (artistNameNgHoWah == 1 && ((artistNameLeungKaHim + artistNameKuChunYin + artistNameChiho  +artistNameBouie + artistNameAngel) == 4)){
+  text('吳灝華', 440, 380);
+}
+//4
+if (artistNameNureni == 1 && artistNameNgHoWah == 0 && artistNameLeungKaHim == 0 && artistNameKuChunYin == 0 && artistNameChiho == 0 && artistNameBouie == 0 && artistNameAngel == 0){
+  text('余詠楠', 440, 300);
+} else if (artistNameNureni == 1 && ((artistNameNgHoWah + artistNameLeungKaHim + artistNameKuChunYin + artistNameChiho  +artistNameBouie + artistNameAngel) == 1)){
+  text('余詠楠', 440, 320);
+} else if (artistNameNureni == 1 && ((artistNameNgHoWah + artistNameLeungKaHim + artistNameKuChunYin + artistNameChiho  +artistNameBouie + artistNameAngel) == 2)){
+  text('余詠楠', 440, 340);
+} else if (artistNameNureni == 1 && ((artistNameNgHoWah + artistNameLeungKaHim + artistNameKuChunYin + artistNameChiho  +artistNameBouie + artistNameAngel) == 3)){
+  text('余詠楠', 440, 360);
+} else if (artistNameNureni == 1 && ((artistNameNgHoWah + artistNameLeungKaHim + artistNameKuChunYin + artistNameChiho  +artistNameBouie + artistNameAngel) == 4)){
+  text('余詠楠', 440, 380);
+}
+  // let artistNameAngel = '彭灼楹';
+  // let artistNameBouie = '蔡鈺娟';
+  // let artistNameChiho = '鍾智豪';
+  //
+  // let artistNameKuChunYin = '古俊賢';
+  // let artistNameLeungKaHim = '梁家謙';
+  // let artistNameNgHoWah = '吳灝華';
+  // let artistNameNureni = '余詠楠';
+  // let artistNameChungWingHei = '鍾泳希';
+  // let artistNameXerxes = '胡凱俊';
+
+  if (mouseX > 382  && mouseX < 382+110 && mouseY > 430 && mouseY < 430+40 && mouseIsPressed && pageCount >10){
+        to_save.save("saved_name.png");
+        page = 1;
+        pageCount=0;
+
+  }
+  //to_save.save("saved_name.png");
 
 }
