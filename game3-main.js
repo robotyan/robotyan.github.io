@@ -41,9 +41,13 @@ let layout02Paint = [];
 let layout03Paint = [];
 
 let selectedLayout01Print = 0;
+let selectedLayout02Print = 0;
+let selectedLayout03Print = 0;
 
 let selectedLayout01Paint = [0,0,0,0,0,0];
-let _selectedLayout01Paint = [0,0,0,0,0,0];
+let selectedLayout02Paint = [0,0,0,0,0,0];
+let selectedLayout03Paint = [0,0,0,0,0,0];
+// let _selectedLayout01Paint = [0,0,0,0,0,0];
 
 ///////////////////////////Artworks/////////////////////////
 let angel = [];
@@ -83,8 +87,7 @@ let selCase02 = 0;
 let selCase03 = 0;
 let selCase04 = 0;
 let selCase05 = 0;
-let selectedAngel01 = 0;
-let selectedAngel02 = 0;
+
 
 let canvas_01 = 0;
 let canvas_02 = 0;
@@ -122,6 +125,7 @@ let artistNameNgHoWah = 0;
 let artistNameNureni = 0;
 let artistNameChungWingHei = 0;
 let artistNameXerxes = 0;
+
 function preload(){
   preface =  loadImage('../assets/WDWT-game3/preface.png');
   layout =  loadImage('../assets/WDWT-game3/select_layout.png');
@@ -349,9 +353,11 @@ function gameDraw(){
     artworkConfirm01();
     image(layout01, 0, 0, layout01.width, layout01.height);
   } else if (selected02 == 1){
+    artworkConfirm02();
     artworkSelect();
-    image(layout02, 0, 0, layout02.width, layout02.height);
+    layout2();
   } else if (selected03 == 1){
+    artworkConfirm03();
     artworkSelect();
     image(layout03, 0, 0, layout03.width, layout03.height);
   }
@@ -1002,153 +1008,153 @@ switch (canvas_02) {
   case 1:
     image(angel[1], 57, 49 - layout01Paint[2].width * angelRatio[1] / 4, layout01Paint[2].width, layout01Paint[2].width * angelRatio[1]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 2:
     image(angel[2], 57, 49 - layout01Paint[2].width * angelRatio[2] / 4, layout01Paint[2].width, layout01Paint[2].width * angelRatio[2]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 3:
     image(bouie[1], 57, 49 -  layout01Paint[2].height * bouieRatio[1] / 4, layout01Paint[2].width, layout01Paint[2].width * bouieRatio[1]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 4:
     image(bouie[2], 57, 49 - layout01Paint[2].height * bouieRatio[2] / 4, layout01Paint[2].width, layout01Paint[2].width * bouieRatio[2]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 5:
     image(chungchiho[1], 57, 49 - 10, layout01Paint[2].width, layout01Paint[2].width * chungchihoRatio[1]);
     // image(chungchiho[1], 57, 49 - layout01Paint[2].height * chungchihoRatio[1] / 4, layout01Paint[2].width, layout01Paint[2].width * chungchihoRatio[1]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 6:
     image(chungchiho[2], 57, 49 - layout01Paint[2].width * chungchihoRatio[2] / 4, layout01Paint[2].width, layout01Paint[2].width * chungchihoRatio[2]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 7:
     image(kuchunyin[1], 57, 49 - layout01Paint[2].width * kuchunyinRatio[1] / 4, layout01Paint[2].width, layout01Paint[2].width * kuchunyinRatio[1]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 8:
     image(kuchunyin[2], 57, 49 - layout01Paint[2].width * kuchunyinRatio[2] / 4, layout01Paint[2].width, layout01Paint[2].width * kuchunyinRatio[2]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 9:
     image(kuchunyin[3], 57, 49 - layout01Paint[2].width * kuchunyinRatio[3] / 4, layout01Paint[2].width, layout01Paint[2].width * kuchunyinRatio[3]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 10:
     image(kuchunyin[4], 57, 49 - layout01Paint[2].width * kuchunyinRatio[4] / 4, layout01Paint[2].width, layout01Paint[2].width * kuchunyinRatio[4]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 11:
     image(leungkahim[1], 57, 49 - layout01Paint[2].width * leungkahimRatio[1] / 4, layout01Paint[2].width, layout01Paint[2].width * leungkahimRatio[1]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 12:
     image(leungkahim[2], 57, 49 - layout01Paint[2].width * leungkahimRatio[2] / 4, layout01Paint[2].width, layout01Paint[2].width * leungkahimRatio[2]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 13:
     image(leungkahim[3], 57, 49 - layout01Paint[2].width * leungkahimRatio[3] / 4, layout01Paint[2].width, layout01Paint[2].width * leungkahimRatio[3]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 14:
     image(leungkahim[4], 57, 49 - layout01Paint[2].width * leungkahimRatio[4] / 4, layout01Paint[2].width, layout01Paint[2].width * leungkahimRatio[4]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 15:
     image(nghowah[1], 57, 49 - layout01Paint[2].width * nghowahRatio[1] / 4, layout01Paint[2].width, layout01Paint[2].width * nghowahRatio[1]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 16:
     image(nghowah[2], 57, 49 - layout01Paint[2].width * nghowahRatio[2] / 4, layout01Paint[2].width, layout01Paint[2].width * nghowahRatio[2]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 17:
     image(nghowah[3], 57, 49 - layout01Paint[2].width * nghowahRatio[3] / 4, layout01Paint[2].width, layout01Paint[2].width * nghowahRatio[3]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 18:
     image(nghowah[4], 57, 49 - layout01Paint[2].width * nghowahRatio[4] / 4, layout01Paint[2].width, layout01Paint[2].width * nghowahRatio[4]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 19:
     image(nureni[1], 57, 49 - layout01Paint[2].width * nureniRatio[1] / 4, layout01Paint[2].width, layout01Paint[2].width * nureniRatio[1]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 20:
     image(nureni[2], 57, 49 - layout01Paint[2].width * nureniRatio[2] / 4, layout01Paint[2].width, layout01Paint[2].width * nureniRatio[2]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 21:
     image(nureni[3], 57, 49 - layout01Paint[2].width * nureniRatio[3] / 4, layout01Paint[2].width, layout01Paint[2].width * nureniRatio[3]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 22:
     image(nureni[4], 57, 49 - layout01Paint[2].width * nureniRatio[4] / 4, layout01Paint[2].width, layout01Paint[2].width * nureniRatio[4]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 23:
     image(chungwinghei[1], 57, 49 - layout01Paint[2].width * chungwingheiRatio[1] / 4, layout01Paint[2].width, layout01Paint[2].width * chungwingheiRatio[1]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 24:
     image(chungwinghei[2], 57, 49 - layout01Paint[2].width * chungwingheiRatio[2] / 4, layout01Paint[2].width, layout01Paint[2].width * chungwingheiRatio[2]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 25:
     image(chungwinghei[3], 57, 49 - layout01Paint[2].width * chungwingheiRatio[3] / 4, layout01Paint[2].width, layout01Paint[2].width * chungwingheiRatio[3]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 26:
     image(chungwinghei[4], 57, 49 - layout01Paint[2].width * chungwingheiRatio[4] / 4, layout01Paint[2].width, layout01Paint[2].width * chungwingheiRatio[4]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 27:
     image(xerxes[1], 57, 49 - layout01Paint[2].width * xerxesRatio[1] / 4, layout01Paint[2].width, layout01Paint[2].width * xerxesRatio[1]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 28:
     image(xerxes[2], 57, 49 - layout01Paint[2].width * xerxesRatio[2] / 4, layout01Paint[2].width, layout01Paint[2].width * xerxesRatio[2]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 29:
     image(xerxes[3], 57, 49 - layout01Paint[2].width * xerxesRatio[3] / 4, layout01Paint[2].width, layout01Paint[2].width * xerxesRatio[3]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
   case 30:
     image(xerxes[4], 57, 49 - layout01Paint[2].width * xerxesRatio[4] / 4, layout01Paint[2].width, layout01Paint[2].width * xerxesRatio[4]);
     fill(255);
-    rect( 25, 150, 80, 80);
+    // rect( 32,37, 80, 80);
     break;
 
   default:
@@ -1912,7 +1918,2315 @@ switch (canvas_02) {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
+//////////////////////////////////////////////////////////////////////////
+function artworkConfirm02(){
+  if (mouseX > 32  && mouseX < 32+layout02Paint[1].width && mouseY > 37 && mouseY < 37+layout02Paint[1].height && mouseIsPressed && pageCount >10){
+    selectedLayout01Print = 1;
+    pageCount =0;
+  }
 
+  if (mouseX > 187  && mouseX < 187 + layout02Paint[2].width && mouseY > 51 && mouseY < 51+layout02Paint[2].height && mouseIsPressed && pageCount >10){
+    selectedLayout01Print = 2;
+    pageCount =0;
+  }
+
+  if (mouseX > 395 && mouseX < 395+layout02Paint[3].width && mouseY > 45 && mouseY < 45+layout02Paint[3].height && mouseIsPressed && pageCount >10){
+    selectedLayout01Print = 3;
+    pageCount =0;
+  }
+
+  if (mouseX > 117 && mouseX < 117+layout02Paint[4].width && mouseY > 140 && mouseY < 140 +layout02Paint[4].height && mouseIsPressed && pageCount >10){
+    selectedLayout01Print = 4;
+    pageCount =0;
+  }
+
+  if (mouseX > 312 && mouseX < 312+layout02Paint[5].width && mouseY > 138 && mouseY < 138 +layout02Paint[5].height && mouseIsPressed && pageCount >10){
+    selectedLayout01Print = 5;
+    pageCount =0;
+  }
+
+
+
+
+
+    for (var i = 1; i < 31; i++){
+      if (selectedLayout01Paint[1] == 1 && selCase01 == i){
+        canvas_01 = i;
+      }
+
+      if (selectedLayout01Paint[2] == 1 && selCase02 == i){
+        canvas_02 = i;
+      }
+
+      if (selectedLayout01Paint[3] == 1 && selCase03 == i){
+        canvas_03 = i;
+      }
+
+      if (selectedLayout01Paint[4] == 1 && selCase04 == i){
+        canvas_04 = i;
+      }
+
+      if (selectedLayout01Paint[5] == 1 && selCase05 == i){
+        canvas_05 = i;
+      }
+    }
+
+
+  switch (selectedLayout01Print) {
+    case 0:
+
+      break;
+    case 1:
+      image(layout02Paint[1] ,32,37,layout02Paint[1].width, layout02Paint[1].height);
+      selectedLayout01Paint[1] = 1;
+      selectedLayout01Paint[2] = 0;
+      selectedLayout01Paint[3] = 0;
+      selectedLayout01Paint[4] = 0;
+      selectedLayout01Paint[5] = 0;
+
+      switch (selCase01) {
+        case 0:
+
+          break;
+        case 1:
+          rect(10 + sliderXMove, 260, imgHeight / angelRatio[1], imgHeight);
+          break;
+        case 2:
+          rect(20 + sliderXMove + imgHeight / angelRatio[1], 260, imgHeight / angelRatio[2], imgHeight);
+          break;
+        case 3:
+          rect(30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2], 260, imgHeight / bouieRatio[1], imgHeight);
+          break;
+        case 4:
+          rect(40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1], 260, imgHeight / bouieRatio[2], imgHeight);
+          break;
+        case 5:
+          rect(50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2], 260, imgHeight / chungchihoRatio[1], imgHeight);
+          break;
+        case 6:
+          rect(60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2]+ imgHeight / chungchihoRatio[1], 260, imgHeight / chungchihoRatio[2], imgHeight);
+          break;
+        case 7:
+          rect(10 + teacherPositionX, 260, imgHeight / kuchunyinRatio[1], imgHeight);
+          break;
+        case 8:
+          rect(20 + teacherPositionX + imgHeight / kuchunyinRatio[1], 260, imgHeight / kuchunyinRatio[2], imgHeight);
+          break;
+        case 9:
+          rect(30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2], 260, imgHeight / kuchunyinRatio[3], imgHeight);
+          break;
+        case 10:
+          rect(40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3], 260, imgHeight / kuchunyinRatio[4], imgHeight);
+          break;
+        case 11:
+          rect(10 + kuchunyinPositionX, 260, imgHeight / leungkahimRatio[1], imgHeight);
+          break;
+        case 12:
+          rect(20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1], 260, imgHeight / leungkahimRatio[2], imgHeight);
+          break;
+        case 13:
+          rect(30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2], 260, imgHeight / leungkahimRatio[3], imgHeight);
+          break;
+        case 14:
+          rect(40 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3], 260, imgHeight / leungkahimRatio[4], imgHeight);
+          break;
+        case 15:
+          rect(10 + leungkahimPositionX, 260, imgHeight / nghowahRatio[1], imgHeight);
+          break;
+        case 16:
+          rect(20 + leungkahimPositionX + imgHeight / nghowahRatio[1], 260, imgHeight / nghowahRatio[2], imgHeight);
+          break;
+        case 17:
+          rect(30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2], 260, imgHeight / nghowahRatio[3], imgHeight);
+          break;
+        case 18:
+          rect(40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3], 260, imgHeight / nghowahRatio[4], imgHeight);
+          break;
+        case 19:
+          rect(10 + nghowahPositionX, 260, imgHeight / nureniRatio[1], imgHeight);
+          break;
+        case 20:
+          rect(20 + nghowahPositionX + imgHeight / nureniRatio[1], 260, imgHeight / nureniRatio[2], imgHeight);
+          break;
+        case 21:
+          rect(30 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2], 260, imgHeight / nureniRatio[3], imgHeight);
+          break;
+        case 22:
+          rect(40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3], 260, imgHeight / nureniRatio[4], imgHeight);
+          break;
+        case 23:
+          rect(10 + nureniPositionX, 260, imgHeight / chungwingheiRatio[1], imgHeight);
+          break;
+        case 24:
+          rect(20 + nureniPositionX + imgHeight / chungwingheiRatio[1], 260, imgHeight / chungwingheiRatio[2], imgHeight);
+          break;
+        case 25:
+          rect(30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2], 260, imgHeight / chungwingheiRatio[3], imgHeight);
+          break;
+        case 26:
+          rect(40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3], 260, imgHeight / chungwingheiRatio[4], imgHeight);
+          break;
+        case 27:
+          rect(10 + chungwingheiPositionX, 260, imgHeight / xerxesRatio[1], imgHeight);
+          break;
+        case 28:
+          rect(20 + chungwingheiPositionX + imgHeight / xerxesRatio[1], 260, imgHeight / xerxesRatio[2], imgHeight);
+          break;
+        case 29:
+          rect(30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2], 260, imgHeight / xerxesRatio[3], imgHeight);
+          break;
+        case 30:
+          rect(40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3], 260, imgHeight / xerxesRatio[4], imgHeight);
+          break;
+        default:
+
+      }
+      break;
+    case 2:
+      image(layout02Paint[2] ,187,51,layout02Paint[2].width, layout02Paint[2].height);
+      selectedLayout01Paint[1] = 0;
+      selectedLayout01Paint[2] = 1;
+      selectedLayout01Paint[3] = 0;
+      selectedLayout01Paint[4] = 0;
+      selectedLayout01Paint[5] = 0;
+
+      switch (selCase02) {
+        case 0:
+
+          break;
+        case 1:
+          rect(10 + sliderXMove, 260, imgHeight / angelRatio[1], imgHeight);
+          break;
+        case 2:
+          rect(20 + sliderXMove + imgHeight / angelRatio[1], 260, imgHeight / angelRatio[2], imgHeight);
+          break;
+        case 3:
+          rect(30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2], 260, imgHeight / bouieRatio[1], imgHeight);
+          break;
+        case 4:
+          rect(40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1], 260, imgHeight / bouieRatio[2], imgHeight);
+          break;
+        case 5:
+          rect(50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2], 260, imgHeight / chungchihoRatio[1], imgHeight);
+          break;
+        case 6:
+          rect(60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2]+ imgHeight / chungchihoRatio[1], 260, imgHeight / chungchihoRatio[2], imgHeight);
+          break;
+        case 7:
+          rect(10 + teacherPositionX, 260, imgHeight / kuchunyinRatio[1], imgHeight);
+          break;
+        case 8:
+          rect(20 + teacherPositionX + imgHeight / kuchunyinRatio[1], 260, imgHeight / kuchunyinRatio[2], imgHeight);
+          break;
+        case 9:
+          rect(30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2], 260, imgHeight / kuchunyinRatio[3], imgHeight);
+          break;
+        case 10:
+          rect(40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3], 260, imgHeight / kuchunyinRatio[4], imgHeight);
+          break;
+        case 11:
+          rect(10 + kuchunyinPositionX, 260, imgHeight / leungkahimRatio[1], imgHeight);
+          break;
+        case 12:
+          rect(20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1], 260, imgHeight / leungkahimRatio[2], imgHeight);
+          break;
+        case 13:
+          rect(30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2], 260, imgHeight / leungkahimRatio[3], imgHeight);
+          break;
+        case 14:
+          rect(40 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3], 260, imgHeight / leungkahimRatio[4], imgHeight);
+          break;
+        case 15:
+          rect(10 + leungkahimPositionX, 260, imgHeight / nghowahRatio[1], imgHeight);
+          break;
+        case 16:
+          rect(20 + leungkahimPositionX + imgHeight / nghowahRatio[1], 260, imgHeight / nghowahRatio[2], imgHeight);
+          break;
+        case 17:
+          rect(30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2], 260, imgHeight / nghowahRatio[3], imgHeight);
+          break;
+        case 18:
+          rect(40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3], 260, imgHeight / nghowahRatio[4], imgHeight);
+          break;
+        case 19:
+          rect(10 + nghowahPositionX, 260, imgHeight / nureniRatio[1], imgHeight);
+          break;
+        case 20:
+          rect(20 + nghowahPositionX + imgHeight / nureniRatio[1], 260, imgHeight / nureniRatio[2], imgHeight);
+          break;
+        case 21:
+          rect(30 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2], 260, imgHeight / nureniRatio[3], imgHeight);
+          break;
+        case 22:
+          rect(40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3], 260, imgHeight / nureniRatio[4], imgHeight);
+          break;
+        case 23:
+          rect(10 + nureniPositionX, 260, imgHeight / chungwingheiRatio[1], imgHeight);
+          break;
+        case 24:
+          rect(20 + nureniPositionX + imgHeight / chungwingheiRatio[1], 260, imgHeight / chungwingheiRatio[2], imgHeight);
+          break;
+        case 25:
+          rect(30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2], 260, imgHeight / chungwingheiRatio[3], imgHeight);
+          break;
+        case 26:
+          rect(40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3], 260, imgHeight / chungwingheiRatio[4], imgHeight);
+          break;
+        case 27:
+          rect(10 + chungwingheiPositionX, 260, imgHeight / xerxesRatio[1], imgHeight);
+          break;
+        case 28:
+          rect(20 + chungwingheiPositionX + imgHeight / xerxesRatio[1], 260, imgHeight / xerxesRatio[2], imgHeight);
+          break;
+        case 29:
+          rect(30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2], 260, imgHeight / xerxesRatio[3], imgHeight);
+          break;
+        case 30:
+          rect(40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3], 260, imgHeight / xerxesRatio[4], imgHeight);
+          break;
+        default:
+      }
+      break;
+    case 3:
+      image(layout02Paint[3] ,395,45,layout02Paint[3].width, layout02Paint[3].height);
+      selectedLayout01Paint[1] = 0;
+      selectedLayout01Paint[2] = 0;
+      selectedLayout01Paint[3] = 1;
+      selectedLayout01Paint[4] = 0;
+      selectedLayout01Paint[5] = 0;
+      switch (selCase03) {
+        case 0:
+
+          break;
+        case 1:
+          rect(10 + sliderXMove, 260, imgHeight / angelRatio[1], imgHeight);
+          break;
+        case 2:
+          rect(20 + sliderXMove + imgHeight / angelRatio[1], 260, imgHeight / angelRatio[2], imgHeight);
+          break;
+        case 3:
+          rect(30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2], 260, imgHeight / bouieRatio[1], imgHeight);
+          break;
+        case 4:
+          rect(40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1], 260, imgHeight / bouieRatio[2], imgHeight);
+          break;
+        case 5:
+          rect(50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2], 260, imgHeight / chungchihoRatio[1], imgHeight);
+          break;
+        case 6:
+          rect(60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2]+ imgHeight / chungchihoRatio[1], 260, imgHeight / chungchihoRatio[2], imgHeight);
+          break;
+        case 7:
+          rect(10 + teacherPositionX, 260, imgHeight / kuchunyinRatio[1], imgHeight);
+          break;
+        case 8:
+          rect(20 + teacherPositionX + imgHeight / kuchunyinRatio[1], 260, imgHeight / kuchunyinRatio[2], imgHeight);
+          break;
+        case 9:
+          rect(30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2], 260, imgHeight / kuchunyinRatio[3], imgHeight);
+          break;
+        case 10:
+          rect(40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3], 260, imgHeight / kuchunyinRatio[4], imgHeight);
+          break;
+        case 11:
+          rect(10 + kuchunyinPositionX, 260, imgHeight / leungkahimRatio[1], imgHeight);
+          break;
+        case 12:
+          rect(20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1], 260, imgHeight / leungkahimRatio[2], imgHeight);
+          break;
+        case 13:
+          rect(30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2], 260, imgHeight / leungkahimRatio[3], imgHeight);
+          break;
+        case 14:
+          rect(40 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3], 260, imgHeight / leungkahimRatio[4], imgHeight);
+          break;
+        case 15:
+          rect(10 + leungkahimPositionX, 260, imgHeight / nghowahRatio[1], imgHeight);
+          break;
+        case 16:
+          rect(20 + leungkahimPositionX + imgHeight / nghowahRatio[1], 260, imgHeight / nghowahRatio[2], imgHeight);
+          break;
+        case 17:
+          rect(30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2], 260, imgHeight / nghowahRatio[3], imgHeight);
+          break;
+        case 18:
+          rect(40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3], 260, imgHeight / nghowahRatio[4], imgHeight);
+          break;
+        case 19:
+          rect(10 + nghowahPositionX, 260, imgHeight / nureniRatio[1], imgHeight);
+          break;
+        case 20:
+          rect(20 + nghowahPositionX + imgHeight / nureniRatio[1], 260, imgHeight / nureniRatio[2], imgHeight);
+          break;
+        case 21:
+          rect(30 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2], 260, imgHeight / nureniRatio[3], imgHeight);
+          break;
+        case 22:
+          rect(40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3], 260, imgHeight / nureniRatio[4], imgHeight);
+          break;
+        case 23:
+          rect(10 + nureniPositionX, 260, imgHeight / chungwingheiRatio[1], imgHeight);
+          break;
+        case 24:
+          rect(20 + nureniPositionX + imgHeight / chungwingheiRatio[1], 260, imgHeight / chungwingheiRatio[2], imgHeight);
+          break;
+        case 25:
+          rect(30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2], 260, imgHeight / chungwingheiRatio[3], imgHeight);
+          break;
+        case 26:
+          rect(40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3], 260, imgHeight / chungwingheiRatio[4], imgHeight);
+          break;
+        case 27:
+          rect(10 + chungwingheiPositionX, 260, imgHeight / xerxesRatio[1], imgHeight);
+          break;
+        case 28:
+          rect(20 + chungwingheiPositionX + imgHeight / xerxesRatio[1], 260, imgHeight / xerxesRatio[2], imgHeight);
+          break;
+        case 29:
+          rect(30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2], 260, imgHeight / xerxesRatio[3], imgHeight);
+          break;
+        case 30:
+          rect(40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3], 260, imgHeight / xerxesRatio[4], imgHeight);
+          break;
+        default:
+      }
+      break;
+    case 4:
+      image(layout02Paint[4] ,117,140,layout02Paint[4].width, layout02Paint[4].height);
+      selectedLayout01Paint[1] = 0;
+      selectedLayout01Paint[2] = 0;
+      selectedLayout01Paint[3] = 0;
+      selectedLayout01Paint[4] = 1;
+      selectedLayout01Paint[5] = 0;
+      switch (selCase04) {
+        case 0:
+
+          break;
+        case 1:
+          rect(10 + sliderXMove, 260, imgHeight / angelRatio[1], imgHeight);
+          break;
+        case 2:
+          rect(20 + sliderXMove + imgHeight / angelRatio[1], 260, imgHeight / angelRatio[2], imgHeight);
+          break;
+        case 3:
+          rect(30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2], 260, imgHeight / bouieRatio[1], imgHeight);
+          break;
+        case 4:
+          rect(40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1], 260, imgHeight / bouieRatio[2], imgHeight);
+          break;
+        case 5:
+          rect(50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2], 260, imgHeight / chungchihoRatio[1], imgHeight);
+          break;
+        case 6:
+          rect(60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2]+ imgHeight / chungchihoRatio[1], 260, imgHeight / chungchihoRatio[2], imgHeight);
+          break;
+        case 7:
+          rect(10 + teacherPositionX, 260, imgHeight / kuchunyinRatio[1], imgHeight);
+          break;
+        case 8:
+          rect(20 + teacherPositionX + imgHeight / kuchunyinRatio[1], 260, imgHeight / kuchunyinRatio[2], imgHeight);
+          break;
+        case 9:
+          rect(30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2], 260, imgHeight / kuchunyinRatio[3], imgHeight);
+          break;
+        case 10:
+          rect(40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3], 260, imgHeight / kuchunyinRatio[4], imgHeight);
+          break;
+        case 11:
+          rect(10 + kuchunyinPositionX, 260, imgHeight / leungkahimRatio[1], imgHeight);
+          break;
+        case 12:
+          rect(20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1], 260, imgHeight / leungkahimRatio[2], imgHeight);
+          break;
+        case 13:
+          rect(30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2], 260, imgHeight / leungkahimRatio[3], imgHeight);
+          break;
+        case 14:
+          rect(40 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3], 260, imgHeight / leungkahimRatio[4], imgHeight);
+          break;
+        case 15:
+          rect(10 + leungkahimPositionX, 260, imgHeight / nghowahRatio[1], imgHeight);
+          break;
+        case 16:
+          rect(20 + leungkahimPositionX + imgHeight / nghowahRatio[1], 260, imgHeight / nghowahRatio[2], imgHeight);
+          break;
+        case 17:
+          rect(30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2], 260, imgHeight / nghowahRatio[3], imgHeight);
+          break;
+        case 18:
+          rect(40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3], 260, imgHeight / nghowahRatio[4], imgHeight);
+          break;
+        case 19:
+          rect(10 + nghowahPositionX, 260, imgHeight / nureniRatio[1], imgHeight);
+          break;
+        case 20:
+          rect(20 + nghowahPositionX + imgHeight / nureniRatio[1], 260, imgHeight / nureniRatio[2], imgHeight);
+          break;
+        case 21:
+          rect(30 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2], 260, imgHeight / nureniRatio[3], imgHeight);
+          break;
+        case 22:
+          rect(40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3], 260, imgHeight / nureniRatio[4], imgHeight);
+          break;
+        case 23:
+          rect(10 + nureniPositionX, 260, imgHeight / chungwingheiRatio[1], imgHeight);
+          break;
+        case 24:
+          rect(20 + nureniPositionX + imgHeight / chungwingheiRatio[1], 260, imgHeight / chungwingheiRatio[2], imgHeight);
+          break;
+        case 25:
+          rect(30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2], 260, imgHeight / chungwingheiRatio[3], imgHeight);
+          break;
+        case 26:
+          rect(40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3], 260, imgHeight / chungwingheiRatio[4], imgHeight);
+          break;
+        case 27:
+          rect(10 + chungwingheiPositionX, 260, imgHeight / xerxesRatio[1], imgHeight);
+          break;
+        case 28:
+          rect(20 + chungwingheiPositionX + imgHeight / xerxesRatio[1], 260, imgHeight / xerxesRatio[2], imgHeight);
+          break;
+        case 29:
+          rect(30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2], 260, imgHeight / xerxesRatio[3], imgHeight);
+          break;
+        case 30:
+          rect(40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3], 260, imgHeight / xerxesRatio[4], imgHeight);
+          break;
+        default:
+      }
+      break;
+    case 5:
+      image(layout02Paint[5] ,312,138,layout02Paint[5].width, layout02Paint[5].height);
+      selectedLayout01Paint[1] = 0;
+      selectedLayout01Paint[2] = 0;
+      selectedLayout01Paint[3] = 0;
+      selectedLayout01Paint[4] = 0;
+      selectedLayout01Paint[5] = 1;
+
+      switch (selCase05) {
+        case 0:
+
+          break;
+        case 1:
+          rect(10 + sliderXMove, 260, imgHeight / angelRatio[1], imgHeight);
+          break;
+        case 2:
+          rect(20 + sliderXMove + imgHeight / angelRatio[1], 260, imgHeight / angelRatio[2], imgHeight);
+          break;
+        case 3:
+          rect(30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2], 260, imgHeight / bouieRatio[1], imgHeight);
+          break;
+        case 4:
+          rect(40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1], 260, imgHeight / bouieRatio[2], imgHeight);
+          break;
+        case 5:
+          rect(50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2], 260, imgHeight / chungchihoRatio[1], imgHeight);
+          break;
+        case 6:
+          rect(60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2]+ imgHeight / chungchihoRatio[1], 260, imgHeight / chungchihoRatio[2], imgHeight);
+          break;
+        case 7:
+          rect(10 + teacherPositionX, 260, imgHeight / kuchunyinRatio[1], imgHeight);
+          break;
+        case 8:
+          rect(20 + teacherPositionX + imgHeight / kuchunyinRatio[1], 260, imgHeight / kuchunyinRatio[2], imgHeight);
+          break;
+        case 9:
+          rect(30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2], 260, imgHeight / kuchunyinRatio[3], imgHeight);
+          break;
+        case 10:
+          rect(40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3], 260, imgHeight / kuchunyinRatio[4], imgHeight);
+          break;
+        case 11:
+          rect(10 + kuchunyinPositionX, 260, imgHeight / leungkahimRatio[1], imgHeight);
+          break;
+        case 12:
+          rect(20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1], 260, imgHeight / leungkahimRatio[2], imgHeight);
+          break;
+        case 13:
+          rect(30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2], 260, imgHeight / leungkahimRatio[3], imgHeight);
+          break;
+        case 14:
+          rect(40 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3], 260, imgHeight / leungkahimRatio[4], imgHeight);
+          break;
+        case 15:
+          rect(10 + leungkahimPositionX, 260, imgHeight / nghowahRatio[1], imgHeight);
+          break;
+        case 16:
+          rect(20 + leungkahimPositionX + imgHeight / nghowahRatio[1], 260, imgHeight / nghowahRatio[2], imgHeight);
+          break;
+        case 17:
+          rect(30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2], 260, imgHeight / nghowahRatio[3], imgHeight);
+          break;
+        case 18:
+          rect(40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3], 260, imgHeight / nghowahRatio[4], imgHeight);
+          break;
+        case 19:
+          rect(10 + nghowahPositionX, 260, imgHeight / nureniRatio[1], imgHeight);
+          break;
+        case 20:
+          rect(20 + nghowahPositionX + imgHeight / nureniRatio[1], 260, imgHeight / nureniRatio[2], imgHeight);
+          break;
+        case 21:
+          rect(30 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2], 260, imgHeight / nureniRatio[3], imgHeight);
+          break;
+        case 22:
+          rect(40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3], 260, imgHeight / nureniRatio[4], imgHeight);
+          break;
+        case 23:
+          rect(10 + nureniPositionX, 260, imgHeight / chungwingheiRatio[1], imgHeight);
+          break;
+        case 24:
+          rect(20 + nureniPositionX + imgHeight / chungwingheiRatio[1], 260, imgHeight / chungwingheiRatio[2], imgHeight);
+          break;
+        case 25:
+          rect(30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2], 260, imgHeight / chungwingheiRatio[3], imgHeight);
+          break;
+        case 26:
+          rect(40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3], 260, imgHeight / chungwingheiRatio[4], imgHeight);
+          break;
+        case 27:
+          rect(10 + chungwingheiPositionX, 260, imgHeight / xerxesRatio[1], imgHeight);
+          break;
+        case 28:
+          rect(20 + chungwingheiPositionX + imgHeight / xerxesRatio[1], 260, imgHeight / xerxesRatio[2], imgHeight);
+          break;
+        case 29:
+          rect(30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2], 260, imgHeight / xerxesRatio[3], imgHeight);
+          break;
+        case 30:
+          rect(40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3], 260, imgHeight / xerxesRatio[4], imgHeight);
+          break;
+        default:
+      }
+      break;
+    default:
+
+  }
+
+
+
+
+
+    switch (canvas_02) {
+      case 0:
+
+        break;
+      case 1:
+        image(angel[1], 187, 51 - layout02Paint[2].width * angelRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * angelRatio[1]);
+        fill(255);
+        // rect( 25, 150, 80, 80);
+        break;
+      case 2:
+        image(angel[2], 187, 51 - layout02Paint[2].width * angelRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * angelRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 3:
+        image(bouie[1], 187, 51 -  layout02Paint[2].height * bouieRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * bouieRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 4:
+        image(bouie[2], 187, 51 - layout02Paint[2].height * bouieRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * bouieRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 5:
+        image(chungchiho[1], 187, 51 - 10, layout02Paint[2].width, layout02Paint[2].width * chungchihoRatio[1]);
+        // image(chungchiho[1], 187, 51 - layout02Paint[2].height * chungchihoRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * chungchihoRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 6:
+        image(chungchiho[2], 187, 51 - layout02Paint[2].width * chungchihoRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * chungchihoRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 7:
+        image(kuchunyin[1], 187, 51 - layout02Paint[2].width * kuchunyinRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * kuchunyinRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 8:
+        image(kuchunyin[2], 187, 51 - layout02Paint[2].width * kuchunyinRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * kuchunyinRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 9:
+        image(kuchunyin[3], 187, 51 - layout02Paint[2].width * kuchunyinRatio[3] / 4, layout02Paint[2].width, layout02Paint[2].width * kuchunyinRatio[3]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 10:
+        image(kuchunyin[4], 187, 51 - layout02Paint[2].width * kuchunyinRatio[4] / 4, layout02Paint[2].width, layout02Paint[2].width * kuchunyinRatio[4]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 11:
+        image(leungkahim[1], 187, 51 - layout02Paint[2].width * leungkahimRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * leungkahimRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 12:
+        image(leungkahim[2], 187, 51 - layout02Paint[2].width * leungkahimRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * leungkahimRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 13:
+        image(leungkahim[3], 187, 51 - layout02Paint[2].width * leungkahimRatio[3] / 4, layout02Paint[2].width, layout02Paint[2].width * leungkahimRatio[3]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 14:
+        image(leungkahim[4], 187, 51 - layout02Paint[2].width * leungkahimRatio[4] / 4, layout02Paint[2].width, layout02Paint[2].width * leungkahimRatio[4]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 15:
+        image(nghowah[1], 187, 51 - layout02Paint[2].width * nghowahRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * nghowahRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 16:
+        image(nghowah[2], 187, 51 - layout02Paint[2].width * nghowahRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * nghowahRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 17:
+        image(nghowah[3], 187, 51 - layout02Paint[2].width * nghowahRatio[3] / 4, layout02Paint[2].width, layout02Paint[2].width * nghowahRatio[3]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 18:
+        image(nghowah[4], 187, 51 - layout02Paint[2].width * nghowahRatio[4] / 4, layout02Paint[2].width, layout02Paint[2].width * nghowahRatio[4]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 19:
+        image(nureni[1], 187, 51 - layout02Paint[2].width * nureniRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * nureniRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 20:
+        image(nureni[2], 187, 51 - layout02Paint[2].width * nureniRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * nureniRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 21:
+        image(nureni[3], 187, 51 - layout02Paint[2].width * nureniRatio[3] / 4, layout02Paint[2].width, layout02Paint[2].width * nureniRatio[3]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 22:
+        image(nureni[4], 187, 51 - layout02Paint[2].width * nureniRatio[4] / 4, layout02Paint[2].width, layout02Paint[2].width * nureniRatio[4]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 23:
+        image(chungwinghei[1], 187, 51 - layout02Paint[2].width * chungwingheiRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * chungwingheiRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 24:
+        image(chungwinghei[2], 187, 51 - layout02Paint[2].width * chungwingheiRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * chungwingheiRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 25:
+        image(chungwinghei[3], 187, 51 - layout02Paint[2].width * chungwingheiRatio[3] / 4, layout02Paint[2].width, layout02Paint[2].width * chungwingheiRatio[3]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 26:
+        image(chungwinghei[4], 187, 51 - layout02Paint[2].width * chungwingheiRatio[4] / 4, layout02Paint[2].width, layout02Paint[2].width * chungwingheiRatio[4]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 27:
+        image(xerxes[1], 187, 51 - layout02Paint[2].width * xerxesRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * xerxesRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 28:
+        image(xerxes[2], 187, 51 - layout02Paint[2].width * xerxesRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * xerxesRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 29:
+        image(xerxes[3], 187, 51 - layout02Paint[2].width * xerxesRatio[3] / 4, layout02Paint[2].width, layout02Paint[2].width * xerxesRatio[3]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 30:
+        image(xerxes[4], 187, 51 - layout02Paint[2].width * xerxesRatio[4] / 4, layout02Paint[2].width, layout02Paint[2].width * xerxesRatio[4]);
+        fill(255);
+        // rect( 25, 150, 80, 80);
+        break;
+
+      default:
+
+
+      }
+
+
+      ////////////////////////////////////////////////////////////////////////////////////////
+      switch (canvas_04) {
+        case 0:
+
+          break;
+        case 1:
+          image(angel[1], 117, 140 - layout02Paint[4].height * angelRatio[1] / 4, layout02Paint[4].width, layout02Paint[4].width * angelRatio[1]);
+          break;
+        case 2:
+          image(angel[2], 117, 140 - layout02Paint[4].width * angelRatio[2] / 4, layout02Paint[4].width, layout02Paint[4].width * angelRatio[2]);
+          break;
+        case 3:
+          image(bouie[1], 117, 140 -  layout02Paint[4].width * bouieRatio[1] / 4, layout02Paint[4].width, layout02Paint[4].width * bouieRatio[1]);
+          break;
+        case 4:
+          image(bouie[2], 117, 140 - layout02Paint[4].width * bouieRatio[2] / 4, layout02Paint[4].width, layout02Paint[4].width * bouieRatio[2]);
+          break;
+        case 5:
+          image(chungchiho[1], 117, 140, layout02Paint[4].height / chungchihoRatio[1], layout02Paint[4].height);
+          break;
+        case 6:
+          image(chungchiho[2], 117, 140, layout02Paint[4].height / chungchihoRatio[2], layout02Paint[4].height);
+          break;
+        case 7:
+          image(kuchunyin[1], 117, 140 - layout02Paint[4].width * kuchunyinRatio[1] / 4, layout02Paint[4].width, layout02Paint[4].width * kuchunyinRatio[1]);
+          break;
+        case 8:
+          image(kuchunyin[2], 117, 140, layout02Paint[4].width, layout02Paint[4].width * kuchunyinRatio[2]);
+          break;
+        case 9:
+          image(kuchunyin[3], 117, 140, layout02Paint[4].width, layout02Paint[4].width * kuchunyinRatio[3]);
+          break;
+        case 10:
+          image(kuchunyin[4], 117, 140, layout02Paint[4].width, layout02Paint[4].width * kuchunyinRatio[4]);
+          break;
+        case 11:
+          image(leungkahim[1], 117, 140, layout02Paint[4].height /leungkahimRatio[1] , layout02Paint[4].height);
+          break;
+        case 12:
+          image(leungkahim[2], 117, 140 - layout02Paint[4].width * leungkahimRatio[2] / 4, layout02Paint[4].width, layout02Paint[4].width * leungkahimRatio[2]);
+          break;
+        case 13:
+          image(leungkahim[3], 117, 140, layout02Paint[4].height / leungkahimRatio[3], layout02Paint[4].height);
+          break;
+        case 14:
+          image(leungkahim[4], 117, 140 - layout02Paint[4].width * leungkahimRatio[4] / 4, layout02Paint[4].width, layout02Paint[4].width * leungkahimRatio[4]);
+          break;
+        case 15:
+          image(nghowah[1], 117, 140, layout02Paint[4].width, layout02Paint[4].width * nghowahRatio[1]);
+          break;
+        case 16:
+          image(nghowah[2], 117, 140, layout02Paint[4].width, layout02Paint[4].width * nghowahRatio[2]);
+          break;
+        case 17:
+          image(nghowah[3], 117, 140, layout02Paint[4].width, layout02Paint[4].width * nghowahRatio[3]);
+          break;
+        case 18:
+          image(nghowah[4], 117, 140, layout02Paint[4].height / nghowahRatio[4], layout02Paint[4].height);
+          break;
+        case 19:
+          image(nureni[1], 117, 140 - layout02Paint[4].width * nureniRatio[1] / 4 , layout02Paint[4].width, layout02Paint[4].width * nureniRatio[1]);
+          break;
+        case 20:
+          image(nureni[2], 117, 140, layout02Paint[4].height / nureniRatio[2], layout02Paint[4].height);
+          break;
+        case 21:
+          image(nureni[3], 117, 140, layout02Paint[4].height / nureniRatio[3], layout02Paint[4].height);
+          break;
+        case 22:
+          image(nureni[4], 117, 140 - layout02Paint[4].width * nureniRatio[4] / 4, layout02Paint[4].width, layout02Paint[4].width * nureniRatio[4]);
+          break;
+        case 23:
+          image(chungwinghei[1], 117, 140, layout02Paint[4].height / chungwingheiRatio[1], layout02Paint[4].height);
+          break;
+        case 24:
+          image(chungwinghei[2], 117, 140 , layout02Paint[4].height / chungwingheiRatio[2], layout02Paint[4].height );
+          break;
+        case 25:
+          image(chungwinghei[3], 117, 140 - layout02Paint[4].width * chungwingheiRatio[3] / 4, layout02Paint[4].width, layout02Paint[4].width * chungwingheiRatio[3]);
+          break;
+        case 26:
+          image(chungwinghei[4], 117, 140 , layout02Paint[4].height / chungwingheiRatio[4], layout02Paint[4].height);
+          break;
+        case 27:
+          image(xerxes[1], 117, 140 - layout02Paint[4].width * xerxesRatio[1] / 4, layout02Paint[4].width, layout02Paint[4].width * xerxesRatio[1]);
+          break;
+        case 28:
+          image(xerxes[2], 117, 140, layout02Paint[4].height / xerxesRatio[2], layout02Paint[4].height);
+          break;
+        case 29:
+          image(xerxes[3], 117, 140 - layout02Paint[4].width * xerxesRatio[3] / 4, layout02Paint[4].width, layout02Paint[4].width * xerxesRatio[3]);
+          break;
+        case 30:
+          image(xerxes[4], 117, 140, layout02Paint[4].height / xerxesRatio[4], layout02Paint[4].height);
+          break;
+        default:
+      }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      switch (canvas_01) {
+        case 0:
+          break;
+        case 1:
+          image(angel[1], 32,37 - layout02Paint[1].height * angelRatio[1] / 4, layout02Paint[1].width, layout02Paint[1].width * angelRatio[1]);
+          break;
+        case 2:
+          image(angel[2], 32,37 - layout02Paint[1].width * angelRatio[2] / 4, layout02Paint[1].width, layout02Paint[1].width * angelRatio[2]);
+          break;
+        case 3:
+          image(bouie[1], 32,37 -  layout02Paint[1].width * bouieRatio[1] / 4, layout02Paint[1].width, layout02Paint[1].width * bouieRatio[1]);
+          break;
+        case 4:
+          image(bouie[2], 32,37, layout02Paint[1].width, layout02Paint[1].width * bouieRatio[2]);
+          break;
+        case 5:
+          image(chungchiho[1], 32,37, layout02Paint[1].height / chungchihoRatio[1], layout02Paint[1].height);
+          break;
+        case 6:
+          image(chungchiho[2], 32,37, layout02Paint[1].height / chungchihoRatio[2], layout02Paint[1].height);
+          break;
+        case 7:
+          image(kuchunyin[1], 32,37 - layout02Paint[1].width * kuchunyinRatio[1] / 4, layout02Paint[1].width, layout02Paint[1].width * kuchunyinRatio[1]);
+          break;
+        case 8:
+          image(kuchunyin[2], 32,37, layout02Paint[1].width, layout02Paint[1].width * kuchunyinRatio[2]);
+          break;
+        case 9:
+          image(kuchunyin[3], 32,37, layout02Paint[1].width, layout02Paint[1].width * kuchunyinRatio[3]);
+          break;
+        case 10:
+          image(kuchunyin[4], 32,37, layout02Paint[1].width, layout02Paint[1].width * kuchunyinRatio[4]);
+          break;
+        case 11:
+          image(leungkahim[1], 32,37, layout02Paint[1].height /leungkahimRatio[1] , layout02Paint[1].height);
+          break;
+        case 12:
+          image(leungkahim[2], 32,37 - layout02Paint[1].width * leungkahimRatio[2] / 4, layout02Paint[1].width, layout02Paint[1].width * leungkahimRatio[2]);
+          break;
+        case 13:
+          image(leungkahim[3], 32,37, layout02Paint[1].height / leungkahimRatio[3], layout02Paint[1].height);
+          break;
+        case 14:
+          image(leungkahim[4], 32,37 - layout02Paint[1].width * leungkahimRatio[4] / 4, layout02Paint[1].width, layout02Paint[1].width * leungkahimRatio[4]);
+          break;
+        case 15:
+          image(nghowah[1], 32,37, layout02Paint[1].width, layout02Paint[1].width * nghowahRatio[1]);
+          break;
+        case 16:
+          image(nghowah[2], 32,37, layout02Paint[1].width, layout02Paint[1].width * nghowahRatio[2]);
+          break;
+        case 17:
+          image(nghowah[3], 32,37, layout02Paint[1].width, layout02Paint[1].width * nghowahRatio[3]);
+          break;
+        case 18:
+          image(nghowah[4], 32,37, layout02Paint[1].height / nghowahRatio[4], layout02Paint[1].height);
+          break;
+        case 19:
+          image(nureni[1], 32,37 - layout02Paint[1].width * nureniRatio[1] / 4 , layout02Paint[1].width, layout02Paint[1].width * nureniRatio[1]);
+          break;
+        case 20:
+          image(nureni[2], 32,37, layout02Paint[1].height / nureniRatio[2], layout02Paint[1].height);
+          break;
+        case 21:
+          image(nureni[3], 32,37, layout02Paint[1].height / nureniRatio[3], layout02Paint[1].height);
+          break;
+        case 22:
+          image(nureni[4], 32,37 - layout02Paint[1].width * nureniRatio[4] / 4, layout02Paint[1].width, layout02Paint[1].width * nureniRatio[4]);
+          break;
+        case 23:
+          image(chungwinghei[1], 32,37, layout02Paint[1].height / chungwingheiRatio[1], layout02Paint[1].height);
+          break;
+        case 24:
+          image(chungwinghei[2], 32,37 , layout02Paint[1].height / chungwingheiRatio[2], layout02Paint[1].height );
+          break;
+        case 25:
+          image(chungwinghei[3], 32,37 - layout02Paint[1].width * chungwingheiRatio[3] / 4, layout02Paint[1].width, layout02Paint[1].width * chungwingheiRatio[3]);
+          break;
+        case 26:
+          image(chungwinghei[4], 32,37 , layout02Paint[1].height / chungwingheiRatio[4], layout02Paint[1].height);
+          break;
+        case 27:
+          image(xerxes[1], 32,37 - layout02Paint[1].width * xerxesRatio[1] / 4, layout02Paint[1].width, layout02Paint[1].width * xerxesRatio[1]);
+          break;
+        case 28:
+          image(xerxes[2], 32,37, layout02Paint[1].height / xerxesRatio[2], layout02Paint[1].height);
+          break;
+        case 29:
+          image(xerxes[3], 32,37 - layout02Paint[1].width * xerxesRatio[3] / 4, layout02Paint[1].width, layout02Paint[1].width * xerxesRatio[3]);
+          break;
+        case 30:
+          image(xerxes[4], 32,37, layout02Paint[1].height / xerxesRatio[4], layout02Paint[1].height);
+          break;
+        default:
+      }
+      ///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+      switch (canvas_03) {
+        case 0:
+
+          break;
+        case 1:
+          image(angel[1], 395, 45 - layout02Paint[3].height * angelRatio[1] / 4, layout02Paint[3].width, layout02Paint[3].width * angelRatio[1]);
+          break;
+        case 2:
+          image(angel[2], 395, 45 - layout02Paint[3].width * angelRatio[2] / 4, layout02Paint[3].width, layout02Paint[3].width * angelRatio[2]);
+          break;
+        case 3:
+          image(bouie[1], 395, 45 -  layout02Paint[3].width * bouieRatio[1] / 4, layout02Paint[3].width, layout02Paint[3].width * bouieRatio[1]);
+          break;
+        case 4:
+          image(bouie[2], 395, 45 - layout02Paint[3].width * bouieRatio[2] / 4, layout02Paint[3].width, layout02Paint[3].width * bouieRatio[2]);
+          break;
+        case 5:
+          image(chungchiho[1], 395, 45, layout02Paint[3].height / chungchihoRatio[1], layout02Paint[3].height);
+          break;
+        case 6:
+          image(chungchiho[2], 395, 45, layout02Paint[3].height / chungchihoRatio[2], layout02Paint[3].height);
+          break;
+        case 7:
+          image(kuchunyin[1], 395, 45 - layout02Paint[3].width * kuchunyinRatio[1] / 4, layout02Paint[3].width, layout02Paint[3].width * kuchunyinRatio[1]);
+          break;
+        case 8:
+          image(kuchunyin[2], 395, 45, layout02Paint[3].width, layout02Paint[3].width * kuchunyinRatio[2]);
+          break;
+        case 9:
+          image(kuchunyin[3], 395, 45, layout02Paint[3].width, layout02Paint[3].width * kuchunyinRatio[3]);
+          break;
+        case 10:
+          image(kuchunyin[4], 395, 45, layout02Paint[3].width, layout02Paint[3].width * kuchunyinRatio[4]);
+          break;
+        case 11:
+          image(leungkahim[1], 395, 45, layout02Paint[3].height /leungkahimRatio[1] , layout02Paint[3].height);
+          break;
+        case 12:
+          image(leungkahim[2], 395, 45 - layout02Paint[3].width * leungkahimRatio[2] / 4, layout02Paint[3].width, layout02Paint[3].width * leungkahimRatio[2]);
+          break;
+        case 13:
+          image(leungkahim[3], 395, 45, layout02Paint[3].height / leungkahimRatio[3], layout02Paint[3].height);
+          break;
+        case 14:
+          image(leungkahim[4], 395, 45 - layout02Paint[3].width * leungkahimRatio[4] / 4, layout02Paint[3].width, layout02Paint[3].width * leungkahimRatio[4]);
+          break;
+        case 15:
+          image(nghowah[1], 395, 45, layout02Paint[3].width, layout02Paint[3].width * nghowahRatio[1]);
+          break;
+        case 16:
+          image(nghowah[2], 395, 45, layout02Paint[3].width, layout02Paint[3].width * nghowahRatio[2]);
+          break;
+        case 17:
+          image(nghowah[3], 395, 45, layout02Paint[3].width, layout02Paint[3].width * nghowahRatio[3]);
+          break;
+        case 18:
+          image(nghowah[4], 395, 45, layout02Paint[3].height / nghowahRatio[4], layout02Paint[3].height);
+          break;
+        case 19:
+          image(nureni[1], 395, 45 - layout02Paint[3].width * nureniRatio[1] / 4 , layout02Paint[3].width, layout02Paint[3].width * nureniRatio[1]);
+          break;
+        case 20:
+          image(nureni[2], 395, 45, layout02Paint[3].height / nureniRatio[2], layout02Paint[3].height);
+          break;
+        case 21:
+          image(nureni[3], 395, 45, layout02Paint[3].height / nureniRatio[3], layout02Paint[3].height);
+          break;
+        case 22:
+          image(nureni[4], 395, 45 - layout02Paint[3].width * nureniRatio[4] / 4, layout02Paint[3].width, layout02Paint[3].width * nureniRatio[4]);
+          break;
+        case 23:
+          image(chungwinghei[1], 395, 45, layout02Paint[3].height / chungwingheiRatio[1], layout02Paint[3].height);
+          break;
+        case 24:
+          image(chungwinghei[2], 395, 45 , layout02Paint[3].height / chungwingheiRatio[2], layout02Paint[3].height );
+          break;
+        case 25:
+          image(chungwinghei[3], 395, 45 - layout02Paint[3].width * chungwingheiRatio[3] / 4, layout02Paint[3].width, layout02Paint[3].width * chungwingheiRatio[3]);
+          break;
+        case 26:
+          image(chungwinghei[4], 395, 45 , layout02Paint[3].height / chungwingheiRatio[4], layout02Paint[3].height);
+          break;
+        case 27:
+          image(xerxes[1], 395, 45 - layout02Paint[3].width * xerxesRatio[1] / 4, layout02Paint[3].width, layout02Paint[3].width * xerxesRatio[1]);
+          break;
+        case 28:
+          image(xerxes[2], 395, 45, layout02Paint[3].height / xerxesRatio[2], layout02Paint[3].height);
+          break;
+        case 29:
+          image(xerxes[3], 395, 45 - layout02Paint[3].width * xerxesRatio[3] / 4, layout02Paint[3].width, layout02Paint[3].width * xerxesRatio[3]);
+          break;
+        case 30:
+          image(xerxes[4], 395, 45, layout02Paint[3].height / xerxesRatio[4], layout02Paint[3].height);
+          break;
+        default:
+      }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        switch (canvas_05) {
+          case 0:
+
+            break;
+          case 1:
+            image(angel[1], 312, 138 - layout02Paint[5].height * angelRatio[1] / 4, layout02Paint[5].width, layout02Paint[5].width * angelRatio[1]);
+            break;
+          case 2:
+            image(angel[2], 312, 138 - layout02Paint[5].width * angelRatio[2] / 4, layout02Paint[5].width, layout02Paint[5].width * angelRatio[2]);
+            break;
+          case 3:
+            image(bouie[1], 312, 138 -  layout02Paint[5].width * bouieRatio[1] / 4, layout02Paint[5].width, layout02Paint[5].width * bouieRatio[1]);
+            break;
+          case 4:
+            image(bouie[2], 312, 138 - layout02Paint[5].width * bouieRatio[2] / 4, layout02Paint[5].width, layout02Paint[5].width * bouieRatio[2]);
+            break;
+          case 5:
+            image(chungchiho[1], 312, 138, layout02Paint[5].height / chungchihoRatio[1], layout02Paint[5].height);
+            break;
+          case 6:
+            image(chungchiho[2], 312, 138, layout02Paint[5].height / chungchihoRatio[2], layout02Paint[5].height);
+            break;
+          case 7:
+            image(kuchunyin[1], 312, 138 - layout02Paint[5].width * kuchunyinRatio[1] / 4, layout02Paint[5].width, layout02Paint[5].width * kuchunyinRatio[1]);
+            break;
+          case 8:
+            image(kuchunyin[2], 312, 138, layout02Paint[5].width, layout02Paint[5].width * kuchunyinRatio[2]);
+            break;
+          case 9:
+            image(kuchunyin[3], 312, 138, layout02Paint[5].width, layout02Paint[5].width * kuchunyinRatio[3]);
+            break;
+          case 10:
+            image(kuchunyin[4], 312, 138, layout02Paint[5].width, layout02Paint[5].width * kuchunyinRatio[4]);
+            break;
+          case 11:
+            image(leungkahim[1], 312, 138, layout02Paint[5].height /leungkahimRatio[1] , layout02Paint[5].height);
+            break;
+          case 12:
+            image(leungkahim[2], 312, 138 - layout02Paint[5].width * leungkahimRatio[2] / 4, layout02Paint[5].width, layout02Paint[5].width * leungkahimRatio[2]);
+            break;
+          case 13:
+            image(leungkahim[3], 312, 138, layout02Paint[5].height / leungkahimRatio[3], layout02Paint[5].height);
+            break;
+          case 14:
+            image(leungkahim[4], 312, 138 - layout02Paint[5].width * leungkahimRatio[4] / 4, layout02Paint[5].width, layout02Paint[5].width * leungkahimRatio[4]);
+            break;
+          case 15:
+            image(nghowah[1], 312, 138, layout02Paint[5].width, layout02Paint[5].width * nghowahRatio[1]);
+            break;
+          case 16:
+            image(nghowah[2], 312, 138, layout02Paint[5].width, layout02Paint[5].width * nghowahRatio[2]);
+            break;
+          case 17:
+            image(nghowah[3], 312, 138, layout02Paint[5].width, layout02Paint[5].width * nghowahRatio[3]);
+            break;
+          case 18:
+            image(nghowah[4], 312, 138, layout02Paint[5].height / nghowahRatio[4], layout02Paint[5].height);
+            break;
+          case 19:
+            image(nureni[1], 312, 138 - layout02Paint[5].width * nureniRatio[1] / 4 , layout02Paint[5].width, layout02Paint[5].width * nureniRatio[1]);
+            break;
+          case 20:
+            image(nureni[2], 312, 138, layout02Paint[5].height / nureniRatio[2], layout02Paint[5].height);
+            break;
+          case 21:
+            image(nureni[3], 312, 138, layout02Paint[5].height / nureniRatio[3], layout02Paint[5].height);
+            break;
+          case 22:
+            image(nureni[4], 312, 138 - layout02Paint[5].width * nureniRatio[4] / 4, layout02Paint[5].width, layout02Paint[5].width * nureniRatio[4]);
+            break;
+          case 23:
+            image(chungwinghei[1], 312, 138, layout02Paint[5].height / chungwingheiRatio[1], layout02Paint[5].height);
+            break;
+          case 24:
+            image(chungwinghei[2], 312, 138 , layout02Paint[5].height / chungwingheiRatio[2], layout02Paint[5].height );
+            break;
+          case 25:
+            image(chungwinghei[3], 312, 138 - layout02Paint[5].width * chungwingheiRatio[3] / 4, layout02Paint[5].width, layout02Paint[5].width * chungwingheiRatio[3]);
+            break;
+          case 26:
+            image(chungwinghei[4], 312, 138 , layout02Paint[5].height / chungwingheiRatio[4], layout02Paint[5].height);
+            break;
+          case 27:
+            image(xerxes[1], 312, 138 - layout02Paint[5].width * xerxesRatio[1] / 4, layout02Paint[5].width, layout02Paint[5].width * xerxesRatio[1]);
+            break;
+          case 28:
+            image(xerxes[2], 312, 138, layout02Paint[5].height / xerxesRatio[2], layout02Paint[5].height);
+            break;
+          case 29:
+            image(xerxes[3], 312, 138 - layout02Paint[5].width * xerxesRatio[3] / 4, layout02Paint[5].width, layout02Paint[5].width * xerxesRatio[3]);
+            break;
+          case 30:
+            image(xerxes[4], 312, 138 , layout02Paint[5].width, layout02Paint[5].width * xerxesRatio[4]);
+            break;
+          default:
+        }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+image(selectPaint, 0, 0, width, height);
+}
+
+
+
+function layout2(){
+  image(layout02, 0, 0, layout02.width, layout02.height);
+}
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////
+function artworkConfirm03(){
+  if (mouseX > 32  && mouseX < 32+layout02Paint[1].width && mouseY > 37 && mouseY < 37+layout02Paint[1].height && mouseIsPressed && pageCount >10){
+    selectedLayout01Print = 1;
+    pageCount =0;
+  }
+
+  if (mouseX > 187  && mouseX < 187 + layout02Paint[2].width && mouseY > 51 && mouseY < 51+layout02Paint[2].height && mouseIsPressed && pageCount >10){
+    selectedLayout01Print = 2;
+    pageCount =0;
+  }
+
+  if (mouseX > 395 && mouseX < 395+layout02Paint[3].width && mouseY > 45 && mouseY < 45+layout02Paint[3].height && mouseIsPressed && pageCount >10){
+    selectedLayout01Print = 3;
+    pageCount =0;
+  }
+
+  if (mouseX > 117 && mouseX < 117+layout02Paint[4].width && mouseY > 140 && mouseY < 140 +layout02Paint[4].height && mouseIsPressed && pageCount >10){
+    selectedLayout01Print = 4;
+    pageCount =0;
+  }
+
+  if (mouseX > 312 && mouseX < 312+layout02Paint[5].width && mouseY > 138 && mouseY < 138 +layout02Paint[5].height && mouseIsPressed && pageCount >10){
+    selectedLayout01Print = 5;
+    pageCount =0;
+  }
+
+
+
+
+
+    for (var i = 1; i < 31; i++){
+      if (selectedLayout01Paint[1] == 1 && selCase01 == i){
+        canvas_01 = i;
+      }
+
+      if (selectedLayout01Paint[2] == 1 && selCase02 == i){
+        canvas_02 = i;
+      }
+
+      if (selectedLayout01Paint[3] == 1 && selCase03 == i){
+        canvas_03 = i;
+      }
+
+      if (selectedLayout01Paint[4] == 1 && selCase04 == i){
+        canvas_04 = i;
+      }
+
+      if (selectedLayout01Paint[5] == 1 && selCase05 == i){
+        canvas_05 = i;
+      }
+    }
+
+
+  switch (selectedLayout01Print) {
+    case 0:
+
+      break;
+    case 1:
+      image(layout02Paint[1] ,32,37,layout02Paint[1].width, layout02Paint[1].height);
+      selectedLayout01Paint[1] = 1;
+      selectedLayout01Paint[2] = 0;
+      selectedLayout01Paint[3] = 0;
+      selectedLayout01Paint[4] = 0;
+      selectedLayout01Paint[5] = 0;
+
+      switch (selCase01) {
+        case 0:
+
+          break;
+        case 1:
+          rect(10 + sliderXMove, 260, imgHeight / angelRatio[1], imgHeight);
+          break;
+        case 2:
+          rect(20 + sliderXMove + imgHeight / angelRatio[1], 260, imgHeight / angelRatio[2], imgHeight);
+          break;
+        case 3:
+          rect(30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2], 260, imgHeight / bouieRatio[1], imgHeight);
+          break;
+        case 4:
+          rect(40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1], 260, imgHeight / bouieRatio[2], imgHeight);
+          break;
+        case 5:
+          rect(50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2], 260, imgHeight / chungchihoRatio[1], imgHeight);
+          break;
+        case 6:
+          rect(60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2]+ imgHeight / chungchihoRatio[1], 260, imgHeight / chungchihoRatio[2], imgHeight);
+          break;
+        case 7:
+          rect(10 + teacherPositionX, 260, imgHeight / kuchunyinRatio[1], imgHeight);
+          break;
+        case 8:
+          rect(20 + teacherPositionX + imgHeight / kuchunyinRatio[1], 260, imgHeight / kuchunyinRatio[2], imgHeight);
+          break;
+        case 9:
+          rect(30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2], 260, imgHeight / kuchunyinRatio[3], imgHeight);
+          break;
+        case 10:
+          rect(40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3], 260, imgHeight / kuchunyinRatio[4], imgHeight);
+          break;
+        case 11:
+          rect(10 + kuchunyinPositionX, 260, imgHeight / leungkahimRatio[1], imgHeight);
+          break;
+        case 12:
+          rect(20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1], 260, imgHeight / leungkahimRatio[2], imgHeight);
+          break;
+        case 13:
+          rect(30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2], 260, imgHeight / leungkahimRatio[3], imgHeight);
+          break;
+        case 14:
+          rect(40 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3], 260, imgHeight / leungkahimRatio[4], imgHeight);
+          break;
+        case 15:
+          rect(10 + leungkahimPositionX, 260, imgHeight / nghowahRatio[1], imgHeight);
+          break;
+        case 16:
+          rect(20 + leungkahimPositionX + imgHeight / nghowahRatio[1], 260, imgHeight / nghowahRatio[2], imgHeight);
+          break;
+        case 17:
+          rect(30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2], 260, imgHeight / nghowahRatio[3], imgHeight);
+          break;
+        case 18:
+          rect(40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3], 260, imgHeight / nghowahRatio[4], imgHeight);
+          break;
+        case 19:
+          rect(10 + nghowahPositionX, 260, imgHeight / nureniRatio[1], imgHeight);
+          break;
+        case 20:
+          rect(20 + nghowahPositionX + imgHeight / nureniRatio[1], 260, imgHeight / nureniRatio[2], imgHeight);
+          break;
+        case 21:
+          rect(30 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2], 260, imgHeight / nureniRatio[3], imgHeight);
+          break;
+        case 22:
+          rect(40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3], 260, imgHeight / nureniRatio[4], imgHeight);
+          break;
+        case 23:
+          rect(10 + nureniPositionX, 260, imgHeight / chungwingheiRatio[1], imgHeight);
+          break;
+        case 24:
+          rect(20 + nureniPositionX + imgHeight / chungwingheiRatio[1], 260, imgHeight / chungwingheiRatio[2], imgHeight);
+          break;
+        case 25:
+          rect(30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2], 260, imgHeight / chungwingheiRatio[3], imgHeight);
+          break;
+        case 26:
+          rect(40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3], 260, imgHeight / chungwingheiRatio[4], imgHeight);
+          break;
+        case 27:
+          rect(10 + chungwingheiPositionX, 260, imgHeight / xerxesRatio[1], imgHeight);
+          break;
+        case 28:
+          rect(20 + chungwingheiPositionX + imgHeight / xerxesRatio[1], 260, imgHeight / xerxesRatio[2], imgHeight);
+          break;
+        case 29:
+          rect(30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2], 260, imgHeight / xerxesRatio[3], imgHeight);
+          break;
+        case 30:
+          rect(40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3], 260, imgHeight / xerxesRatio[4], imgHeight);
+          break;
+        default:
+
+      }
+      break;
+    case 2:
+      image(layout02Paint[2] ,187,51,layout02Paint[2].width, layout02Paint[2].height);
+      selectedLayout01Paint[1] = 0;
+      selectedLayout01Paint[2] = 1;
+      selectedLayout01Paint[3] = 0;
+      selectedLayout01Paint[4] = 0;
+      selectedLayout01Paint[5] = 0;
+
+      switch (selCase02) {
+        case 0:
+
+          break;
+        case 1:
+          rect(10 + sliderXMove, 260, imgHeight / angelRatio[1], imgHeight);
+          break;
+        case 2:
+          rect(20 + sliderXMove + imgHeight / angelRatio[1], 260, imgHeight / angelRatio[2], imgHeight);
+          break;
+        case 3:
+          rect(30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2], 260, imgHeight / bouieRatio[1], imgHeight);
+          break;
+        case 4:
+          rect(40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1], 260, imgHeight / bouieRatio[2], imgHeight);
+          break;
+        case 5:
+          rect(50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2], 260, imgHeight / chungchihoRatio[1], imgHeight);
+          break;
+        case 6:
+          rect(60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2]+ imgHeight / chungchihoRatio[1], 260, imgHeight / chungchihoRatio[2], imgHeight);
+          break;
+        case 7:
+          rect(10 + teacherPositionX, 260, imgHeight / kuchunyinRatio[1], imgHeight);
+          break;
+        case 8:
+          rect(20 + teacherPositionX + imgHeight / kuchunyinRatio[1], 260, imgHeight / kuchunyinRatio[2], imgHeight);
+          break;
+        case 9:
+          rect(30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2], 260, imgHeight / kuchunyinRatio[3], imgHeight);
+          break;
+        case 10:
+          rect(40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3], 260, imgHeight / kuchunyinRatio[4], imgHeight);
+          break;
+        case 11:
+          rect(10 + kuchunyinPositionX, 260, imgHeight / leungkahimRatio[1], imgHeight);
+          break;
+        case 12:
+          rect(20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1], 260, imgHeight / leungkahimRatio[2], imgHeight);
+          break;
+        case 13:
+          rect(30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2], 260, imgHeight / leungkahimRatio[3], imgHeight);
+          break;
+        case 14:
+          rect(40 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3], 260, imgHeight / leungkahimRatio[4], imgHeight);
+          break;
+        case 15:
+          rect(10 + leungkahimPositionX, 260, imgHeight / nghowahRatio[1], imgHeight);
+          break;
+        case 16:
+          rect(20 + leungkahimPositionX + imgHeight / nghowahRatio[1], 260, imgHeight / nghowahRatio[2], imgHeight);
+          break;
+        case 17:
+          rect(30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2], 260, imgHeight / nghowahRatio[3], imgHeight);
+          break;
+        case 18:
+          rect(40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3], 260, imgHeight / nghowahRatio[4], imgHeight);
+          break;
+        case 19:
+          rect(10 + nghowahPositionX, 260, imgHeight / nureniRatio[1], imgHeight);
+          break;
+        case 20:
+          rect(20 + nghowahPositionX + imgHeight / nureniRatio[1], 260, imgHeight / nureniRatio[2], imgHeight);
+          break;
+        case 21:
+          rect(30 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2], 260, imgHeight / nureniRatio[3], imgHeight);
+          break;
+        case 22:
+          rect(40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3], 260, imgHeight / nureniRatio[4], imgHeight);
+          break;
+        case 23:
+          rect(10 + nureniPositionX, 260, imgHeight / chungwingheiRatio[1], imgHeight);
+          break;
+        case 24:
+          rect(20 + nureniPositionX + imgHeight / chungwingheiRatio[1], 260, imgHeight / chungwingheiRatio[2], imgHeight);
+          break;
+        case 25:
+          rect(30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2], 260, imgHeight / chungwingheiRatio[3], imgHeight);
+          break;
+        case 26:
+          rect(40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3], 260, imgHeight / chungwingheiRatio[4], imgHeight);
+          break;
+        case 27:
+          rect(10 + chungwingheiPositionX, 260, imgHeight / xerxesRatio[1], imgHeight);
+          break;
+        case 28:
+          rect(20 + chungwingheiPositionX + imgHeight / xerxesRatio[1], 260, imgHeight / xerxesRatio[2], imgHeight);
+          break;
+        case 29:
+          rect(30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2], 260, imgHeight / xerxesRatio[3], imgHeight);
+          break;
+        case 30:
+          rect(40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3], 260, imgHeight / xerxesRatio[4], imgHeight);
+          break;
+        default:
+      }
+      break;
+    case 3:
+      image(layout02Paint[3] ,395,45,layout02Paint[3].width, layout02Paint[3].height);
+      selectedLayout01Paint[1] = 0;
+      selectedLayout01Paint[2] = 0;
+      selectedLayout01Paint[3] = 1;
+      selectedLayout01Paint[4] = 0;
+      selectedLayout01Paint[5] = 0;
+      switch (selCase03) {
+        case 0:
+
+          break;
+        case 1:
+          rect(10 + sliderXMove, 260, imgHeight / angelRatio[1], imgHeight);
+          break;
+        case 2:
+          rect(20 + sliderXMove + imgHeight / angelRatio[1], 260, imgHeight / angelRatio[2], imgHeight);
+          break;
+        case 3:
+          rect(30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2], 260, imgHeight / bouieRatio[1], imgHeight);
+          break;
+        case 4:
+          rect(40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1], 260, imgHeight / bouieRatio[2], imgHeight);
+          break;
+        case 5:
+          rect(50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2], 260, imgHeight / chungchihoRatio[1], imgHeight);
+          break;
+        case 6:
+          rect(60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2]+ imgHeight / chungchihoRatio[1], 260, imgHeight / chungchihoRatio[2], imgHeight);
+          break;
+        case 7:
+          rect(10 + teacherPositionX, 260, imgHeight / kuchunyinRatio[1], imgHeight);
+          break;
+        case 8:
+          rect(20 + teacherPositionX + imgHeight / kuchunyinRatio[1], 260, imgHeight / kuchunyinRatio[2], imgHeight);
+          break;
+        case 9:
+          rect(30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2], 260, imgHeight / kuchunyinRatio[3], imgHeight);
+          break;
+        case 10:
+          rect(40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3], 260, imgHeight / kuchunyinRatio[4], imgHeight);
+          break;
+        case 11:
+          rect(10 + kuchunyinPositionX, 260, imgHeight / leungkahimRatio[1], imgHeight);
+          break;
+        case 12:
+          rect(20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1], 260, imgHeight / leungkahimRatio[2], imgHeight);
+          break;
+        case 13:
+          rect(30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2], 260, imgHeight / leungkahimRatio[3], imgHeight);
+          break;
+        case 14:
+          rect(40 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3], 260, imgHeight / leungkahimRatio[4], imgHeight);
+          break;
+        case 15:
+          rect(10 + leungkahimPositionX, 260, imgHeight / nghowahRatio[1], imgHeight);
+          break;
+        case 16:
+          rect(20 + leungkahimPositionX + imgHeight / nghowahRatio[1], 260, imgHeight / nghowahRatio[2], imgHeight);
+          break;
+        case 17:
+          rect(30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2], 260, imgHeight / nghowahRatio[3], imgHeight);
+          break;
+        case 18:
+          rect(40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3], 260, imgHeight / nghowahRatio[4], imgHeight);
+          break;
+        case 19:
+          rect(10 + nghowahPositionX, 260, imgHeight / nureniRatio[1], imgHeight);
+          break;
+        case 20:
+          rect(20 + nghowahPositionX + imgHeight / nureniRatio[1], 260, imgHeight / nureniRatio[2], imgHeight);
+          break;
+        case 21:
+          rect(30 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2], 260, imgHeight / nureniRatio[3], imgHeight);
+          break;
+        case 22:
+          rect(40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3], 260, imgHeight / nureniRatio[4], imgHeight);
+          break;
+        case 23:
+          rect(10 + nureniPositionX, 260, imgHeight / chungwingheiRatio[1], imgHeight);
+          break;
+        case 24:
+          rect(20 + nureniPositionX + imgHeight / chungwingheiRatio[1], 260, imgHeight / chungwingheiRatio[2], imgHeight);
+          break;
+        case 25:
+          rect(30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2], 260, imgHeight / chungwingheiRatio[3], imgHeight);
+          break;
+        case 26:
+          rect(40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3], 260, imgHeight / chungwingheiRatio[4], imgHeight);
+          break;
+        case 27:
+          rect(10 + chungwingheiPositionX, 260, imgHeight / xerxesRatio[1], imgHeight);
+          break;
+        case 28:
+          rect(20 + chungwingheiPositionX + imgHeight / xerxesRatio[1], 260, imgHeight / xerxesRatio[2], imgHeight);
+          break;
+        case 29:
+          rect(30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2], 260, imgHeight / xerxesRatio[3], imgHeight);
+          break;
+        case 30:
+          rect(40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3], 260, imgHeight / xerxesRatio[4], imgHeight);
+          break;
+        default:
+      }
+      break;
+    case 4:
+      image(layout02Paint[4] ,117,140,layout02Paint[4].width, layout02Paint[4].height);
+      selectedLayout01Paint[1] = 0;
+      selectedLayout01Paint[2] = 0;
+      selectedLayout01Paint[3] = 0;
+      selectedLayout01Paint[4] = 1;
+      selectedLayout01Paint[5] = 0;
+      switch (selCase04) {
+        case 0:
+
+          break;
+        case 1:
+          rect(10 + sliderXMove, 260, imgHeight / angelRatio[1], imgHeight);
+          break;
+        case 2:
+          rect(20 + sliderXMove + imgHeight / angelRatio[1], 260, imgHeight / angelRatio[2], imgHeight);
+          break;
+        case 3:
+          rect(30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2], 260, imgHeight / bouieRatio[1], imgHeight);
+          break;
+        case 4:
+          rect(40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1], 260, imgHeight / bouieRatio[2], imgHeight);
+          break;
+        case 5:
+          rect(50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2], 260, imgHeight / chungchihoRatio[1], imgHeight);
+          break;
+        case 6:
+          rect(60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2]+ imgHeight / chungchihoRatio[1], 260, imgHeight / chungchihoRatio[2], imgHeight);
+          break;
+        case 7:
+          rect(10 + teacherPositionX, 260, imgHeight / kuchunyinRatio[1], imgHeight);
+          break;
+        case 8:
+          rect(20 + teacherPositionX + imgHeight / kuchunyinRatio[1], 260, imgHeight / kuchunyinRatio[2], imgHeight);
+          break;
+        case 9:
+          rect(30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2], 260, imgHeight / kuchunyinRatio[3], imgHeight);
+          break;
+        case 10:
+          rect(40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3], 260, imgHeight / kuchunyinRatio[4], imgHeight);
+          break;
+        case 11:
+          rect(10 + kuchunyinPositionX, 260, imgHeight / leungkahimRatio[1], imgHeight);
+          break;
+        case 12:
+          rect(20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1], 260, imgHeight / leungkahimRatio[2], imgHeight);
+          break;
+        case 13:
+          rect(30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2], 260, imgHeight / leungkahimRatio[3], imgHeight);
+          break;
+        case 14:
+          rect(40 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3], 260, imgHeight / leungkahimRatio[4], imgHeight);
+          break;
+        case 15:
+          rect(10 + leungkahimPositionX, 260, imgHeight / nghowahRatio[1], imgHeight);
+          break;
+        case 16:
+          rect(20 + leungkahimPositionX + imgHeight / nghowahRatio[1], 260, imgHeight / nghowahRatio[2], imgHeight);
+          break;
+        case 17:
+          rect(30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2], 260, imgHeight / nghowahRatio[3], imgHeight);
+          break;
+        case 18:
+          rect(40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3], 260, imgHeight / nghowahRatio[4], imgHeight);
+          break;
+        case 19:
+          rect(10 + nghowahPositionX, 260, imgHeight / nureniRatio[1], imgHeight);
+          break;
+        case 20:
+          rect(20 + nghowahPositionX + imgHeight / nureniRatio[1], 260, imgHeight / nureniRatio[2], imgHeight);
+          break;
+        case 21:
+          rect(30 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2], 260, imgHeight / nureniRatio[3], imgHeight);
+          break;
+        case 22:
+          rect(40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3], 260, imgHeight / nureniRatio[4], imgHeight);
+          break;
+        case 23:
+          rect(10 + nureniPositionX, 260, imgHeight / chungwingheiRatio[1], imgHeight);
+          break;
+        case 24:
+          rect(20 + nureniPositionX + imgHeight / chungwingheiRatio[1], 260, imgHeight / chungwingheiRatio[2], imgHeight);
+          break;
+        case 25:
+          rect(30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2], 260, imgHeight / chungwingheiRatio[3], imgHeight);
+          break;
+        case 26:
+          rect(40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3], 260, imgHeight / chungwingheiRatio[4], imgHeight);
+          break;
+        case 27:
+          rect(10 + chungwingheiPositionX, 260, imgHeight / xerxesRatio[1], imgHeight);
+          break;
+        case 28:
+          rect(20 + chungwingheiPositionX + imgHeight / xerxesRatio[1], 260, imgHeight / xerxesRatio[2], imgHeight);
+          break;
+        case 29:
+          rect(30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2], 260, imgHeight / xerxesRatio[3], imgHeight);
+          break;
+        case 30:
+          rect(40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3], 260, imgHeight / xerxesRatio[4], imgHeight);
+          break;
+        default:
+      }
+      break;
+    case 5:
+      image(layout02Paint[5] ,312,138,layout02Paint[5].width, layout02Paint[5].height);
+      selectedLayout01Paint[1] = 0;
+      selectedLayout01Paint[2] = 0;
+      selectedLayout01Paint[3] = 0;
+      selectedLayout01Paint[4] = 0;
+      selectedLayout01Paint[5] = 1;
+
+      switch (selCase05) {
+        case 0:
+
+          break;
+        case 1:
+          rect(10 + sliderXMove, 260, imgHeight / angelRatio[1], imgHeight);
+          break;
+        case 2:
+          rect(20 + sliderXMove + imgHeight / angelRatio[1], 260, imgHeight / angelRatio[2], imgHeight);
+          break;
+        case 3:
+          rect(30 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2], 260, imgHeight / bouieRatio[1], imgHeight);
+          break;
+        case 4:
+          rect(40 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1], 260, imgHeight / bouieRatio[2], imgHeight);
+          break;
+        case 5:
+          rect(50 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2], 260, imgHeight / chungchihoRatio[1], imgHeight);
+          break;
+        case 6:
+          rect(60 + sliderXMove + imgHeight / angelRatio[1] + imgHeight / angelRatio[2]+ imgHeight / bouieRatio[1] + imgHeight / bouieRatio[2]+ imgHeight / chungchihoRatio[1], 260, imgHeight / chungchihoRatio[2], imgHeight);
+          break;
+        case 7:
+          rect(10 + teacherPositionX, 260, imgHeight / kuchunyinRatio[1], imgHeight);
+          break;
+        case 8:
+          rect(20 + teacherPositionX + imgHeight / kuchunyinRatio[1], 260, imgHeight / kuchunyinRatio[2], imgHeight);
+          break;
+        case 9:
+          rect(30 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2], 260, imgHeight / kuchunyinRatio[3], imgHeight);
+          break;
+        case 10:
+          rect(40 + teacherPositionX + imgHeight / kuchunyinRatio[1] + imgHeight / kuchunyinRatio[2] + imgHeight / kuchunyinRatio[3], 260, imgHeight / kuchunyinRatio[4], imgHeight);
+          break;
+        case 11:
+          rect(10 + kuchunyinPositionX, 260, imgHeight / leungkahimRatio[1], imgHeight);
+          break;
+        case 12:
+          rect(20 + kuchunyinPositionX + imgHeight / leungkahimRatio[1], 260, imgHeight / leungkahimRatio[2], imgHeight);
+          break;
+        case 13:
+          rect(30 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2], 260, imgHeight / leungkahimRatio[3], imgHeight);
+          break;
+        case 14:
+          rect(40 + kuchunyinPositionX + imgHeight / leungkahimRatio[1] + imgHeight / leungkahimRatio[2] + imgHeight / leungkahimRatio[3], 260, imgHeight / leungkahimRatio[4], imgHeight);
+          break;
+        case 15:
+          rect(10 + leungkahimPositionX, 260, imgHeight / nghowahRatio[1], imgHeight);
+          break;
+        case 16:
+          rect(20 + leungkahimPositionX + imgHeight / nghowahRatio[1], 260, imgHeight / nghowahRatio[2], imgHeight);
+          break;
+        case 17:
+          rect(30 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2], 260, imgHeight / nghowahRatio[3], imgHeight);
+          break;
+        case 18:
+          rect(40 + leungkahimPositionX + imgHeight / nghowahRatio[1] + imgHeight / nghowahRatio[2] + imgHeight / nghowahRatio[3], 260, imgHeight / nghowahRatio[4], imgHeight);
+          break;
+        case 19:
+          rect(10 + nghowahPositionX, 260, imgHeight / nureniRatio[1], imgHeight);
+          break;
+        case 20:
+          rect(20 + nghowahPositionX + imgHeight / nureniRatio[1], 260, imgHeight / nureniRatio[2], imgHeight);
+          break;
+        case 21:
+          rect(30 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2], 260, imgHeight / nureniRatio[3], imgHeight);
+          break;
+        case 22:
+          rect(40 + nghowahPositionX + imgHeight / nureniRatio[1] + imgHeight / nureniRatio[2] + imgHeight / nureniRatio[3], 260, imgHeight / nureniRatio[4], imgHeight);
+          break;
+        case 23:
+          rect(10 + nureniPositionX, 260, imgHeight / chungwingheiRatio[1], imgHeight);
+          break;
+        case 24:
+          rect(20 + nureniPositionX + imgHeight / chungwingheiRatio[1], 260, imgHeight / chungwingheiRatio[2], imgHeight);
+          break;
+        case 25:
+          rect(30 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2], 260, imgHeight / chungwingheiRatio[3], imgHeight);
+          break;
+        case 26:
+          rect(40 + nureniPositionX + imgHeight / chungwingheiRatio[1] + imgHeight / chungwingheiRatio[2] + imgHeight / chungwingheiRatio[3], 260, imgHeight / chungwingheiRatio[4], imgHeight);
+          break;
+        case 27:
+          rect(10 + chungwingheiPositionX, 260, imgHeight / xerxesRatio[1], imgHeight);
+          break;
+        case 28:
+          rect(20 + chungwingheiPositionX + imgHeight / xerxesRatio[1], 260, imgHeight / xerxesRatio[2], imgHeight);
+          break;
+        case 29:
+          rect(30 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2], 260, imgHeight / xerxesRatio[3], imgHeight);
+          break;
+        case 30:
+          rect(40 + chungwingheiPositionX + imgHeight / xerxesRatio[1] + imgHeight / xerxesRatio[2] + imgHeight / xerxesRatio[3], 260, imgHeight / xerxesRatio[4], imgHeight);
+          break;
+        default:
+      }
+      break;
+    default:
+
+  }
+
+
+
+
+
+    switch (canvas_02) {
+      case 0:
+
+        break;
+      case 1:
+        image(angel[1], 187, 51 - layout02Paint[2].width * angelRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * angelRatio[1]);
+        fill(255);
+        // rect( 25, 150, 80, 80);
+        break;
+      case 2:
+        image(angel[2], 187, 51 - layout02Paint[2].width * angelRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * angelRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 3:
+        image(bouie[1], 187, 51 -  layout02Paint[2].height * bouieRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * bouieRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 4:
+        image(bouie[2], 187, 51 - layout02Paint[2].height * bouieRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * bouieRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 5:
+        image(chungchiho[1], 187, 51 - 10, layout02Paint[2].width, layout02Paint[2].width * chungchihoRatio[1]);
+        // image(chungchiho[1], 187, 51 - layout02Paint[2].height * chungchihoRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * chungchihoRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 6:
+        image(chungchiho[2], 187, 51 - layout02Paint[2].width * chungchihoRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * chungchihoRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 7:
+        image(kuchunyin[1], 187, 51 - layout02Paint[2].width * kuchunyinRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * kuchunyinRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 8:
+        image(kuchunyin[2], 187, 51 - layout02Paint[2].width * kuchunyinRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * kuchunyinRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 9:
+        image(kuchunyin[3], 187, 51 - layout02Paint[2].width * kuchunyinRatio[3] / 4, layout02Paint[2].width, layout02Paint[2].width * kuchunyinRatio[3]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 10:
+        image(kuchunyin[4], 187, 51 - layout02Paint[2].width * kuchunyinRatio[4] / 4, layout02Paint[2].width, layout02Paint[2].width * kuchunyinRatio[4]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 11:
+        image(leungkahim[1], 187, 51 - layout02Paint[2].width * leungkahimRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * leungkahimRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 12:
+        image(leungkahim[2], 187, 51 - layout02Paint[2].width * leungkahimRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * leungkahimRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 13:
+        image(leungkahim[3], 187, 51 - layout02Paint[2].width * leungkahimRatio[3] / 4, layout02Paint[2].width, layout02Paint[2].width * leungkahimRatio[3]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 14:
+        image(leungkahim[4], 187, 51 - layout02Paint[2].width * leungkahimRatio[4] / 4, layout02Paint[2].width, layout02Paint[2].width * leungkahimRatio[4]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 15:
+        image(nghowah[1], 187, 51 - layout02Paint[2].width * nghowahRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * nghowahRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 16:
+        image(nghowah[2], 187, 51 - layout02Paint[2].width * nghowahRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * nghowahRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 17:
+        image(nghowah[3], 187, 51 - layout02Paint[2].width * nghowahRatio[3] / 4, layout02Paint[2].width, layout02Paint[2].width * nghowahRatio[3]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 18:
+        image(nghowah[4], 187, 51 - layout02Paint[2].width * nghowahRatio[4] / 4, layout02Paint[2].width, layout02Paint[2].width * nghowahRatio[4]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 19:
+        image(nureni[1], 187, 51 - layout02Paint[2].width * nureniRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * nureniRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 20:
+        image(nureni[2], 187, 51 - layout02Paint[2].width * nureniRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * nureniRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 21:
+        image(nureni[3], 187, 51 - layout02Paint[2].width * nureniRatio[3] / 4, layout02Paint[2].width, layout02Paint[2].width * nureniRatio[3]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 22:
+        image(nureni[4], 187, 51 - layout02Paint[2].width * nureniRatio[4] / 4, layout02Paint[2].width, layout02Paint[2].width * nureniRatio[4]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 23:
+        image(chungwinghei[1], 187, 51 - layout02Paint[2].width * chungwingheiRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * chungwingheiRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 24:
+        image(chungwinghei[2], 187, 51 - layout02Paint[2].width * chungwingheiRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * chungwingheiRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 25:
+        image(chungwinghei[3], 187, 51 - layout02Paint[2].width * chungwingheiRatio[3] / 4, layout02Paint[2].width, layout02Paint[2].width * chungwingheiRatio[3]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 26:
+        image(chungwinghei[4], 187, 51 - layout02Paint[2].width * chungwingheiRatio[4] / 4, layout02Paint[2].width, layout02Paint[2].width * chungwingheiRatio[4]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 27:
+        image(xerxes[1], 187, 51 - layout02Paint[2].width * xerxesRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * xerxesRatio[1]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 28:
+        image(xerxes[2], 187, 51 - layout02Paint[2].width * xerxesRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * xerxesRatio[2]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 29:
+        image(xerxes[3], 187, 51 - layout02Paint[2].width * xerxesRatio[3] / 4, layout02Paint[2].width, layout02Paint[2].width * xerxesRatio[3]);
+        fill(255);
+        rect( 25, 150, 80, 80);
+        break;
+      case 30:
+        image(xerxes[4], 187, 51 - layout02Paint[2].width * xerxesRatio[4] / 4, layout02Paint[2].width, layout02Paint[2].width * xerxesRatio[4]);
+        fill(255);
+        // rect( 25, 150, 80, 80);
+        break;
+
+      default:
+
+
+      }
+
+
+      ////////////////////////////////////////////////////////////////////////////////////////
+      switch (canvas_04) {
+        case 0:
+
+          break;
+        case 1:
+          image(angel[1], 117, 140 - layout02Paint[4].height * angelRatio[1] / 4, layout02Paint[4].width, layout02Paint[4].width * angelRatio[1]);
+          break;
+        case 2:
+          image(angel[2], 117, 140 - layout02Paint[4].width * angelRatio[2] / 4, layout02Paint[4].width, layout02Paint[4].width * angelRatio[2]);
+          break;
+        case 3:
+          image(bouie[1], 117, 140 -  layout02Paint[4].width * bouieRatio[1] / 4, layout02Paint[4].width, layout02Paint[4].width * bouieRatio[1]);
+          break;
+        case 4:
+          image(bouie[2], 117, 140 - layout02Paint[4].width * bouieRatio[2] / 4, layout02Paint[4].width, layout02Paint[4].width * bouieRatio[2]);
+          break;
+        case 5:
+          image(chungchiho[1], 117, 140, layout02Paint[4].height / chungchihoRatio[1], layout02Paint[4].height);
+          break;
+        case 6:
+          image(chungchiho[2], 117, 140, layout02Paint[4].height / chungchihoRatio[2], layout02Paint[4].height);
+          break;
+        case 7:
+          image(kuchunyin[1], 117, 140 - layout02Paint[4].width * kuchunyinRatio[1] / 4, layout02Paint[4].width, layout02Paint[4].width * kuchunyinRatio[1]);
+          break;
+        case 8:
+          image(kuchunyin[2], 117, 140, layout02Paint[4].width, layout02Paint[4].width * kuchunyinRatio[2]);
+          break;
+        case 9:
+          image(kuchunyin[3], 117, 140, layout02Paint[4].width, layout02Paint[4].width * kuchunyinRatio[3]);
+          break;
+        case 10:
+          image(kuchunyin[4], 117, 140, layout02Paint[4].width, layout02Paint[4].width * kuchunyinRatio[4]);
+          break;
+        case 11:
+          image(leungkahim[1], 117, 140, layout02Paint[4].height /leungkahimRatio[1] , layout02Paint[4].height);
+          break;
+        case 12:
+          image(leungkahim[2], 117, 140 - layout02Paint[4].width * leungkahimRatio[2] / 4, layout02Paint[4].width, layout02Paint[4].width * leungkahimRatio[2]);
+          break;
+        case 13:
+          image(leungkahim[3], 117, 140, layout02Paint[4].height / leungkahimRatio[3], layout02Paint[4].height);
+          break;
+        case 14:
+          image(leungkahim[4], 117, 140 - layout02Paint[4].width * leungkahimRatio[4] / 4, layout02Paint[4].width, layout02Paint[4].width * leungkahimRatio[4]);
+          break;
+        case 15:
+          image(nghowah[1], 117, 140, layout02Paint[4].width, layout02Paint[4].width * nghowahRatio[1]);
+          break;
+        case 16:
+          image(nghowah[2], 117, 140, layout02Paint[4].width, layout02Paint[4].width * nghowahRatio[2]);
+          break;
+        case 17:
+          image(nghowah[3], 117, 140, layout02Paint[4].width, layout02Paint[4].width * nghowahRatio[3]);
+          break;
+        case 18:
+          image(nghowah[4], 117, 140, layout02Paint[4].height / nghowahRatio[4], layout02Paint[4].height);
+          break;
+        case 19:
+          image(nureni[1], 117, 140 - layout02Paint[4].width * nureniRatio[1] / 4 , layout02Paint[4].width, layout02Paint[4].width * nureniRatio[1]);
+          break;
+        case 20:
+          image(nureni[2], 117, 140, layout02Paint[4].height / nureniRatio[2], layout02Paint[4].height);
+          break;
+        case 21:
+          image(nureni[3], 117, 140, layout02Paint[4].height / nureniRatio[3], layout02Paint[4].height);
+          break;
+        case 22:
+          image(nureni[4], 117, 140 - layout02Paint[4].width * nureniRatio[4] / 4, layout02Paint[4].width, layout02Paint[4].width * nureniRatio[4]);
+          break;
+        case 23:
+          image(chungwinghei[1], 117, 140, layout02Paint[4].height / chungwingheiRatio[1], layout02Paint[4].height);
+          break;
+        case 24:
+          image(chungwinghei[2], 117, 140 , layout02Paint[4].height / chungwingheiRatio[2], layout02Paint[4].height );
+          break;
+        case 25:
+          image(chungwinghei[3], 117, 140 - layout02Paint[4].width * chungwingheiRatio[3] / 4, layout02Paint[4].width, layout02Paint[4].width * chungwingheiRatio[3]);
+          break;
+        case 26:
+          image(chungwinghei[4], 117, 140 , layout02Paint[4].height / chungwingheiRatio[4], layout02Paint[4].height);
+          break;
+        case 27:
+          image(xerxes[1], 117, 140 - layout02Paint[4].width * xerxesRatio[1] / 4, layout02Paint[4].width, layout02Paint[4].width * xerxesRatio[1]);
+          break;
+        case 28:
+          image(xerxes[2], 117, 140, layout02Paint[4].height / xerxesRatio[2], layout02Paint[4].height);
+          break;
+        case 29:
+          image(xerxes[3], 117, 140 - layout02Paint[4].width * xerxesRatio[3] / 4, layout02Paint[4].width, layout02Paint[4].width * xerxesRatio[3]);
+          break;
+        case 30:
+          image(xerxes[4], 117, 140, layout02Paint[4].height / xerxesRatio[4], layout02Paint[4].height);
+          break;
+        default:
+      }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      switch (canvas_01) {
+        case 0:
+          break;
+        case 1:
+          image(angel[1], 32,37 - layout02Paint[1].height * angelRatio[1] / 4, layout02Paint[1].width, layout02Paint[1].width * angelRatio[1]);
+          break;
+        case 2:
+          image(angel[2], 32,37 - layout02Paint[1].width * angelRatio[2] / 4, layout02Paint[1].width, layout02Paint[1].width * angelRatio[2]);
+          break;
+        case 3:
+          image(bouie[1], 32,37 -  layout02Paint[1].width * bouieRatio[1] / 4, layout02Paint[1].width, layout02Paint[1].width * bouieRatio[1]);
+          break;
+        case 4:
+          image(bouie[2], 32,37, layout02Paint[1].width, layout02Paint[1].width * bouieRatio[2]);
+          break;
+        case 5:
+          image(chungchiho[1], 32,37, layout02Paint[1].height / chungchihoRatio[1], layout02Paint[1].height);
+          break;
+        case 6:
+          image(chungchiho[2], 32,37, layout02Paint[1].height / chungchihoRatio[2], layout02Paint[1].height);
+          break;
+        case 7:
+          image(kuchunyin[1], 32,37 - layout02Paint[1].width * kuchunyinRatio[1] / 4, layout02Paint[1].width, layout02Paint[1].width * kuchunyinRatio[1]);
+          break;
+        case 8:
+          image(kuchunyin[2], 32,37, layout02Paint[1].width, layout02Paint[1].width * kuchunyinRatio[2]);
+          break;
+        case 9:
+          image(kuchunyin[3], 32,37, layout02Paint[1].width, layout02Paint[1].width * kuchunyinRatio[3]);
+          break;
+        case 10:
+          image(kuchunyin[4], 32,37, layout02Paint[1].width, layout02Paint[1].width * kuchunyinRatio[4]);
+          break;
+        case 11:
+          image(leungkahim[1], 32,37, layout02Paint[1].height /leungkahimRatio[1] , layout02Paint[1].height);
+          break;
+        case 12:
+          image(leungkahim[2], 32,37 - layout02Paint[1].width * leungkahimRatio[2] / 4, layout02Paint[1].width, layout02Paint[1].width * leungkahimRatio[2]);
+          break;
+        case 13:
+          image(leungkahim[3], 32,37, layout02Paint[1].height / leungkahimRatio[3], layout02Paint[1].height);
+          break;
+        case 14:
+          image(leungkahim[4], 32,37 - layout02Paint[1].width * leungkahimRatio[4] / 4, layout02Paint[1].width, layout02Paint[1].width * leungkahimRatio[4]);
+          break;
+        case 15:
+          image(nghowah[1], 32,37, layout02Paint[1].width, layout02Paint[1].width * nghowahRatio[1]);
+          break;
+        case 16:
+          image(nghowah[2], 32,37, layout02Paint[1].width, layout02Paint[1].width * nghowahRatio[2]);
+          break;
+        case 17:
+          image(nghowah[3], 32,37, layout02Paint[1].width, layout02Paint[1].width * nghowahRatio[3]);
+          break;
+        case 18:
+          image(nghowah[4], 32,37, layout02Paint[1].height / nghowahRatio[4], layout02Paint[1].height);
+          break;
+        case 19:
+          image(nureni[1], 32,37 - layout02Paint[1].width * nureniRatio[1] / 4 , layout02Paint[1].width, layout02Paint[1].width * nureniRatio[1]);
+          break;
+        case 20:
+          image(nureni[2], 32,37, layout02Paint[1].height / nureniRatio[2], layout02Paint[1].height);
+          break;
+        case 21:
+          image(nureni[3], 32,37, layout02Paint[1].height / nureniRatio[3], layout02Paint[1].height);
+          break;
+        case 22:
+          image(nureni[4], 32,37 - layout02Paint[1].width * nureniRatio[4] / 4, layout02Paint[1].width, layout02Paint[1].width * nureniRatio[4]);
+          break;
+        case 23:
+          image(chungwinghei[1], 32,37, layout02Paint[1].height / chungwingheiRatio[1], layout02Paint[1].height);
+          break;
+        case 24:
+          image(chungwinghei[2], 32,37 , layout02Paint[1].height / chungwingheiRatio[2], layout02Paint[1].height );
+          break;
+        case 25:
+          image(chungwinghei[3], 32,37 - layout02Paint[1].width * chungwingheiRatio[3] / 4, layout02Paint[1].width, layout02Paint[1].width * chungwingheiRatio[3]);
+          break;
+        case 26:
+          image(chungwinghei[4], 32,37 , layout02Paint[1].height / chungwingheiRatio[4], layout02Paint[1].height);
+          break;
+        case 27:
+          image(xerxes[1], 32,37 - layout02Paint[1].width * xerxesRatio[1] / 4, layout02Paint[1].width, layout02Paint[1].width * xerxesRatio[1]);
+          break;
+        case 28:
+          image(xerxes[2], 32,37, layout02Paint[1].height / xerxesRatio[2], layout02Paint[1].height);
+          break;
+        case 29:
+          image(xerxes[3], 32,37 - layout02Paint[1].width * xerxesRatio[3] / 4, layout02Paint[1].width, layout02Paint[1].width * xerxesRatio[3]);
+          break;
+        case 30:
+          image(xerxes[4], 32,37, layout02Paint[1].height / xerxesRatio[4], layout02Paint[1].height);
+          break;
+        default:
+      }
+      ///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+      switch (canvas_03) {
+        case 0:
+
+          break;
+        case 1:
+          image(angel[1], 395, 45 - layout02Paint[3].height * angelRatio[1] / 4, layout02Paint[3].width, layout02Paint[3].width * angelRatio[1]);
+          break;
+        case 2:
+          image(angel[2], 395, 45 - layout02Paint[3].width * angelRatio[2] / 4, layout02Paint[3].width, layout02Paint[3].width * angelRatio[2]);
+          break;
+        case 3:
+          image(bouie[1], 395, 45 -  layout02Paint[3].width * bouieRatio[1] / 4, layout02Paint[3].width, layout02Paint[3].width * bouieRatio[1]);
+          break;
+        case 4:
+          image(bouie[2], 395, 45 - layout02Paint[3].width * bouieRatio[2] / 4, layout02Paint[3].width, layout02Paint[3].width * bouieRatio[2]);
+          break;
+        case 5:
+          image(chungchiho[1], 395, 45, layout02Paint[3].height / chungchihoRatio[1], layout02Paint[3].height);
+          break;
+        case 6:
+          image(chungchiho[2], 395, 45, layout02Paint[3].height / chungchihoRatio[2], layout02Paint[3].height);
+          break;
+        case 7:
+          image(kuchunyin[1], 395, 45 - layout02Paint[3].width * kuchunyinRatio[1] / 4, layout02Paint[3].width, layout02Paint[3].width * kuchunyinRatio[1]);
+          break;
+        case 8:
+          image(kuchunyin[2], 395, 45, layout02Paint[3].width, layout02Paint[3].width * kuchunyinRatio[2]);
+          break;
+        case 9:
+          image(kuchunyin[3], 395, 45, layout02Paint[3].width, layout02Paint[3].width * kuchunyinRatio[3]);
+          break;
+        case 10:
+          image(kuchunyin[4], 395, 45, layout02Paint[3].width, layout02Paint[3].width * kuchunyinRatio[4]);
+          break;
+        case 11:
+          image(leungkahim[1], 395, 45, layout02Paint[3].height /leungkahimRatio[1] , layout02Paint[3].height);
+          break;
+        case 12:
+          image(leungkahim[2], 395, 45 - layout02Paint[3].width * leungkahimRatio[2] / 4, layout02Paint[3].width, layout02Paint[3].width * leungkahimRatio[2]);
+          break;
+        case 13:
+          image(leungkahim[3], 395, 45, layout02Paint[3].height / leungkahimRatio[3], layout02Paint[3].height);
+          break;
+        case 14:
+          image(leungkahim[4], 395, 45 - layout02Paint[3].width * leungkahimRatio[4] / 4, layout02Paint[3].width, layout02Paint[3].width * leungkahimRatio[4]);
+          break;
+        case 15:
+          image(nghowah[1], 395, 45, layout02Paint[3].width, layout02Paint[3].width * nghowahRatio[1]);
+          break;
+        case 16:
+          image(nghowah[2], 395, 45, layout02Paint[3].width, layout02Paint[3].width * nghowahRatio[2]);
+          break;
+        case 17:
+          image(nghowah[3], 395, 45, layout02Paint[3].width, layout02Paint[3].width * nghowahRatio[3]);
+          break;
+        case 18:
+          image(nghowah[4], 395, 45, layout02Paint[3].height / nghowahRatio[4], layout02Paint[3].height);
+          break;
+        case 19:
+          image(nureni[1], 395, 45 - layout02Paint[3].width * nureniRatio[1] / 4 , layout02Paint[3].width, layout02Paint[3].width * nureniRatio[1]);
+          break;
+        case 20:
+          image(nureni[2], 395, 45, layout02Paint[3].height / nureniRatio[2], layout02Paint[3].height);
+          break;
+        case 21:
+          image(nureni[3], 395, 45, layout02Paint[3].height / nureniRatio[3], layout02Paint[3].height);
+          break;
+        case 22:
+          image(nureni[4], 395, 45 - layout02Paint[3].width * nureniRatio[4] / 4, layout02Paint[3].width, layout02Paint[3].width * nureniRatio[4]);
+          break;
+        case 23:
+          image(chungwinghei[1], 395, 45, layout02Paint[3].height / chungwingheiRatio[1], layout02Paint[3].height);
+          break;
+        case 24:
+          image(chungwinghei[2], 395, 45 , layout02Paint[3].height / chungwingheiRatio[2], layout02Paint[3].height );
+          break;
+        case 25:
+          image(chungwinghei[3], 395, 45 - layout02Paint[3].width * chungwingheiRatio[3] / 4, layout02Paint[3].width, layout02Paint[3].width * chungwingheiRatio[3]);
+          break;
+        case 26:
+          image(chungwinghei[4], 395, 45 , layout02Paint[3].height / chungwingheiRatio[4], layout02Paint[3].height);
+          break;
+        case 27:
+          image(xerxes[1], 395, 45 - layout02Paint[3].width * xerxesRatio[1] / 4, layout02Paint[3].width, layout02Paint[3].width * xerxesRatio[1]);
+          break;
+        case 28:
+          image(xerxes[2], 395, 45, layout02Paint[3].height / xerxesRatio[2], layout02Paint[3].height);
+          break;
+        case 29:
+          image(xerxes[3], 395, 45 - layout02Paint[3].width * xerxesRatio[3] / 4, layout02Paint[3].width, layout02Paint[3].width * xerxesRatio[3]);
+          break;
+        case 30:
+          image(xerxes[4], 395, 45, layout02Paint[3].height / xerxesRatio[4], layout02Paint[3].height);
+          break;
+        default:
+      }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        switch (canvas_05) {
+          case 0:
+
+            break;
+          case 1:
+            image(angel[1], 312, 138 - layout02Paint[5].height * angelRatio[1] / 4, layout02Paint[5].width, layout02Paint[5].width * angelRatio[1]);
+            break;
+          case 2:
+            image(angel[2], 312, 138 - layout02Paint[5].width * angelRatio[2] / 4, layout02Paint[5].width, layout02Paint[5].width * angelRatio[2]);
+            break;
+          case 3:
+            image(bouie[1], 312, 138 -  layout02Paint[5].width * bouieRatio[1] / 4, layout02Paint[5].width, layout02Paint[5].width * bouieRatio[1]);
+            break;
+          case 4:
+            image(bouie[2], 312, 138 - layout02Paint[5].width * bouieRatio[2] / 4, layout02Paint[5].width, layout02Paint[5].width * bouieRatio[2]);
+            break;
+          case 5:
+            image(chungchiho[1], 312, 138, layout02Paint[5].height / chungchihoRatio[1], layout02Paint[5].height);
+            break;
+          case 6:
+            image(chungchiho[2], 312, 138, layout02Paint[5].height / chungchihoRatio[2], layout02Paint[5].height);
+            break;
+          case 7:
+            image(kuchunyin[1], 312, 138 - layout02Paint[5].width * kuchunyinRatio[1] / 4, layout02Paint[5].width, layout02Paint[5].width * kuchunyinRatio[1]);
+            break;
+          case 8:
+            image(kuchunyin[2], 312, 138, layout02Paint[5].width, layout02Paint[5].width * kuchunyinRatio[2]);
+            break;
+          case 9:
+            image(kuchunyin[3], 312, 138, layout02Paint[5].width, layout02Paint[5].width * kuchunyinRatio[3]);
+            break;
+          case 10:
+            image(kuchunyin[4], 312, 138, layout02Paint[5].width, layout02Paint[5].width * kuchunyinRatio[4]);
+            break;
+          case 11:
+            image(leungkahim[1], 312, 138, layout02Paint[5].height /leungkahimRatio[1] , layout02Paint[5].height);
+            break;
+          case 12:
+            image(leungkahim[2], 312, 138 - layout02Paint[5].width * leungkahimRatio[2] / 4, layout02Paint[5].width, layout02Paint[5].width * leungkahimRatio[2]);
+            break;
+          case 13:
+            image(leungkahim[3], 312, 138, layout02Paint[5].height / leungkahimRatio[3], layout02Paint[5].height);
+            break;
+          case 14:
+            image(leungkahim[4], 312, 138 - layout02Paint[5].width * leungkahimRatio[4] / 4, layout02Paint[5].width, layout02Paint[5].width * leungkahimRatio[4]);
+            break;
+          case 15:
+            image(nghowah[1], 312, 138, layout02Paint[5].width, layout02Paint[5].width * nghowahRatio[1]);
+            break;
+          case 16:
+            image(nghowah[2], 312, 138, layout02Paint[5].width, layout02Paint[5].width * nghowahRatio[2]);
+            break;
+          case 17:
+            image(nghowah[3], 312, 138, layout02Paint[5].width, layout02Paint[5].width * nghowahRatio[3]);
+            break;
+          case 18:
+            image(nghowah[4], 312, 138, layout02Paint[5].height / nghowahRatio[4], layout02Paint[5].height);
+            break;
+          case 19:
+            image(nureni[1], 312, 138 - layout02Paint[5].width * nureniRatio[1] / 4 , layout02Paint[5].width, layout02Paint[5].width * nureniRatio[1]);
+            break;
+          case 20:
+            image(nureni[2], 312, 138, layout02Paint[5].height / nureniRatio[2], layout02Paint[5].height);
+            break;
+          case 21:
+            image(nureni[3], 312, 138, layout02Paint[5].height / nureniRatio[3], layout02Paint[5].height);
+            break;
+          case 22:
+            image(nureni[4], 312, 138 - layout02Paint[5].width * nureniRatio[4] / 4, layout02Paint[5].width, layout02Paint[5].width * nureniRatio[4]);
+            break;
+          case 23:
+            image(chungwinghei[1], 312, 138, layout02Paint[5].height / chungwingheiRatio[1], layout02Paint[5].height);
+            break;
+          case 24:
+            image(chungwinghei[2], 312, 138 , layout02Paint[5].height / chungwingheiRatio[2], layout02Paint[5].height );
+            break;
+          case 25:
+            image(chungwinghei[3], 312, 138 - layout02Paint[5].width * chungwingheiRatio[3] / 4, layout02Paint[5].width, layout02Paint[5].width * chungwingheiRatio[3]);
+            break;
+          case 26:
+            image(chungwinghei[4], 312, 138 , layout02Paint[5].height / chungwingheiRatio[4], layout02Paint[5].height);
+            break;
+          case 27:
+            image(xerxes[1], 312, 138 - layout02Paint[5].width * xerxesRatio[1] / 4, layout02Paint[5].width, layout02Paint[5].width * xerxesRatio[1]);
+            break;
+          case 28:
+            image(xerxes[2], 312, 138, layout02Paint[5].height / xerxesRatio[2], layout02Paint[5].height);
+            break;
+          case 29:
+            image(xerxes[3], 312, 138 - layout02Paint[5].width * xerxesRatio[3] / 4, layout02Paint[5].width, layout02Paint[5].width * xerxesRatio[3]);
+            break;
+          case 30:
+            image(xerxes[4], 312, 138 , layout02Paint[5].width, layout02Paint[5].width * xerxesRatio[4]);
+            break;
+          default:
+        }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+image(selectPaint, 0, 0, width, height);
+}
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
 
 function artworkSelect(){
   // stroke(255, 204, 0);
