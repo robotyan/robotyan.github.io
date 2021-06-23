@@ -335,23 +335,24 @@ function layoutDraw(){
       }
   }
 }
-
-
-
+//////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
 function gameDraw(){
   pageCount++;
   background(255);
 
   image(selectPaint, 0, 0, width, height);
   if (selected01 == 1){
-
     artworkSelect();
-    artworkConfirm();
-    layout1();
+    artworkConfirm01();
+    image(layout01, 0, 0, layout01.width, layout01.height);
   } else if (selected02 == 1){
+    artworkSelect();
     image(layout02, 0, 0, layout02.width, layout02.height);
-
   } else if (selected03 == 1){
+    artworkSelect();
     image(layout03, 0, 0, layout03.width, layout03.height);
   }
 
@@ -395,16 +396,11 @@ function gameDraw(){
 
 }
 
-function layout1(){
-
-  image(layout01, 0, 0, layout01.width, layout01.height);
-
-
-}
 
 
 
-function artworkConfirm(){
+
+function artworkConfirm01(){
 
   if (mouseX > 25  && mouseX < 25+layout01Paint[1].width && mouseY > 150 && mouseY < 150+layout01Paint[1].height && mouseIsPressed && pageCount >10){
     selectedLayout01Print = 1;
