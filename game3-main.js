@@ -2533,13 +2533,13 @@ function artworkConfirm02(){
         rect( 25, 150, 80, 80);
         break;
       case 5:
-        image(chungchiho[1], 187, 51 - 10, layout02Paint[2].width, layout02Paint[2].width * chungchihoRatio[1]);
-        // image(chungchiho[1], 187, 51 - layout02Paint[2].height * chungchihoRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * chungchihoRatio[1]);
+        // image(chungchiho[1], 187, 51 , layout02Paint[2].height, layout02Paint[2].height * chungchihoRatio[1]);
+        image(chungchiho[1], 187, 51 - layout02Paint[2].height * chungchihoRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * chungchihoRatio[1]);
         fill(255);
         rect( 25, 150, 80, 80);
         break;
       case 6:
-        image(chungchiho[2], 187, 51 - layout02Paint[2].width * chungchihoRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * chungchihoRatio[2]);
+        image(chungchiho[2], 187, 51, layout02Paint[2].width, layout02Paint[2].width * chungchihoRatio[2]);
         fill(255);
         rect( 25, 150, 80, 80);
         break;
@@ -2559,7 +2559,7 @@ function artworkConfirm02(){
         rect( 25, 150, 80, 80);
         break;
       case 10:
-        image(kuchunyin[4], 187, 51 - layout02Paint[2].width * kuchunyinRatio[4] / 4, layout02Paint[2].width, layout02Paint[2].width * kuchunyinRatio[4]);
+        image(kuchunyin[4], 187, 51-20, layout02Paint[2].width, layout02Paint[2].width * kuchunyinRatio[4]);
         fill(255);
         rect( 25, 150, 80, 80);
         break;
@@ -2584,7 +2584,7 @@ function artworkConfirm02(){
         rect( 25, 150, 80, 80);
         break;
       case 15:
-        image(nghowah[1], 187, 51 - layout02Paint[2].width * nghowahRatio[1] / 4, layout02Paint[2].width, layout02Paint[2].width * nghowahRatio[1]);
+        image(nghowah[1], 187, 51 - layout02Paint[2].width * nghowahRatio[1] / 3, layout02Paint[2].width, layout02Paint[2].width * nghowahRatio[1]);
         fill(255);
         rect( 25, 150, 80, 80);
         break;
@@ -2599,7 +2599,7 @@ function artworkConfirm02(){
         rect( 25, 150, 80, 80);
         break;
       case 18:
-        image(nghowah[4], 187, 51 - layout02Paint[2].width * nghowahRatio[4] / 4, layout02Paint[2].width, layout02Paint[2].width * nghowahRatio[4]);
+        image(nghowah[4], 187, 51 , layout02Paint[2].width, layout02Paint[2].width * nghowahRatio[4]);
         fill(255);
         rect( 25, 150, 80, 80);
         break;
@@ -2609,12 +2609,12 @@ function artworkConfirm02(){
         rect( 25, 150, 80, 80);
         break;
       case 20:
-        image(nureni[2], 187, 51 - layout02Paint[2].width * nureniRatio[2] / 4, layout02Paint[2].width, layout02Paint[2].width * nureniRatio[2]);
+        image(nureni[2], 187, 51, layout02Paint[2].width, layout02Paint[2].width * nureniRatio[2]);
         fill(255);
         rect( 25, 150, 80, 80);
         break;
       case 21:
-        image(nureni[3], 187, 51 - layout02Paint[2].width * nureniRatio[3] / 4, layout02Paint[2].width, layout02Paint[2].width * nureniRatio[3]);
+        image(nureni[3], 187, 51 , layout02Paint[2].width, layout02Paint[2].width * nureniRatio[3]);
         fill(255);
         rect( 25, 150, 80, 80);
         break;
