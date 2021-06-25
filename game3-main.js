@@ -425,7 +425,13 @@ function gameDraw(){
 
     if (mouseX > 382  && mouseX < 382+110 && mouseY > 430 && mouseY < 430+40 && mouseIsPressed && pageCount >10){
         if (selCase01 != 0 && selCase02 != 0 && selCase03 != 0 && selCase04 != 0 && selCase05 != 0){
-
+          if (selected01 == 1){
+            image(layout01, 0, 0, layout01.width, layout01.height);
+          } else if (selected02 == 1){
+            layout2();
+          }else if (selected03 == 1){
+            image(layout03, 0, 0, layout03.width, layout03.height);
+          }
 
           to_save = get(0, 0, 500, 250);
           gameCanvas.image(to_save, 0, 0);
