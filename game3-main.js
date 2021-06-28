@@ -195,9 +195,6 @@ function preload(){
 function setup() {
 
   gameCanvas =  createCanvas(500, 500);
-  if (outerWidth < 500){
-    resizeCanvas(windowWidth, windowWidth);
-  }
   noStroke();
 
 
