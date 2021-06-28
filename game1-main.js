@@ -61,6 +61,9 @@ function preload() {
 
 function setup() {
    gameCanvas = createCanvas(500, 500);
+   if (outerWidth < 500){
+    resizeCanvas(windowWidth, windowWidth);
+  }
  //   for (var i = 1 ; i < 13 ; i++){
  //   movePartX[i] = int(random(400));
  //   movePartY[i] = int(random(400));
