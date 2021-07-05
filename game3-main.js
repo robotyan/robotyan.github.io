@@ -5632,6 +5632,7 @@ function endDraw(){
 
   if (lang == 0){
     textSize(20);
+    textAlign(LEFT);
     text( text1 + text2 + '的' + text3 + '是' +text4 + '和' + text5, 25, 320);
   } else {
     textSize(18);
@@ -5923,6 +5924,20 @@ if (artistNameXerxes == 1 && artistNameChungWingHei == 0 && artistNameNureni == 
 
   if (mouseX > 382  && mouseX < 382+110 && mouseY > 430 && mouseY < 430+40 && mouseIsPressed && pageCount >10){
         to_save.save("saved_name.png");
+        selCase01 = 0;
+        selCase02 = 0;
+        selCase03 = 0;
+        selCase04 = 0;
+        selCase05 = 0;
+
+        canvas_01 = 0;
+        canvas_02 = 0;
+        canvas_03 = 0;
+        canvas_04 = 0;
+        canvas_05 = 0;
+        selectedLayout01Print = 0;
+        selectedLayout02Print = 0;
+        selectedLayout03Print = 0;
         page = 1;
         pageCount=0;
 
